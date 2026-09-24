@@ -1,0 +1,29 @@
+/* header fijo arriba con fondo oscuro translucido */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(18, 14, 22, 0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(242, 198, 109, 0.12);
+
+  padding: 1rem 3rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* logo grande a la izquierda */
+.div-logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo-img {
+  height: 5rem;
+  transition: transform 0.3s;
+}
+
+.logo-img:hover {
+  transform: scale(1.08);
+}

@@ -1,0 +1,20 @@
+/* menu de navegacion horizontal */
+.header-nav ul {
+  display: flex;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+.header-nav li a {
+  font-family: "Oxanium", sans-serif;
+  font-size: 1.6rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #e3dbe8;
+  transition: color 0.2s;
+}
+
+.header-nav li a:hover {
+  color: #f2c66d;
+}

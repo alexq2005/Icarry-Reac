@@ -1,0 +1,8 @@
+/* grilla de tarjetas centrada con wrap */
+.contenedor-tarjetas {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 3rem;
+}

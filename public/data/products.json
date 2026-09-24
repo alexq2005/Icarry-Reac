@@ -1,0 +1,50 @@
+[
+  {
+    "id": 1,
+    "name": "Bladeform Legacy",
+    "description": "Arcana de Juggernaut autografiada: la espada legendaria con efectos y animaciones exclusivas.",
+    "price": 29.91,
+    "image": "https://i.ibb.co/ZR53gHgH/jugger.png",
+    "category": "items-del-juego"
+  },
+  {
+    "id": 2,
+    "name": "Bloodfeather Finery",
+    "description": "Persona Arcana para Queen of Pain con nuevo modelo, voces y efectos de habilidades.",
+    "price": 34.5,
+    "image": "https://i.ibb.co/xTpz4Fz/bloodfeather.png",
+    "category": "items-del-juego"
+  },
+  {
+    "id": 3,
+    "name": "Mask of Metira",
+    "description": "Máscara Inmortal para Mirana con efectos de partículas únicos.",
+    "price": 18.75,
+    "image": "https://i.ibb.co/xKTQdyrb/mask-metira.png",
+    "category": "items-del-juego"
+  },
+  {
+    "id": 4,
+    "name": "Pudge Plush Toy",
+    "description": "Peluche oficial de Pudge de felpa premium, ideal para tu setup.",
+    "price": 24.99,
+    "image": "https://i.ibb.co/fzMWXj7B/pudge-plush.jpg",
+    "category": "merchandising"
+  },
+  {
+    "id": 5,
+    "name": "Beanie Logo Dota 2",
+    "description": "Gorro tejido con el logo de Dota 2, talla ajustable para el invierno.",
+    "price": 15.5,
+    "image": "https://i.ibb.co/pBkRjL8Q/dota-beanie.jpg",
+    "category": "merchandising"
+  },
+  {
+    "id": 6,
+    "name": "T-Shirt Logo Dota 2",
+    "description": "Remera 100% algodón con el logo de Dota 2 estampado.",
+    "price": 19.99,
+    "image": "https://i.ibb.co/20zMLytD/dota-tshirt.jpg",
+    "category": "merchandising"
+  }
+]

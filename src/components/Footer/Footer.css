@@ -1,0 +1,33 @@
+/* pie de pagina con fondo oscuro */
+footer {
+  margin-top: auto;
+  background: rgba(18, 14, 22, 0.92);
+  backdrop-filter: blur(12px);
+  border-top: 1px solid rgba(242, 198, 109, 0.12);
+  padding: 2rem 3rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+footer p {
+  color: #e3dbe8;
+  font-size: 1.4rem;
+}
+
+/* lista horizontal de redes */
+.footer-list {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.footer-list li {
+  color: #e3dbe8;
+  font-size: 1.4rem;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.footer-list li:hover {
+  color: #f2c66d;
+}
