@@ -44,18 +44,22 @@ export const ItemListContainer = () => {
   // si llego aca es porque los productos se cargaron bien
   return (
     <section className="seccion-productos">
-      {/* titulo de bienvenida */}
-      <h1 className="titulo-home text-secondary">Bienvenidos a la tienda</h1>
+      <div className="introduccion-tienda">
+        <span className="etiqueta-seccion">Mercado de coleccionistas</span>
+        <h1 className="titulo-home text-secondary">Bienvenidos a la tienda</h1>
+        <p className="parrafo">
+          En iCarry encontrarás los items más buscados de Dota 2: Arcanas,
+          Personas, sets inmortal y bundles exclusivos. Trades verificados,
+          entrega inmediata y los mejores precios del mercado para mejorar tu
+          colección sin vueltas.
+        </p>
+      </div>
 
-      <p className="parrafo">
-        En iCarry encontrarás los items más buscados de Dota 2: Arcanas,
-        Personas, sets inmortal y bundles exclusivos. Trade verificados,
-        entrega inmediata y los mejores precios del mercado para mejorar tu
-        colección sin vueltas.
-      </p>
-
-      {/* subtitulo y grilla de productos */}
-      <h2>Nuestros productos</h2>
+      <div className="encabezado-productos">
+        <span className="linea-encabezado" aria-hidden="true" />
+        <h2>Nuestros productos</h2>
+        <span className="linea-encabezado" aria-hidden="true" />
+      </div>
       <ItemList products={products} />
     </section>
   );

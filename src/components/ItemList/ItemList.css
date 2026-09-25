@@ -1,8 +1,36 @@
-/* grilla de tarjetas centrada con wrap */
 .contenedor-tarjetas {
-  margin-top: 2rem;
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 3rem;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 2.4rem;
+  align-items: stretch;
+}
+
+.contenedor-tarjetas > a {
+  min-width: 0;
+  animation: aparecer-tarjeta 0.55s ease both;
+}
+
+.contenedor-tarjetas > a:nth-child(2) { animation-delay: 0.06s; }
+.contenedor-tarjetas > a:nth-child(3) { animation-delay: 0.12s; }
+.contenedor-tarjetas > a:nth-child(4) { animation-delay: 0.18s; }
+.contenedor-tarjetas > a:nth-child(5) { animation-delay: 0.24s; }
+.contenedor-tarjetas > a:nth-child(6) { animation-delay: 0.3s; }
+
+@keyframes aparecer-tarjeta {
+  from { opacity: 0; transform: translateY(1.6rem); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 920px) {
+  .contenedor-tarjetas {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .contenedor-tarjetas {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1.8rem;
+  }
 }
