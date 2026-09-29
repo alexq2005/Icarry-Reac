@@ -1,10 +1,23 @@
-import { createContext, useState } from "react";
+/* eslint-disable react-refresh/only-export-components */
+import { createContext, useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
-
 /*-----------------------------------------------------------*/
 /*                   contexto del carrito                     */
 /*-----------------------------------------------------------*/
-export const CartContext = createContext();
+export const CartContext = createContext(null);
+
+/*-----------------------------------------------------------*/
+/*                  hook para usar el carrito                 */
+/*-----------------------------------------------------------*/
+export const useCart = () => {
+  const context = useContext(CartContext);
+
+  if (!context) {
+    throw new Error("useCart debe usarse dentro de un CartProvider");
+  }
+
+  return context;
+};
 
 /*-----------------------------------------------------------*/
 /*                    provider del carrito                    */
@@ -52,6 +65,11 @@ export const CartProvider = ({ children }) => {
   };
 
   /*-----------------------------------------------------------*/
+  /*                  cantidad de productos                    */
+  /*-----------------------------------------------------------*/
+  const getTotalItems = () => cart.length;
+
+  /*-----------------------------------------------------------*/
   /*                       total del carrito                    */
   /*-----------------------------------------------------------*/
   const getCartTotal = () =>
@@ -74,6 +92,7 @@ export const CartProvider = ({ children }) => {
     addItem,
     clearCart,
     removeItem,
+    getTotalItems,
     getCartTotal,
     checkout,
   };

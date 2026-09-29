@@ -3,6 +3,7 @@
 /*------------------------------------------------------------*/
 .contenedor-tarjetas {
   width: 100%;
+  margin-top: 2rem;
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 2.4rem;

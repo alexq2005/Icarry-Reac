@@ -1,54 +1,16 @@
-# iCarry — Tienda Dota 2
+# React + Vite
 
-Tienda online de items de Dota 2 hecha con **React + Vite** y **React Router**.
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-## Scripts
+Currently, two official plugins are available:
 
-```bash
-npm install     # instalar dependencias
-npm run dev     # servidor de desarrollo
-npm run build   # build de produccion en /dist
-npm run lint    # eslint
-```
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
 
-## Estructura
+## React Compiler
 
-```
-public/
-  data/products.json    # productos: id, name, description, price, image, category, details
-src/
-  main.jsx              # BrowserRouter + CartProvider
-  App.jsx               # rutas
-  context/CartContext.jsx  # carrito (localStorage) y avisos (toast)
-  components/
-    Header, Nav, Footer
-    ItemListContainer / ItemList / Item      # listado (y filtro por categoria)
-    ItemDetailContainer / ItemDetail         # detalle del producto
-    Cart, Contact, Toast
-```
+The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
 
-## Rutas
+## Expanding the ESLint configuration
 
-| Ruta | Vista |
-| --- | --- |
-| `/` | Home con todos los productos |
-| `/category/:category` | Productos filtrados (`items-del-juego`, `merchandising`) |
-| `/product/:id` | Detalle del producto |
-| `/cart` | Carrito |
-| `/contacto` | Formulario de contacto |
-
-## Deploy
-
-### Vercel
-
-1. Entrar a https://vercel.com e iniciar sesion con GitHub.
-2. **Add New → Project** e importar este repo.
-3. Vercel detecta Vite solo (build: `npm run build`, carpeta: `dist`). Tocar **Deploy**.
-
-El archivo `vercel.json` hace que todas las rutas (`/cart`, `/product/1`...) carguen la app,
-asi no da error 404 al recargar la pagina.
-
-### GitHub Pages
-
-El workflow `.github/workflows/deploy.yml` compila y publica en GitHub Pages al hacer push a `main`.
-En **Settings → Pages** hay que elegir **Source: GitHub Actions**.
+If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.

@@ -1,8 +1,7 @@
 /*------------------------------------------------------------*/
 /*                     detalle del producto                     */
 /*------------------------------------------------------------*/
-import { useContext } from "react";
-import { CartContext } from "../../context/CartContext";
+import { useCart } from "../../context/CartContext";
 import { Item } from "../Item/Item";
 import "./ItemDetail.css";
 
@@ -10,7 +9,7 @@ export const ItemDetail = ({ item }) => {
   /*------------------------------------------------------------*/
   /*                     accion del boton                       */
   /*------------------------------------------------------------*/
-  const { addItem } = useContext(CartContext);
+  const { addItem } = useCart();
 
   return (
     <div className="detail-wrapper">

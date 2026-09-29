@@ -9,6 +9,7 @@
 
 import { useEffect, useState } from "react";
 import { ItemList } from "../ItemList/ItemList";
+import "./ItemListContainer.css";
 
 export const ItemListContainer = () => {
   // estado para los productos, errores y carga

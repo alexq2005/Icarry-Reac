@@ -6,11 +6,11 @@
 // y lo que si cambia (el contenido del medio) lo maneja Routes.
 
 import { Route, Routes } from "react-router-dom";
+import "./App.css";
 import { Footer } from "./components/Footer/Footer";
 import { Header } from "./components/Header/Header";
 import { ItemListContainer } from "./components/ItemListContainer/ItemListContainer";
 import { ItemDetailContainer } from "./components/ItemDetailContainer/ItemDetailContainer";
-import { CartProvider } from "./context/CartContext";
 
 function App() {
   /*------------------------------------------------------------*/
@@ -23,7 +23,7 @@ function App() {
   // "/category/:category" → para filtrar por categoria (la ruta existe pero todavia no filtra)
   // si ninguna ruta coincide, no muestra nada (podriamos agregar un 404)
   return (
-    <CartProvider>
+    <>
       <Header />
 
       <main>
@@ -36,7 +36,7 @@ function App() {
       </main>
 
       <Footer />
-    </CartProvider>
+    </>
   );
 }
 
