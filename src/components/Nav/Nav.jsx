@@ -17,7 +17,7 @@ export const Nav = () => {
 
   return (
     <nav className="header-nav">
-      <ul>
+      <ul className="nav-list">
         <li>
           <Link to={"/"}>Inicio</Link>
         </li>

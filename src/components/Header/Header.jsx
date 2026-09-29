@@ -19,9 +19,9 @@ export const Header = () => {
   return (
     <header>
       {/* logo a la izquierda, clickeable para volver al inicio */}
-      <div className="div-logo">
-        <Link className="logo" to={"/"}>
-          <img src={logo} alt="iCarry" className="logo-img" />
+      <div className="logo-container">
+        <Link to={"/"}>
+          <img src={logo} alt="iCarry" />
         </Link>
       </div>
 

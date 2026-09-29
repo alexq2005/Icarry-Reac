@@ -47,8 +47,10 @@ export const ItemDetailContainer = () => {
   return (
     <section>
       <h1 className="text-secondary">Detalles del producto</h1>
-      {/* le paso el producto encontrado a ItemDetail para que lo muestre */}
-      <ItemDetail item={itemDetail} />
+      <div className="products-container products-container--detail">
+        {/* le paso el producto encontrado a ItemDetail para que lo muestre */}
+        <ItemDetail item={itemDetail} />
+      </div>
     </section>
   );
 };

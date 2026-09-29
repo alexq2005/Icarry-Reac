@@ -1,7 +1,7 @@
 /*------------------------------------------------------------*/
 /*                     listado de productos                     */
 /*------------------------------------------------------------*/
-.contenedor-tarjetas {
+.products-container {
   width: 100%;
   margin-top: 2rem;
   display: grid;
@@ -10,16 +10,21 @@
   align-items: stretch;
 }
 
-.contenedor-tarjetas > a {
+.products-container--detail {
+  grid-template-columns: minmax(0, 1fr);
+  margin-top: 0;
+}
+
+.products-container > a {
   min-width: 0;
   animation: aparecer-tarjeta 0.55s ease both;
 }
 
-.contenedor-tarjetas > a:nth-child(2) { animation-delay: 0.06s; }
-.contenedor-tarjetas > a:nth-child(3) { animation-delay: 0.12s; }
-.contenedor-tarjetas > a:nth-child(4) { animation-delay: 0.18s; }
-.contenedor-tarjetas > a:nth-child(5) { animation-delay: 0.24s; }
-.contenedor-tarjetas > a:nth-child(6) { animation-delay: 0.3s; }
+.products-container > a:nth-child(2) { animation-delay: 0.06s; }
+.products-container > a:nth-child(3) { animation-delay: 0.12s; }
+.products-container > a:nth-child(4) { animation-delay: 0.18s; }
+.products-container > a:nth-child(5) { animation-delay: 0.24s; }
+.products-container > a:nth-child(6) { animation-delay: 0.3s; }
 
 /*------------------------------------------------------------*/
 /*                     animacion de entrada                     */
@@ -33,13 +38,13 @@
 /*                     responsive del listado                    */
 /*------------------------------------------------------------*/
 @media (max-width: 920px) {
-  .contenedor-tarjetas {
+  .products-container {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
 @media (max-width: 600px) {
-  .contenedor-tarjetas {
+  .products-container {
     grid-template-columns: minmax(0, 1fr);
     gap: 1.8rem;
   }

@@ -20,17 +20,17 @@ header {
 /*                     logo del sitio                          */
 /*------------------------------------------------------------*/
 /* logo grande a la izquierda */
-.div-logo {
+.logo-container {
   display: flex;
   align-items: center;
 }
 
-.logo-img {
+.logo-container img {
   height: 4.8rem;
   transition: transform 0.3s ease;
   filter: drop-shadow(0 0 12px rgba(242, 198, 109, 0.18));
 }
 
-.logo-img:hover {
+.logo-container img:hover {
   transform: scale(1.06);
 }

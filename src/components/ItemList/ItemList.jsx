@@ -16,7 +16,7 @@ export const ItemList = ({ products }) => {
   // el key es obligatorio en React cuando haces .map() para que sepa cual es cual.
   // toda la tarjeta es un link al detalle, y le paso un boton "Ver detalle" como children
   return (
-    <div className="contenedor-tarjetas">
+    <div className="products-container">
       {products.map((product) => (
         <Link to={`/product/${product.id}`} key={product.id}>
           {/* el spread (...product) es como pasar name={product.name} price={product.price} etc */}
