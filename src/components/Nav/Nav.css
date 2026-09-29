@@ -2,13 +2,13 @@
 /*                     menu de navegacion                     */
 /*------------------------------------------------------------*/
 /* menu de navegacion horizontal */
-.header-nav ul {
+.nav-list {
   display: flex;
   gap: 2.8rem;
   align-items: center;
 }
 
-.header-nav li a {
+.nav-list a {
   font-family: "Oxanium", sans-serif;
   font-size: 1.6rem;
   font-weight: 700;
@@ -19,12 +19,12 @@
   position: relative;
 }
 
-.header-nav li a:hover {
+.nav-list a:hover {
   color: #f2c66d;
   transform: translateY(-1px);
 }
 
-.header-nav li a::after {
+.nav-list a::after {
   content: "";
   position: absolute;
   left: 0;
@@ -37,24 +37,20 @@
   transition: transform 0.25s ease;
 }
 
-.header-nav li a:hover::after {
+.nav-list a:hover::after {
   transform: scaleX(1);
 }
 
 /*------------------------------------------------------------*/
 /*                     carrito en el menu                     */
 /*------------------------------------------------------------*/
-.cart-link-wrap {
-  list-style: none;
-}
-
 .cart-link {
   display: inline-flex;
   align-items: center;
   gap: 0.8rem;
 }
 
-.cart-badge {
+.incart {
   display: inline-flex;
   align-items: center;
   justify-content: center;

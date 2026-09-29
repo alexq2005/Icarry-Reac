@@ -14,18 +14,20 @@ export const Nav = () => {
   /*                     estado del carrito en menu             */
   /*------------------------------------------------------------*/
   const { getTotalItems } = useCart();
-
+  const totalItems = getTotalItems();
   return (
-    <nav className="header-nav">
+    <nav>
       <ul className="nav-list">
         <li>
           <Link to={"/"}>Inicio</Link>
         </li>
 
-        <li className="cart-link-wrap">
-          <Link to={"/cart"} className="cart-link">
+        <li>
+          <Link to={"/cart"} >
+          Carrito
+          
             <span>Carrito</span>
-            <span className="cart-badge">{getTotalItems()}</span>
+            {totalItems > 0 && <span className="incart">{totalItems}</span>}
           </Link>
         </li>
       </ul>
