@@ -10,43 +10,23 @@ export const Footer = () => {
   /*------------------------------------------------------------*/
   /*                     contenido del footer                    */
   /*------------------------------------------------------------*/
-  const socialLinks = [
-    {
-      name: "Whatsapp",
-      icon: (
-        <svg viewBox="0 0 24 24" aria-hidden="true" className="social-icon">
-          <path d="M20.52 3.48A11.88 11.88 0 0 0 12.04 0C5.54 0 .2 5.34.2 11.84c0 2.09.55 4.13 1.59 5.93L0 24l6.46-1.66a11.83 11.83 0 0 0 5.58 1.52h.01c6.5 0 11.84-5.34 11.84-11.84 0-3.17-1.23-6.15-3.37-8.54ZM12.04 21.6c-1.8 0-3.57-.48-5.12-1.39l-.37-.22-3.83 1 1.02-3.73-.24-.38A9.7 9.7 0 0 1 2.3 11.84c0-5.37 4.37-9.74 9.74-9.74 2.6 0 5.04 1.01 6.88 2.85a9.67 9.67 0 0 1 2.85 6.89c0 5.37-4.37 9.74-9.74 9.74Zm5.32-7.28c-.29-.15-1.72-.84-1.99-.94-.27-.1-.46-.15-.66.15-.2.29-.77.94-.94 1.13-.17.2-.34.22-.63.08-.29-.15-1.22-.45-2.33-1.43-.86-.76-1.44-1.7-1.6-1.99-.17-.29-.02-.45.13-.6.13-.13.29-.34.43-.51.14-.17.19-.29.29-.48.1-.2.05-.37-.03-.52-.08-.15-.66-1.6-.9-2.2-.24-.58-.48-.5-.66-.5h-.57c-.2 0-.52.07-.79.37-.27.3-1.03 1-1.03 2.44s1.06 2.82 1.2 3.01c.14.2 2.07 3.18 5.03 4.46.7.3 1.25.48 1.68.61.71.23 1.35.2 1.86.12.56-.08 1.72-.7 1.96-1.38.24-.68.24-1.27.17-1.38-.07-.12-.27-.2-.56-.35Z"/>
-        </svg>
-      ),
-    },
-    {
-      name: "Instagram",
-      icon: (
-        <svg viewBox="0 0 24 24" aria-hidden="true" className="social-icon">
-          <path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7Zm5 3.5A5.5 5.5 0 1 1 6.5 13 5.5 5.5 0 0 1 12 7.5Zm0 2A3.5 3.5 0 1 0 15.5 13 3.5 3.5 0 0 0 12 9.5Zm5.25-3.25a1.25 1.25 0 1 1-1.25 1.25 1.25 1.25 0 0 1 1.25-1.25Z"/>
-        </svg>
-      ),
-    },
-  ];
+  const socialLinks = ["Whatsapp", "Instagram"];
 
   return (
     <footer>
-      {/* credito del autor */}
-      <p>Sitio realizado por Alex Quiñones</p>
+    {/* credito del autor */}
+    <p>Sitio realizado por Alex Quiñones</p>
 
-      {/* redes sociales */}
-      <nav aria-label="Redes sociales">
-        <ul className="footer-list">
-          {socialLinks.map((item) => (
-            <li key={item.name}>
-              <span className="social-link">
-                {item.icon}
-                <span>{item.name}</span>
-              </span>
-            </li>
-          ))}
-        </ul>
-      </nav>
+    {/* redes sociales */}
+    <nav aria-label="Redes sociales">
+    <ul className="nav-list">
+    {socialLinks.map((socialName) => (
+    <li key={socialName}>
+    <span className="social-name">{socialName}</span>
+    </li>
+    ))}
+    </ul>
+    </nav>
     </footer>
   );
 };

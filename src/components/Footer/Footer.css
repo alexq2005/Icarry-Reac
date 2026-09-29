@@ -44,26 +44,15 @@ footer nav {
 /*                     redes sociales                          */
 /*------------------------------------------------------------*/
 /* lista horizontal de redes */
-.footer-list {
+footer .nav-list {
   display: flex;
   gap: 1.5rem;
   align-items: center;
   list-style: none;
 }
 
-.footer-list li .social-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.8rem;
+footer .nav-list li .social-name {
   color: #f2c66d;
   font-size: 1.4rem;
   cursor: default;
-}
-
-.social-icon {
-  display: block;
-  width: 1.8rem;
-  height: 1.8rem;
-  fill: currentColor;
-  flex-shrink: 0;
 }
