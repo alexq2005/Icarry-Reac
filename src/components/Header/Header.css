@@ -1,3 +1,6 @@
+/*------------------------------------------------------------*/
+/*                     estilo del header                        */
+/*------------------------------------------------------------*/
 /* header fijo arriba con fondo oscuro translucido */
 header {
   position: sticky;
@@ -13,6 +16,9 @@ header {
   min-height: 7rem;
 }
 
+/*------------------------------------------------------------*/
+/*                     logo del sitio                          */
+/*------------------------------------------------------------*/
 /* logo grande a la izquierda */
 .div-logo {
   display: flex;

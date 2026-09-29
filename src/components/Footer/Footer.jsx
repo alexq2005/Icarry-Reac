@@ -1,3 +1,6 @@
+/*------------------------------------------------------------*/
+/*                     pie de pagina                           */
+/*------------------------------------------------------------*/
 // pie de pagina con mi nombre y las redes.
 // por ahora Whatsapp e Instagram son solo texto, sin links reales.
 // se muestra en todas las paginas (esta fuera del Routes en App.jsx)
@@ -5,6 +8,9 @@
 import "./Footer.css";
 
 export const Footer = () => {
+  /*------------------------------------------------------------*/
+  /*                     contenido del footer                    */
+  /*------------------------------------------------------------*/
   return (
     <footer>
       {/* credito del autor */}

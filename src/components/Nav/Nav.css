@@ -1,3 +1,6 @@
+/*------------------------------------------------------------*/
+/*                     menu de navegacion                     */
+/*------------------------------------------------------------*/
 /* menu de navegacion horizontal */
 .header-nav ul {
   display: flex;
@@ -36,4 +39,33 @@
 
 .header-nav li a:hover::after {
   transform: scaleX(1);
+}
+
+/*------------------------------------------------------------*/
+/*                     carrito en el menu                     */
+/*------------------------------------------------------------*/
+.cart-link-wrap {
+  list-style: none;
+}
+
+.cart-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.cart-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 2rem;
+  height: 2rem;
+  padding: 0 0.5rem;
+  border-radius: 999px;
+  background: #f2c66d;
+  color: #1c1224;
+  font-size: 1.2rem;
+  font-weight: 800;
+  line-height: 1;
+  box-shadow: 0 0 0 2px rgba(242, 198, 109, 0.18);
 }
