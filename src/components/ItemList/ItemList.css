@@ -10,11 +10,6 @@
   align-items: stretch;
 }
 
-.products-container--detail {
-  grid-template-columns: minmax(0, 1fr);
-  margin-top: 0;
-}
-
 .products-container > a {
   min-width: 0;
   animation: aparecer-tarjeta 0.55s ease both;

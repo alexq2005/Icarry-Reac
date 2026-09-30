@@ -4,13 +4,12 @@
 /* menu de navegacion horizontal */
 .nav-list {
   display: flex;
-  gap: 2.8rem;
+  gap: 1.5rem;
   align-items: center;
 }
 
 .nav-list a {
   font-family: "Oxanium", sans-serif;
-  font-size: 1.6rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.12em;
@@ -42,19 +41,20 @@
 }
 
 /*------------------------------------------------------------*/
-/*                     carrito en el menu                     */
+/*                     widget del carrito                      */
 /*------------------------------------------------------------*/
-.cart-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.8rem;
+.cart-widget {
+  font-size: 1.6rem;
+  position: relative;
 }
 
 .incart {
+  position: absolute;
+  top: -8px;
+  right: -12px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-
   height: 22px;
   width: 22px;
   padding: 0 0.5rem;

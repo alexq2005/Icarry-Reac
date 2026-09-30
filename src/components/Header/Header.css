@@ -13,24 +13,14 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  min-height: 7rem;
 }
 
-/*------------------------------------------------------------*/
-/*                     logo del sitio                          */
-/*------------------------------------------------------------*/
-/* logo grande a la izquierda */
-.logo-container {
-  display: flex;
-  align-items: center;
-}
-
-.logo-container img {
+header img {
   height: 4.8rem;
   transition: transform 0.3s ease;
   filter: drop-shadow(0 0 12px rgba(242, 198, 109, 0.18));
 }
 
-.logo-container img:hover {
+header img:hover {
   transform: scale(1.06);
 }

@@ -1,101 +1,39 @@
 /* eslint-disable react-refresh/only-export-components */
-import { createContext, useContext, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { createContext, useContext, useState } from "react"
+
 /*-----------------------------------------------------------*/
 /*                   contexto del carrito                     */
 /*-----------------------------------------------------------*/
-export const CartContext = createContext(null);
+export const CartContext = createContext(null)
 
-/*-----------------------------------------------------------*/
-/*                  hook para usar el carrito                 */
-/*-----------------------------------------------------------*/
 export const useCart = () => {
-  const context = useContext(CartContext);
+    const ctx = useContext(CartContext)
+    if (!ctx) throw new Error("useCart debe usarse dentro de CartProvider")
+    return ctx
+}
 
-  if (!context) {
-    throw new Error("useCart debe usarse dentro de un CartProvider");
-  }
-
-  return context;
-};
-
-/*-----------------------------------------------------------*/
-/*                    provider del carrito                    */
-/*-----------------------------------------------------------*/
 export const CartProvider = ({ children }) => {
-  const navigate = useNavigate();
+    const [cart, setCart] = useState([])
 
-  /*------------------------------------------------------------*/
-  /*                     estado del carrito                     */
-  /*------------------------------------------------------------*/
-  const [cart, setCart] = useState([]);
+    const isInCart = item => cart.some(i => i.id === item.id)
 
-  /*-----------------------------------------------------------*/
-  /*                     revisar si existe                     */
-  /*-----------------------------------------------------------*/
-  const isInCart = (item) => cart.some((element) => element.id === item.id);
-
-  /*-----------------------------------------------------------*/
-  /*                       agregar producto                     */
-  /*-----------------------------------------------------------*/
-  const addItem = (item) => {
-    if (isInCart(item)) {
-      alert("Producto ya existe en el carrito");
-      return;
+    const addItem = item => {
+        if (isInCart(item)) return alert("Ya está en el carrito")
+        setCart(prev => [...prev, item])
+        alert("Producto agregado")
     }
 
-    setCart((prev) => [...prev, item]);
-    alert("Producto agregado al carrito");
-  };
+    const removeItem = id => setCart(prev => prev.filter(i => i.id !== id))
 
-  /*-----------------------------------------------------------*/
-  /*                       eliminar producto                    */
-  /*-----------------------------------------------------------*/
-  const removeItem = (id) => {
-    setCart((prev) => prev.filter((element) => element.id !== id));
-    alert("Producto eliminado del carrito");
-  };
+    const clearCart = () => setCart([])
 
-  /*-----------------------------------------------------------*/
-  /*                       vaciar carrito                       */
-  /*-----------------------------------------------------------*/
-  const clearCart = () => {
-    setCart([]);
-    alert("Carrito vaciado");
-  };
+    const getTotalItems = () => cart.length
 
-  /*-----------------------------------------------------------*/
-  /*                  cantidad de productos                    */
-  /*-----------------------------------------------------------*/
-  const getTotalItems = () => cart.length;
+    const getCartTotal = () => cart.reduce((acc, i) => acc + Number(i.price), 0)
 
-  /*-----------------------------------------------------------*/
-  /*                       total del carrito                    */
-  /*-----------------------------------------------------------*/
-  const getCartTotal = () =>
-    cart.reduce((acc, element) => acc + (Number(element.price) || 0), 0);
-
-  /*-----------------------------------------------------------*/
-  /*                       finalizar compra                     */
-  /*-----------------------------------------------------------*/
-  const checkout = () => {
-    alert("Su compra fue realizada con éxito");
-    clearCart();
-    navigate("/");
-  };
-
-  /*-----------------------------------------------------------*/
-  /*                 valores que entrega el contexto            */
-  /*-----------------------------------------------------------*/
-  const values = {
-    cart,
-    addItem,
-    clearCart,
-    removeItem,
-    getTotalItems,
-    getCartTotal,
-    checkout,
-  };
-
-  return <CartContext.Provider value={values}>{children}</CartContext.Provider>;
-};
+    return (
+        <CartContext.Provider value={{ cart, addItem, removeItem, clearCart, getTotalItems, getCartTotal }}>
+            {children}
+        </CartContext.Provider>
+    )
+}
