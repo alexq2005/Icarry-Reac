@@ -54,14 +54,15 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-width: 2rem;
-  height: 2rem;
+
+  height: 22px;
+  width: 22px;
   padding: 0 0.5rem;
   border-radius: 999px;
   background: #f2c66d;
   color: #1c1224;
-  font-size: 1.2rem;
-  font-weight: 800;
+  font-size: 0.8rem;
+  font-weight: bold;
   line-height: 1;
   box-shadow: 0 0 0 2px rgba(242, 198, 109, 0.18);
 }
