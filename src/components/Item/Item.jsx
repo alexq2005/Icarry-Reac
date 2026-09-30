@@ -14,7 +14,7 @@ export const Item = ({ name, price, image, description, children }) => {
   return (
     <article className="card">
       {/* imagen del producto */}
-      <img src={image} alt={name} />
+      <img src={image} />
 
       {/* nombre en dorado */}
       <h3>{name}</h3>
@@ -23,7 +23,7 @@ export const Item = ({ name, price, image, description, children }) => {
       <p>{description}</p>
 
       {/* precio con formato $xx.xx */}
-      <p className="card-precio">Precio: ${price}</p>
+      <p >${price}</p>
 
       {/* aca va el boton que cambia segun donde se use:
           - en el listado: "Ver detalle" (un span que parece boton)
