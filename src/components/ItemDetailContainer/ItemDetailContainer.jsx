@@ -32,9 +32,11 @@ export const ItemDetailContainer = () => {
         // el id de la url es texto ("3") y en el json es numero (3),
         // por eso uso String() para comparar
         const item = data.find((product) => String(product.id) === id);
-        if (!item) throw new Error("Producto no encontrado");
-        setItemDetail(item);
-      })
+        if (item) {
+          setItemDetail(item);
+          return:
+        }
+        throw new Error("Producto no encontrado");
       .catch((error) => setError(error.message))
       .finally(() => setLoading(false));
   }, [id]); // ← el id en el array hace que se re-ejecute si cambias de producto
@@ -46,8 +48,8 @@ export const ItemDetailContainer = () => {
 
   return (
     <section>
-      <h1 className="text-secondary">Detalles del producto</h1>
-      <div className="products-container products-container--detail">
+      <h1>Detalles del producto</h1>
+      <div className="products-container ">
         {/* le paso el producto encontrado a ItemDetail para que lo muestre */}
         <ItemDetail item={itemDetail} />
       </div>
