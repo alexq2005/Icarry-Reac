@@ -63,8 +63,7 @@
 /*                     boton de la tarjeta                     */
 /*------------------------------------------------------------*/
 /* boton dentro de la tarjeta */
-.card .btn,
-.card span.btn {
+.card button {
   margin: 0 1.5rem 1.5rem;
   text-align: center;
   display: block;
