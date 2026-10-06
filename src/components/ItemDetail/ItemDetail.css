@@ -4,7 +4,7 @@
 /* el detalle se centra y muestra la descripcion completa */
 .detail-wrapper {
   width: 100%;
-  max-width: 56rem;
+  max-width: 30rem;
   margin: auto;
 }
 
