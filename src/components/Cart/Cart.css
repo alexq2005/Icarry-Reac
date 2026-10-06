@@ -31,3 +31,9 @@
     font-size: 2rem;
     padding: 1rem;
 }
+/* Reduce la altura de la imagen solo en las tarjetas del carrito. */
+.cart-items-container .card img {
+    width: 100%;
+    height: 140px;
+    object-fit: contain;
+}

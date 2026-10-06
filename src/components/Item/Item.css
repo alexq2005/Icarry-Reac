@@ -3,7 +3,7 @@
 /*------------------------------------------------------------*/
 /* tarjeta de producto con estilo gaming oscuro */
 .card {
-  width: 100%;
+  width: 50%;
   display: flex;
   flex-direction: column;
   background: rgba(22, 18, 28, 0.9);
