@@ -7,6 +7,7 @@
 import { useCart } from "../../context/CartContext"
 
 export const CartWidget = () => {
+    // Consulta la cantidad actual para mostrarla junto al enlace del carrito.
     const { getTotalItems } = useCart()
     const totalItems = getTotalItems()
     return (

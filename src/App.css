@@ -11,11 +11,53 @@
 main {
   flex: 1;
   width: min(1200px, 90%);
-  margin: 2rem auto;
+  margin: clamp(1.6rem, 3vw, 3.2rem) auto;
+  padding: clamp(1.8rem, 3vw, 3.2rem);
+  position: relative;
+  isolation: isolate;
+  border: 1px solid rgba(242, 198, 109, 0.2);
+  border-top: 2px solid rgba(242, 198, 109, 0.58);
+  border-radius: 1.6rem;
+  background:
+    linear-gradient(145deg, rgba(18, 14, 22, 0.9), rgba(18, 14, 22, 0.64));
+  box-shadow: 0 2.4rem 7rem rgba(0, 0, 0, 0.28);
+  backdrop-filter: blur(1.2rem);
+  animation: main-appear 0.55s ease-out both;
+}
+
+main::before {
+  content: "";
+  position: absolute;
+  inset: 0.8rem;
+  z-index: -1;
+  border: 1px solid rgba(255, 247, 251, 0.035);
+  border-radius: 1rem;
+  pointer-events: none;
+}
+
+@keyframes main-appear {
+  from {
+    opacity: 0;
+    transform: translateY(0.8rem);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @media (max-width: 640px) {
   main {
-    width: min(100% - 3.2rem, 1200px);
+    width: min(calc(100% - 2rem), 1200px);
+    margin: 1rem auto;
+    padding: 1.6rem 1.2rem;
+    border-radius: 1.2rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  main {
+    animation: none;
   }
 }

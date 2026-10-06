@@ -1,0 +1,33 @@
+/* Estructura y alineación general de la página del carrito. */
+.cart-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Distribución adaptable de las tarjetas de productos. */
+.cart-items-container {
+    margin: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 3rem;
+}
+
+/* Presentación del mensaje cuando el carrito no tiene productos. */
+.empty-cart {
+    font-size: 3rem;
+    padding: 2rem;
+}
+
+/* Organización de las acciones y el resumen de compra. */
+.cart-actions {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Tamaño y espaciado del texto dentro del resumen. */
+.cart-actions p {
+    font-size: 2rem;
+    padding: 1rem;
+}
