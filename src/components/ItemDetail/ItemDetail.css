@@ -3,8 +3,13 @@
 /*------------------------------------------------------------*/
 /* el detalle se centra y muestra la descripcion completa */
 .detail-wrapper {
-  max-width: 20rem;
+  width: 100%;
+  max-width: 56rem;
   margin: auto;
+}
+
+.detail-wrapper .card {
+  width: 100%;
 }
 
 .detail-wrapper .card p:first-of-type {

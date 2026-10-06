@@ -14,6 +14,12 @@
     gap: 3rem;
 }
 
+/* Limita el tamaño de cada producto dentro del carrito. */
+.cart-items-container .card {
+    width: 350px;
+    max-width: 100%;
+}
+
 /* Presentación del mensaje cuando el carrito no tiene productos. */
 .empty-cart {
     font-size: 3rem;
