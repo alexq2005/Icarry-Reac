@@ -1,6 +1,7 @@
 /*------------------------------------------------------------*/
 /*                     tema y reset                           */
 /*------------------------------------------------------------*/
+/* Variables de color y reset basico del sitio (tema gaming oscuro) */
 :root {
   --color-fondo: #120e16;
   --color-dorado: #f2c66d;
@@ -14,6 +15,7 @@
   box-sizing: border-box;
 }
 
+/* 62.5% => 1rem = 10px (facilita calculos) */
 html {
   font-size: 62.5%;
 }
@@ -29,6 +31,10 @@ body {
   position: relative;
 }
 
+/*------------------------------------------------------------*/
+/*                     fondo animado                           */
+/*------------------------------------------------------------*/
+/* Capa fija detras del contenido; rota imagenes del assets */
 body::before {
   content: "";
   position: fixed;
@@ -51,6 +57,9 @@ body::before {
   100% { background-image: url("./assets/fondo.jpg"); }
 }
 
+/*------------------------------------------------------------*/
+/*                     tipografia y base                       */
+/*------------------------------------------------------------*/
 img {
   display: block;
   max-width: 100%;
@@ -124,6 +133,28 @@ h2 {
 .bg-secondary:hover {
   background-color: #9d8dbb;
   transform: scale(1.03);
+}
+/* Semantic action colors (Belén-inspired; tuned for dark gaming theme) */
+.bg-success {
+  background-color: #3d9b6a;
+  color: #fff7fb;
+}
+
+.bg-success:hover {
+  background-color: #34855a;
+  transform: scale(1.03);
+  box-shadow: 0 0 15px rgba(61, 155, 106, 0.2);
+}
+
+.bg-delete {
+  background-color: #c94a4a;
+  color: #fff7fb;
+}
+
+.bg-delete:hover {
+  background-color: #b03f3f;
+  transform: scale(1.03);
+  box-shadow: 0 0 15px rgba(201, 74, 74, 0.2);
 }
 
 .text-light { color: #fff7fb; }

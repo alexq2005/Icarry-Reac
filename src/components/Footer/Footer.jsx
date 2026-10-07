@@ -1,14 +1,16 @@
 /*------------------------------------------------------------*/
 /*                     pie de pagina                           */
 /*------------------------------------------------------------*/
-// pie de pagina con mi nombre y las redes.
-// se muestra en todas las paginas (esta fuera del Routes en App.jsx)
+/* Pie de pagina con el credito del autor y las redes.
+   Se muestra en todas las paginas (fuera de Routes en App.jsx). */
 
 import "./Footer.css"
 
 export const Footer = () => {
+    /*----- datos -----*/
     const socialLinks = ["Whatsapp", "Instagram"]
 
+    /*----- UI -----*/
     return (
         <footer>
             <p>Sitio realizado por Alex Quiñones</p>

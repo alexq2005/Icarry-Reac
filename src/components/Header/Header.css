@@ -1,7 +1,7 @@
 /*------------------------------------------------------------*/
 /*                     estilo del header                        */
 /*------------------------------------------------------------*/
-/* header fijo arriba con fondo oscuro translucido */
+/* Header sticky arriba con fondo oscuro translucido */
 header {
   position: sticky;
   top: 0;
@@ -15,6 +15,9 @@ header {
   align-items: center;
 }
 
+/*------------------------------------------------------------*/
+/*                     logo                                    */
+/*------------------------------------------------------------*/
 header img {
   height: 4.8rem;
   transition: transform 0.3s ease;

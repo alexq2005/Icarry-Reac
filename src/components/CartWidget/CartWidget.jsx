@@ -1,8 +1,8 @@
 /*------------------------------------------------------------*/
 /*                     widget del carrito                      */
 /*------------------------------------------------------------*/
-// componente separado para el icono del carrito y el badge con la cantidad.
-// se usa dentro de Nav.jsx
+/* Icono/texto del carrito con badge de cantidad.
+   Se usa dentro de Nav.jsx; el badge solo aparece si hay items. */
 
 import { useCart } from "../../context/CartContext"
 
@@ -13,6 +13,7 @@ export const CartWidget = () => {
     return (
         <span className="cart-widget">
             Carrito
+            {/* Badge: oculto cuando el carrito esta vacio */}
             {totalItems > 0 && <span className="incart">{totalItems}</span>}
         </span>
     )

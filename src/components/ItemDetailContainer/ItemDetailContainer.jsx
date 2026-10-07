@@ -1,14 +1,20 @@
-// busca un solo producto por el id de la url y se lo pasa a ItemDetail.
+/*------------------------------------------------------------*/
+/*                     contenedor de detalle                   */
+/*------------------------------------------------------------*/
+/* Lee el :id de la URL, busca el producto en products.json
+   y se lo pasa a ItemDetail. El flag cancelled evita setState
+   si el usuario cambia de ruta antes de que termine el fetch. */
 
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import { ItemDetail } from "../ItemDetail/ItemDetail"
 
 export const ItemDetailContainer = () => {
+    /*----- params y estado -----*/
     const { id } = useParams()
-
     const [result, setResult] = useState(null)
 
+    /*----- carga del producto -----*/
     useEffect(() => {
         let cancelled = false
 
@@ -31,6 +37,7 @@ export const ItemDetailContainer = () => {
         }
     }, [id])
 
+    /*----- estados de UI -----*/
     if (!result || result.id !== id) return <p>Cargando...</p>
     if (result.error) return <p>{result.error}</p>
     if (!result.item) return <p>Producto no encontrado</p>

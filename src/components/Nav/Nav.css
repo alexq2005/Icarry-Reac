@@ -1,7 +1,7 @@
 /*------------------------------------------------------------*/
 /*                     menu de navegacion                     */
 /*------------------------------------------------------------*/
-/* menu de navegacion horizontal */
+/* Menu horizontal de enlaces (Oxanium + subrayado dorado al hover) */
 .nav-list {
   display: flex;
   gap: 1.5rem;
@@ -48,6 +48,7 @@
   position: relative;
 }
 
+/* Badge circular con la cantidad de productos */
 .incart {
   position: absolute;
   top: -8px;

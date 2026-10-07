@@ -1,7 +1,7 @@
 /*------------------------------------------------------------*/
 /*                     detalle del producto                   */
 /*------------------------------------------------------------*/
-/* Centra el detalle. max-width limita la tarjeta y también su imagen,
+/* Centra el detalle. max-width limita la tarjeta y tambien su imagen,
    que ocupa el 100% del ancho disponible. */
 .detail-wrapper {
   width: 100%;
@@ -13,6 +13,10 @@
   width: 100%;
 }
 
+/*------------------------------------------------------------*/
+/*                     descripcion completa                    */
+/*------------------------------------------------------------*/
+/* En el detalle se muestra el texto entero (en el listado va clamp) */
 .detail-wrapper .card p:first-of-type {
   display: block;
   overflow: visible;

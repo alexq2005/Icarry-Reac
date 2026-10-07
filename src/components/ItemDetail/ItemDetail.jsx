@@ -1,6 +1,9 @@
 /*------------------------------------------------------------*/
 /*                     detalle del producto                     */
 /*------------------------------------------------------------*/
+/* Vista de un producto individual: reusa Item y agrega
+   el boton "Agregar al carrito" conectado al contexto. */
+
 import { useCart } from "../../context/CartContext"
 import { Item } from "../Item/Item"
 import "./ItemDetail.css"

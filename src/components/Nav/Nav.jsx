@@ -1,9 +1,8 @@
 /*------------------------------------------------------------*/
 /*                     menu de navegacion                      */
 /*------------------------------------------------------------*/
-// menu de navegacion con los links de la pagina.
-// usa Link de react-router-dom en vez de <a> para que no recargue la pagina
-// (navega sin hacer request al servidor, es una SPA)
+/* Links principales del sitio.
+   Usa Link de react-router-dom (no <a>) para navegar sin recargar (SPA). */
 
 import { Link } from "react-router-dom"
 import { CartWidget } from "../CartWidget/CartWidget"
@@ -13,6 +12,7 @@ export const Nav = () => {
     return (
         <nav>
             <ul className="nav-list">
+                {/*----- enlaces de catalogo -----*/}
                 <li>
                     <Link to={"/"}>Inicio</Link>
                 </li>
@@ -22,6 +22,7 @@ export const Nav = () => {
                 <li>
                     <Link to={"/category/merchandising"}>Merchandising</Link>
                 </li>
+                {/*----- acceso al carrito -----*/}
                 <li>
                     <Link to={"/cart"}>
                         <CartWidget />

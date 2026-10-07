@@ -1,14 +1,17 @@
 /* eslint-disable react-refresh/only-export-components */
 import { createContext, useContext, useState } from "react"
 import { useNavigate } from "react-router-dom"
-/*-----------------------------------------------------------*/
+
+/*------------------------------------------------------------*/
 /*                   contexto del carrito                     */
-/*-----------------------------------------------------------*/
+/*------------------------------------------------------------*/
+/* Estado global del carrito: se provee desde CartProvider (en main.jsx)
+   y se consume con useCart() desde widgets, detalle y vista del carrito. */
 const CartContext = createContext(null)
 
-/*-----------------------------------------------------------*/
+/*------------------------------------------------------------*/
 /*                   hook del carrito                          */
-/*-----------------------------------------------------------*/
+/*------------------------------------------------------------*/
 export const useCart = () => {
 // Lee el contexto para que los componentes accedan al estado y sus acciones.
 const context =useContext(CartContext);
@@ -19,15 +22,17 @@ const context =useContext(CartContext);
     }               
     return context
 };
-/*-----------------------------------------------------------*/
+
+/*------------------------------------------------------------*/
 /*                   proveedor del carrito                     */
-/*-----------------------------------------------------------*/
+/*------------------------------------------------------------*/
 export const CartProvider = ({ children }) => {
-    // useNavigate permite volver al inicio después de confirmar la compra.
+    // useNavigate permite volver al inicio despues de confirmar la compra.
     const navigate = useNavigate()
     // Estado compartido con los componentes que usan useCart.
     const [cart, setCart] = useState([])
 
+    /*----- helpers / consultas -----*/
     // Comprueba si ya existe un producto con el mismo identificador.
     const isInCart = (item) =>{
         const inInCart = cart.some((element) => element.id === item.id);
@@ -36,7 +41,8 @@ export const CartProvider = ({ children }) => {
             
     };
 
-    // Agrega el producto solo si todavía no está en el carrito.
+    /*----- acciones -----*/
+    // Agrega el producto solo si todavia no esta en el carrito.
     const addItem = item => {
         if (isInCart(item)) {
             alert("El producto ya existe en el carrito")
@@ -58,7 +64,7 @@ export const CartProvider = ({ children }) => {
     //setCart(prev => prev.filter(element => element.id !== id))
     };
 
-// Vacía todos los productos del carrito.
+// Vacia todos los productos del carrito.
     const clearCart = () => {
         setCart([]);
     };
@@ -67,6 +73,7 @@ export const CartProvider = ({ children }) => {
         return cart.length;
     }
 // Suma los precios de todos los productos del carrito.
+// Se trabaja en centavos para evitar errores de punto flotante.
     const getCartTotal = () =>{
         const totalInCents = cart.reduce(
             (acc, element) => acc + Math.round(Number(element.price) * 100),
@@ -74,14 +81,15 @@ export const CartProvider = ({ children }) => {
         );
         return totalInCents / 100;
     };
-// Confirma la compra, vacía el carrito y navega de regreso al inicio.
+// Confirma la compra, vacia el carrito y navega de regreso al inicio.
     const checkout = () => {
         alert("Su compra ha sido realizada 🎉")
         clearCart()
         navigate("/")
     };
 
-    // Agrupa el estado y las acciones que estarán disponibles desde useCart.
+    /*----- valor expuesto -----*/
+    // Agrupa el estado y las acciones que estaran disponibles desde useCart.
     const values=  {
         cart,
         addItem,

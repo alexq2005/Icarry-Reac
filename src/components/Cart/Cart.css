@@ -1,11 +1,17 @@
-/* Estructura y alineación general de la página del carrito. */
+/*------------------------------------------------------------*/
+/*                     pagina del carrito                      */
+/*------------------------------------------------------------*/
+/* Estructura y alineacion general de la pagina del carrito. */
 .cart-container {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-/* Distribución adaptable de las tarjetas de productos. */
+/*------------------------------------------------------------*/
+/*                     listado de items                        */
+/*------------------------------------------------------------*/
+/* Distribucion adaptable de las tarjetas de productos. */
 .cart-items-container {
     margin: 2rem;
     display: flex;
@@ -14,29 +20,36 @@
     gap: 3rem;
 }
 
-/* Limita el tamaño de cada producto dentro del carrito. */
+/* Limita el tamano de cada producto dentro del carrito. */
 .cart-items-container .card {
     width: 350px;
     max-width: 100%;
 }
 
-/* Presentación del mensaje cuando el carrito no tiene productos. */
+/*------------------------------------------------------------*/
+/*                     estado vacio                            */
+/*------------------------------------------------------------*/
+/* Presentacion del mensaje cuando el carrito no tiene productos. */
 .empty-cart {
     font-size: 3rem;
     padding: 2rem;
 }
 
-/* Organización de las acciones y el resumen de compra. */
+/*------------------------------------------------------------*/
+/*                     resumen y acciones                      */
+/*------------------------------------------------------------*/
+/* Organizacion de las acciones y el resumen de compra. */
 .cart-actions {
     display: flex;
     flex-direction: column;
 }
 
-/* Tamaño y espaciado del texto dentro del resumen. */
+/* Tamano y espaciado del texto dentro del resumen. */
 .cart-actions p {
     font-size: 2rem;
     padding: 1rem;
 }
+
 /* Reduce la altura de la imagen solo en las tarjetas del carrito. */
 .cart-items-container .card img {
     width: 100%;

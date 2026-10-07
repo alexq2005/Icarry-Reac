@@ -1,7 +1,8 @@
 /*------------------------------------------------------------*/
 /*                     punto de entrada                         */
 /*------------------------------------------------------------*/
-// aca arranca todo: agarro el div "root" del index.html y meto la app adentro
+/* Aca arranca todo: tomo el div #root del index.html y monto la app.
+   BrowserRouter habilita las rutas; CartProvider comparte el carrito. */
 
 import { StrictMode } from "react"
 import { createRoot } from "react-dom/client"
@@ -10,6 +11,9 @@ import App from "./App.jsx"
 import { BrowserRouter } from "react-router-dom"
 import { CartProvider } from "./context/CartContext.jsx"
 
+/*------------------------------------------------------------*/
+/*                     arbol de providers                       */
+/*------------------------------------------------------------*/
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <BrowserRouter>

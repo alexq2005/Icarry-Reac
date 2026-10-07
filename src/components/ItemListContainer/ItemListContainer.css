@@ -8,6 +8,9 @@
   text-align: center;
 }
 
+/*------------------------------------------------------------*/
+/*                     bloque de introduccion                   */
+/*------------------------------------------------------------*/
 .introduccion-tienda {
   width: min(78rem, 100%);
   margin: 2.4rem auto 5.6rem;
@@ -38,6 +41,9 @@
   padding: 2rem 0 0;
 }
 
+/*------------------------------------------------------------*/
+/*                     encabezado del listado                   */
+/*------------------------------------------------------------*/
 .encabezado-productos {
   width: 100%;
   display: flex;
@@ -80,11 +86,17 @@
   color: var(--color-suave);
 }
 
+/*------------------------------------------------------------*/
+/*                     animacion                               */
+/*------------------------------------------------------------*/
 @keyframes aparecer {
   from { opacity: 0; transform: translateY(1.2rem); }
   to { opacity: 1; transform: translateY(0); }
 }
 
+/*------------------------------------------------------------*/
+/*                     responsive                              */
+/*------------------------------------------------------------*/
 @media (max-width: 640px) {
   .introduccion-tienda {
     margin-top: 1.2rem;
