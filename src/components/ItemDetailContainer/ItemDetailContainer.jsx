@@ -7,34 +7,38 @@ import { ItemDetail } from "../ItemDetail/ItemDetail"
 export const ItemDetailContainer = () => {
     const { id } = useParams()
 
-    const [itemDetail, setItemDetail] = useState(null)
-    const [error, setError] = useState(null)
-    const [loading, setLoading] = useState(true)
+    const [result, setResult] = useState(null)
 
     useEffect(() => {
-        setItemDetail(null)
-        setLoading(true)
-        setError(null)
+        let cancelled = false
 
         fetch("/data/products.json")
-            .then(res => res.json())
+            .then(res => {
+                if (!res.ok) throw new Error("Error al cargar el producto")
+                return res.json()
+            })
             .then(data => {
                 const item = data.find(p => String(p.id) === id)
                 if (!item) throw new Error("Producto no encontrado")
-                setItemDetail(item)
+                if (!cancelled) setResult({ id, item, error: null })
             })
-            .catch(err => setError(err.message))
-            .finally(() => setLoading(false))
+            .catch(err => {
+                if (!cancelled) setResult({ id, item: null, error: err.message })
+            })
+
+        return () => {
+            cancelled = true
+        }
     }, [id])
 
-    if (loading) return <p>Cargando...</p>
-    if (error) return <p>{error}</p>
-    if (!itemDetail) return <p>Producto no encontrado</p>
+    if (!result || result.id !== id) return <p>Cargando...</p>
+    if (result.error) return <p>{result.error}</p>
+    if (!result.item) return <p>Producto no encontrado</p>
 
     return (
         <section>
             <h1 className="text-secondary">Detalles del producto</h1>
-            <ItemDetail item={itemDetail} />
+            <ItemDetail item={result.item} />
         </section>
     )
 }

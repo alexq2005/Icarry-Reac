@@ -68,7 +68,11 @@ export const CartProvider = ({ children }) => {
     }
 // Suma los precios de todos los productos del carrito.
     const getCartTotal = () =>{
-        return cart.reduce((acc,element) => acc + Number(element.price), 0);
+        const totalInCents = cart.reduce(
+            (acc, element) => acc + Math.round(Number(element.price) * 100),
+            0
+        );
+        return totalInCents / 100;
     };
 // Confirma la compra, vacía el carrito y navega de regreso al inicio.
     const checkout = () => {
