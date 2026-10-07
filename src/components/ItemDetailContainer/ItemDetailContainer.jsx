@@ -38,12 +38,30 @@ export const ItemDetailContainer = () => {
     }, [id])
 
     /*----- estados de UI -----*/
-    if (!result || result.id !== id) return <p>Cargando...</p>
-    if (result.error) return <p>{result.error}</p>
-    if (!result.item) return <p>Producto no encontrado</p>
+    if (!result || result.id !== id) {
+        return (
+            <section className="detail-page">
+                <p>Cargando...</p>
+            </section>
+        )
+    }
+    if (result.error) {
+        return (
+            <section className="detail-page">
+                <p>{result.error}</p>
+            </section>
+        )
+    }
+    if (!result.item) {
+        return (
+            <section className="detail-page">
+                <p>Producto no encontrado</p>
+            </section>
+        )
+    }
 
     return (
-        <section>
+        <section className="detail-page">
             <h1 className="text-secondary">Detalles del producto</h1>
             <ItemDetail item={result.item} />
         </section>

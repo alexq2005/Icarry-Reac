@@ -3,17 +3,30 @@
 /*------------------------------------------------------------*/
 .products-container {
   width: 100%;
-  margin-top: 1rem;
+  margin-top: 0;
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 2.4rem;
+  gap: 3rem;
   align-items: stretch;
 }
 
 .products-container > a {
   min-width: 0;
   height: 100%;
+  border-radius: var(--glass-radius, 1.6rem);
   animation: aparecer-tarjeta 0.55s ease both;
+  transition: transform 0.28s ease;
+}
+
+.products-container > a:focus-visible {
+  outline: 2px solid var(--color-dorado, #f2c66d);
+  outline-offset: 4px;
+}
+
+.products-container > a:hover .card {
+  transform: translateY(-5px);
+  border-color: rgba(242, 198, 109, 0.28);
+  box-shadow: var(--glass-shadow-hover, 0 1.6rem 3.2rem rgba(242, 198, 109, 0.07));
 }
 
 .products-container > a > .card {
@@ -35,12 +48,13 @@
 @media (max-width: 920px) {
   .products-container {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-md, 2.4rem);
   }
 }
 
 @media (max-width: 600px) {
   .products-container {
     grid-template-columns: minmax(0, 1fr);
-    gap: 1.8rem;
+    gap: var(--space-sm, 1.5rem);
   }
 }

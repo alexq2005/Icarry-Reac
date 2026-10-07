@@ -2,11 +2,14 @@
 /*                     menu de navegacion                      */
 /*------------------------------------------------------------*/
 /* Links principales del sitio.
-   Usa Link de react-router-dom (no <a>) para navegar sin recargar (SPA). */
+   Usa NavLink para marcar la ruta activa sin recargar (SPA). */
 
-import { Link } from "react-router-dom"
+import { NavLink } from "react-router-dom"
 import { CartWidget } from "../CartWidget/CartWidget"
 import "./Nav.css"
+
+const linkClass = ({ isActive }) =>
+    isActive ? "nav-link is-active" : "nav-link"
 
 export const Nav = () => {
     return (
@@ -14,19 +17,25 @@ export const Nav = () => {
             <ul className="nav-list">
                 {/*----- enlaces de catalogo -----*/}
                 <li>
-                    <Link to={"/"}>Inicio</Link>
+                    <NavLink to="/" end className={linkClass}>
+                        Inicio
+                    </NavLink>
                 </li>
                 <li>
-                    <Link to={"/category/items-del-juego"}>Items del juego</Link>
+                    <NavLink to="/category/items-del-juego" className={linkClass}>
+                        Items del juego
+                    </NavLink>
                 </li>
                 <li>
-                    <Link to={"/category/merchandising"}>Merchandising</Link>
+                    <NavLink to="/category/merchandising" className={linkClass}>
+                        Merchandising
+                    </NavLink>
                 </li>
                 {/*----- acceso al carrito -----*/}
                 <li>
-                    <Link to={"/cart"}>
+                    <NavLink to="/cart" className={linkClass} aria-label="Ir al carrito">
                         <CartWidget />
-                    </Link>
+                    </NavLink>
                 </li>
             </ul>
         </nav>

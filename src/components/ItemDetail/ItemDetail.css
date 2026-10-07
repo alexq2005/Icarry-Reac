@@ -1,25 +1,230 @@
 /*------------------------------------------------------------*/
 /*                     detalle del producto                   */
 /*------------------------------------------------------------*/
-/* Centra el detalle. max-width limita la tarjeta y tambien su imagen,
-   que ocupa el 100% del ancho disponible. */
-.detail-wrapper {
-  width: 100%;
-  max-width: 30rem;
-  margin: auto;
+/*
+  Panel glass: alto auto; ANCHO suficiente para imagen 32rem + info.
+*/
+main:has(.detail-page) {
+  flex: 0 0 auto;
+  align-self: center;
+  width: min(80rem, 94vw);
+  max-width: min(80rem, 94vw);
+  height: fit-content;
+  min-height: auto;
+  padding: var(--space-md, 2.4rem);
+  margin-top: var(--space-md, 2.4rem);
+  margin-bottom: var(--space-md, 2.4rem);
+  background: linear-gradient(
+    145deg,
+    rgba(34, 28, 46, 0.78),
+    rgba(30, 24, 40, 0.62)
+  );
+  overflow: hidden;
+  box-sizing: border-box;
 }
 
-.detail-wrapper .card {
+main:has(.detail-page)::before {
+  inset: 0.6rem;
+}
+
+.detail-page {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm, 1.5rem);
   width: 100%;
+  max-width: 100%;
+  height: fit-content;
+  min-height: 0;
+  box-sizing: border-box;
+}
+
+.detail-page > h1 {
+  margin: 0;
+  max-width: 100%;
+}
+
+.detail-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-sm, 1.5rem);
+  width: 100%;
+  max-width: 100%;
+  height: fit-content;
+  min-height: 0;
+  margin: 0;
+  align-items: start;
+  box-sizing: border-box;
 }
 
 /*------------------------------------------------------------*/
-/*                     descripcion completa                    */
+/*                     imagen — tamaño OK (no achicar)         */
 /*------------------------------------------------------------*/
-/* En el detalle se muestra el texto entero (en el listado va clamp) */
-.detail-wrapper .card p:first-of-type {
+.detail-layout .detail-media {
+  border-radius: var(--glass-radius, 1.6rem);
+  overflow: hidden;
+  border: 1px solid var(--glass-border, rgba(242, 198, 109, 0.14));
+  background: var(--glass-bg-mid, rgba(34, 28, 46, 0.35));
+  box-shadow: var(--glass-shadow, 0 1.4rem 3.6rem rgba(0, 0, 0, 0.14));
+  box-sizing: border-box;
   display: block;
-  overflow: visible;
-  line-clamp: unset;
-  -webkit-box-orient: initial;
+  width: min(32rem, 100%);
+  max-width: min(32rem, 100%);
+  aspect-ratio: 4 / 3;
+  max-height: 50vh;
+  padding: 0;
+  margin-inline: auto;
+  flex-shrink: 0;
+}
+
+.detail-layout .detail-media > img.detail-media__img,
+.detail-layout .detail-media > img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 30%;
+  aspect-ratio: unset;
+}
+
+/*------------------------------------------------------------*/
+/*                     info + CTA                              */
+/*------------------------------------------------------------*/
+.detail-info {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  padding: 0;
+  width: auto;
+  min-width: 0; /* permite encoger/wrap en grid sin overflow */
+  max-width: 100%;
+  height: fit-content;
+  min-height: 0;
+  overflow-wrap: anywhere;
+}
+
+.detail-title {
+  margin: 0 0 0.8rem;
+  color: var(--color-dorado, #f2c66d);
+  font-size: clamp(1.9rem, 2.8vw, 2.6rem);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  line-height: 1.25;
+  text-shadow: var(--text-on-glass);
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  max-width: 100%;
+}
+
+.detail-description {
+  margin: 0;
+  padding: 0;
+  color: var(--color-muted-glass, rgba(227, 219, 232, 0.88));
+  font-size: 1.5rem;
+  line-height: 1.6;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
+}
+
+.detail-price {
+  margin: 1.2rem 0 0;
+  font-family: "Oxanium", sans-serif;
+  font-size: 2.1rem;
+  font-weight: 700;
+  color: var(--color-dorado, #f2c66d);
+  text-shadow: var(--text-on-glass);
+}
+
+.detail-cta-wrap {
+  margin-top: 1.2rem;
+  padding: 0;
+  background: none;
+  position: static;
+  width: fit-content;
+  max-width: 100%;
+}
+
+.detail-cta {
+  width: auto;
+  min-width: 0;
+  max-width: 100%;
+  display: inline-block;
+  border-radius: var(--btn-radius, 1.2rem);
+  padding: 1.1rem 2rem;
+  box-sizing: border-box;
+}
+
+.detail-cta:focus-visible {
+  outline: 2px solid var(--color-dorado, #f2c66d);
+  outline-offset: 3px;
+}
+
+@media (min-width: 768px) {
+  /* Imagen fija; info toma el resto del panel ancho */
+  .detail-layout {
+    grid-template-columns: auto minmax(20rem, 1fr);
+    gap: var(--space-md, 2.4rem);
+    align-items: start;
+  }
+
+  .detail-layout .detail-media {
+    width: 32rem;
+    max-width: 32rem;
+    max-height: 50vh;
+    margin-inline: 0;
+  }
+
+  .detail-layout .detail-media > img.detail-media__img,
+  .detail-layout .detail-media > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 30%;
+  }
+
+  .detail-info {
+    width: auto;
+    min-width: 20rem;
+    max-width: none;
+  }
+
+  .detail-cta-wrap {
+    position: static;
+    background: none;
+    padding: 0;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 600px) {
+  main:has(.detail-page) {
+    width: min(calc(100% - 2rem), 80rem);
+    max-width: min(calc(100% - 2rem), 80rem);
+    padding: var(--space-sm, 1.5rem);
+  }
+
+  .detail-page,
+  .detail-layout {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .detail-layout .detail-media {
+    width: min(32rem, 100%);
+    max-width: min(32rem, 100%);
+    max-height: 50vh;
+  }
+
+  .detail-info {
+    max-width: 100%;
+  }
+
+  .detail-cta-wrap {
+    width: 100%;
+  }
+
+  .detail-cta {
+    width: 100%;
+    text-align: center;
+  }
 }

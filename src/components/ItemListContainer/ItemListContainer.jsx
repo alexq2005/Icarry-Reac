@@ -64,9 +64,11 @@ export const ItemListContainer = () => {
                     <div className="introduccion-tienda">
                         <span className="etiqueta-seccion">Mercado de coleccionistas</span>
                         <h1 className="titulo-home text-secondary">Bienvenidos a la tienda</h1>
-                        <p className="parrafo">
+                        <p className="parrafo parrafo-lead">
                             En iCarry se juntan las leyendas: un mercado épico para
                             coleccionistas de Dota 2 donde cada hallazgo es una victoria.
+                        </p>
+                        <p className="parrafo parrafo-cuerpo">
                             Explorá el catálogo completo o elegí tu bando —items digitales
                             para el inventario o merch para el mundo real— con la confianza
                             de trades verificados. Acá no solo comprás: armás tu legado
