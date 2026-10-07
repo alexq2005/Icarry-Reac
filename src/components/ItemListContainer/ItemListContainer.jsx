@@ -9,6 +9,19 @@ import { useParams } from "react-router-dom"
 import { ItemList } from "../ItemList/ItemList"
 import "./ItemListContainer.css"
 
+const categoryInfo = {
+    "items-del-juego": {
+        title: "Items del juego",
+        description:
+            "Cosméticos digitales para tu héroe: Arcanas, Personas, Immortals y bundles con efectos únicos. Comprás seguro, recibís al toque y actualizás tu inventario sin vueltas.",
+    },
+    "merchandising": {
+        title: "Merchandising",
+        description:
+            "Productos físicos para fans de Dota 2: figuras, remeras, posters y más. Para armar tu setup, regalar o lucir el juego fuera de la partida.",
+    },
+}
+
 export const ItemListContainer = () => {
     /*----- params y estado -----*/
     const { category } = useParams()
@@ -41,26 +54,48 @@ export const ItemListContainer = () => {
     if (loading) return <p>Cargando...</p>
     if (errors) return <p>{errors}</p>
 
+    const currentCategory = category ? categoryInfo[category] : null
+
     return (
         <section className="seccion-productos">
-            {/*----- presentacion de la tienda -----*/}
-            <div className="introduccion-tienda">
-                <span className="etiqueta-seccion">Mercado de coleccionistas</span>
-                <h1 className="titulo-home text-secondary">Bienvenidos a la tienda</h1>
-                <p className="parrafo">
-                    En iCarry encontrarás los items más buscados de Dota 2: Arcanas,
-                    Personas, sets inmortal y bundles exclusivos. Trades verificados,
-                    entrega inmediata y los mejores precios del mercado para mejorar tu
-                    colección sin vueltas.
-                </p>
-            </div>
+            {/*----- presentacion de la tienda (solo en inicio) -----*/}
+            {!category && (
+                <>
+                    <div className="introduccion-tienda">
+                        <span className="etiqueta-seccion">Mercado de coleccionistas</span>
+                        <h1 className="titulo-home text-secondary">Bienvenidos a la tienda</h1>
+                        <p className="parrafo">
+                            iCarry es tu punto de encuentro para coleccionistas de Dota 2:
+                            catálogo curado, trades verificados y precios competitivos,
+                            todo en un solo lugar.
+                        </p>
+                    </div>
 
-            {/*----- encabezado del listado -----*/}
-            <div className="encabezado-productos">
-                <span className="linea-encabezado" aria-hidden="true" />
-                <h2>Nuestros productos</h2>
-                <span className="linea-encabezado" aria-hidden="true" />
-            </div>
+                    <div className="encabezado-productos">
+                        <span className="linea-encabezado" aria-hidden="true" />
+                        <h2>Nuestros productos</h2>
+                        <span className="linea-encabezado" aria-hidden="true" />
+                    </div>
+                </>
+            )}
+
+            {/*----- titulo + descripcion de categoria -----*/}
+            {currentCategory && (
+                <div className="introduccion-tienda">
+                    <h1 className="titulo-home text-secondary">{currentCategory.title}</h1>
+                    <p className="parrafo">{currentCategory.description}</p>
+                </div>
+            )}
+
+            {/* Fallback si la categoria no esta mapeada */}
+            {category && !currentCategory && (
+                <div className="encabezado-productos">
+                    <span className="linea-encabezado" aria-hidden="true" />
+                    <h2>{category}</h2>
+                    <span className="linea-encabezado" aria-hidden="true" />
+                </div>
+            )}
+
             <ItemList products={products} />
         </section>
     )
