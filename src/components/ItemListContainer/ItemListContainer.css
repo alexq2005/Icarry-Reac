@@ -1,6 +1,4 @@
-/*------------------------------------------------------------*/
-/*                    presentacion del catalogo                 */
-/*------------------------------------------------------------*/
+/* Estilos de la presentación del catálogo. */
 .seccion-productos {
   display: flex;
   flex-direction: column;
@@ -9,9 +7,7 @@
   gap: 0;
 }
 
-/*------------------------------------------------------------*/
-/*                     bloque de introduccion                   */
-/*------------------------------------------------------------*/
+/* Acomodo el texto de introducción de la tienda y las categorías. */
 .introduccion-tienda {
   width: min(78rem, 100%);
   margin: 0 auto var(--space-lg);
@@ -67,9 +63,7 @@
 }
 
 
-/*------------------------------------------------------------*/
-/*                     encabezado del listado                   */
-/*------------------------------------------------------------*/
+/* Estilos del título que aparece antes del listado. */
 .encabezado-productos {
   width: 100%;
   display: flex;
@@ -114,17 +108,13 @@
   text-shadow: 0 1px 4px rgba(0, 0, 0, 0.55), 0 2px 12px rgba(0, 0, 0, 0.28);
 }
 
-/*------------------------------------------------------------*/
-/*                     animacion                               */
-/*------------------------------------------------------------*/
+/* La presentación aparece suavemente al cargar. */
 @keyframes aparecer {
   from { opacity: 0; transform: translateY(1.2rem); }
   to { opacity: 1; transform: translateY(0); }
 }
 
-/*------------------------------------------------------------*/
-/*                     responsive                              */
-/*------------------------------------------------------------*/
+/* Ajusto el catálogo para pantallas chicas. */
 @media (max-width: 640px) {
   .introduccion-tienda {
     margin-bottom: var(--space-md);

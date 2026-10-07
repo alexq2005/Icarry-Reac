@@ -1,8 +1,4 @@
-/*------------------------------------------------------------*/
-/*                     menu de navegacion                      */
-/*------------------------------------------------------------*/
-/* Links principales del sitio.
-   Usa NavLink para marcar la ruta activa sin recargar (SPA). */
+/* En este menú puedo ir al inicio, a las categorías o al carrito. */
 
 import { NavLink } from "react-router-dom"
 import { CartWidget } from "../CartWidget/CartWidget"
@@ -15,7 +11,7 @@ export const Nav = () => {
     return (
         <nav>
             <ul className="nav-list">
-                {/*----- enlaces de catalogo -----*/}
+                {/* Estos enlaces sirven para recorrer las páginas de productos. */}
                 <li>
                     <NavLink to="/" end className={linkClass}>
                         Inicio
@@ -31,7 +27,7 @@ export const Nav = () => {
                         Merchandising
                     </NavLink>
                 </li>
-                {/*----- acceso al carrito -----*/}
+                {/* Desde acá también puedo revisar el carrito. */}
                 <li>
                     <NavLink to="/cart" className={linkClass} aria-label="Ir al carrito">
                         <CartWidget />

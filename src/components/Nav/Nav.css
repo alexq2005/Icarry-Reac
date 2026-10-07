@@ -1,7 +1,4 @@
-/*------------------------------------------------------------*/
-/*                     menu de navegacion                     */
-/*------------------------------------------------------------*/
-/* Menu horizontal; activo refinado, hover mas suave */
+/* Estilos del menú y de sus enlaces. */
 .nav-list {
   display: flex;
   gap: var(--space-sm, 1.5rem);
@@ -61,9 +58,7 @@
   border-radius: 2px;
 }
 
-/*------------------------------------------------------------*/
-/*                     widget del carrito                      */
-/*------------------------------------------------------------*/
+/* Estilos del acceso al carrito. */
 .cart-widget {
   font-size: 1.6rem;
   position: relative;
@@ -71,7 +66,7 @@
   padding-right: 0.4rem;
 }
 
-/* Badge circular con la cantidad de productos — alto contraste */
+/* Destaco la cantidad de productos con un círculo. */
 .incart {
   position: absolute;
   top: -0.7rem;

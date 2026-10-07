@@ -1,25 +1,22 @@
-/*------------------------------------------------------------*/
-/*                     pie de pagina                           */
-/*------------------------------------------------------------*/
-/* Pie de pagina con el credito del autor y las redes.
-   Se muestra en todas las paginas (fuera de Routes en App.jsx). */
+/* En el pie de página muestro el crédito del sitio y las redes sociales. */
 
 import "./Footer.css"
 
 export const Footer = () => {
-    /*----- datos -----*/
+    /* Guardo los nombres que voy a mostrar en el pie. */
     const socialLinks = ["Whatsapp", "Instagram"]
 
-    /*----- UI -----*/
     return (
         <footer>
+            {/* Muestro quién realizó el sitio. */}
             <p>Sitio realizado por Alex Quiñones</p>
 
+            {/* Muestro los nombres de las redes sociales. */}
             <nav aria-label="Redes sociales">
                 <ul className="nav-list">
                     {socialLinks.map((socialName) => (
                         <li key={socialName}>
-                        <span className="social-name">{socialName}</span>
+                            <span className="social-name">{socialName}</span>
                         </li>
                     ))}
                 </ul>

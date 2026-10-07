@@ -1,10 +1,7 @@
 import react from '@vitejs/plugin-react'
 import { defineConfig } from 'vite'
 
-/*------------------------------------------------------------*/
-/*                     config de Vite                          */
-/*------------------------------------------------------------*/
-// Build/dev server del proyecto. El plugin de React habilita JSX y Fast Refresh.
+// Configuro Vite para que pueda compilar y ejecutar la app de React.
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],

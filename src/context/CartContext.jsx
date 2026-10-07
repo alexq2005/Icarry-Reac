@@ -2,18 +2,12 @@
 import { createContext, useContext, useState } from "react"
 import { useNavigate } from "react-router-dom"
 
-/*------------------------------------------------------------*/
-/*                   contexto del carrito                     */
-/*------------------------------------------------------------*/
-/* Estado global del carrito: se provee desde CartProvider (en main.jsx)
-   y se consume con useCart() desde widgets, detalle y vista del carrito. */
+/* Creo este contexto para compartir los datos del carrito con otros componentes. */
 const CartContext = createContext(null)
 
-/*------------------------------------------------------------*/
-/*                   hook del carrito                          */
-/*------------------------------------------------------------*/
+/* Uso este hook para acceder al carrito desde los demás componentes. */
 export const useCart = () => {
-// Lee el contexto para que los componentes accedan al estado y sus acciones.
+    // Acá obtengo el carrito y las funciones que comparto con el contexto.
 const context =useContext(CartContext);
 
     
@@ -23,17 +17,14 @@ const context =useContext(CartContext);
     return context
 };
 
-/*------------------------------------------------------------*/
-/*                   proveedor del carrito                     */
-/*------------------------------------------------------------*/
+/* Acá guardo los productos y las funciones para manejar el carrito. */
 export const CartProvider = ({ children }) => {
-    // useNavigate permite volver al inicio despues de confirmar la compra.
+    // Después de confirmar la compra, vuelvo a la página principal.
     const navigate = useNavigate()
-    // Estado compartido con los componentes que usan useCart.
+    // Guardo acá los productos que se agregan al carrito.
     const [cart, setCart] = useState([])
 
-    /*----- helpers / consultas -----*/
-    // Comprueba si ya existe un producto con el mismo identificador.
+    // Reviso si el producto ya está agregado para no repetirlo.
     const isInCart = (item) =>{
         const inInCart = cart.some((element) => element.id === item.id);
             return inInCart;
@@ -41,39 +32,33 @@ export const CartProvider = ({ children }) => {
             
     };
 
-    /*----- acciones -----*/
-    // Agrega el producto solo si todavia no esta en el carrito.
+    // Agrego el producto si todavía no está en el carrito.
     const addItem = item => {
         if (isInCart(item)) {
             alert("El producto ya existe en el carrito")
             return;
         }
 
-        //forma del carrito
-        //setCart(prev => [...prev, item])
         setCart([...cart, item]);
-        alert("Producto agregado al carrito 🎉")
+        alert("Producto agregado al carrito.")
     };
-    // Elimina del carrito el producto cuyo id se recibe como argumento.
+    // Busco por id y saco del carrito el producto indicado.
     const removeItem = id => {
         const updateCart = cart.filter(element => element.id !== id);
         setCart(updateCart);
-        alert("Producto eliminado ✅");
+        alert("Producto eliminado del carrito.")
     
-    //Forma funcional"prev
-    //setCart(prev => prev.filter(element => element.id !== id))
     };
 
-// Vacia todos los productos del carrito.
+// Dejo el carrito vacío.
     const clearCart = () => {
         setCart([]);
     };
-// Devuelve la cantidad de productos guardados (sin cantidades individuales).
+// Devuelvo cuántos productos hay en el carrito.
     const getTotalItems = () =>{
         return cart.length;
     }
-// Suma los precios de todos los productos del carrito.
-// Se trabaja en centavos para evitar errores de punto flotante.
+// Sumo los precios en centavos para evitar errores con los decimales.
     const getCartTotal = () =>{
         const totalInCents = cart.reduce(
             (acc, element) => acc + Math.round(Number(element.price) * 100),
@@ -81,15 +66,14 @@ export const CartProvider = ({ children }) => {
         );
         return totalInCents / 100;
     };
-// Confirma la compra, vacia el carrito y navega de regreso al inicio.
+// Muestro la confirmación, vacío el carrito y vuelvo al inicio.
     const checkout = () => {
-        alert("Su compra ha sido realizada 🎉")
+        alert("Tu compra se realizó correctamente.")
         clearCart()
         navigate("/")
     };
 
-    /*----- valor expuesto -----*/
-    // Agrupa el estado y las acciones que estaran disponibles desde useCart.
+    // Junto los datos y funciones que quiero compartir.
     const values=  {
         cart,
         addItem,
@@ -99,7 +83,7 @@ export const CartProvider = ({ children }) => {
         getCartTotal,
         checkout,
     };
-    // Provee los datos del carrito a los componentes descendientes.
+    // Comparto esta información con los componentes que están dentro del proveedor.
     return <CartContext.Provider value={values}>{children}</CartContext.Provider>;
     
 };

@@ -1,34 +1,29 @@
-/*------------------------------------------------------------*/
-/*                     contenedor de detalle                   */
-/*------------------------------------------------------------*/
-/* Lee el :id de la URL, busca el producto en products.json
-   y se lo pasa a ItemDetail. El flag cancelled evita setState
-   si el usuario cambia de ruta antes de que termine el fetch. */
+/* Busco el producto usando el id de la URL y después muestro su detalle. */
 
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import { ItemDetail } from "../ItemDetail/ItemDetail"
 
 export const ItemDetailContainer = () => {
-    /*----- params y estado -----*/
+    /* Leo el id de la URL y guardo el resultado de la búsqueda. */
     const { id } = useParams()
     const [result, setResult] = useState(null)
 
-    /*----- carga del producto -----*/
+    /* Cargo los productos y busco el que coincide con el id. */
     useEffect(() => {
         let cancelled = false
 
         fetch("/data/products.json")
-            .then(res => {
+            .then((res) => {
                 if (!res.ok) throw new Error("Error al cargar el producto")
                 return res.json()
             })
-            .then(data => {
-                const item = data.find(p => String(p.id) === id)
+            .then((data) => {
+                const item = data.find((p) => String(p.id) === id)
                 if (!item) throw new Error("Producto no encontrado")
                 if (!cancelled) setResult({ id, item, error: null })
             })
-            .catch(err => {
+            .catch((err) => {
                 if (!cancelled) setResult({ id, item: null, error: err.message })
             })
 
@@ -37,7 +32,7 @@ export const ItemDetailContainer = () => {
         }
     }, [id])
 
-    /*----- estados de UI -----*/
+    /* Muestro un mensaje mientras carga o si ocurre un error. */
     if (!result || result.id !== id) {
         return (
             <section className="detail-page">
@@ -60,6 +55,7 @@ export const ItemDetailContainer = () => {
         )
     }
 
+    /* Cuando encuentro el producto, muestro su información. */
     return (
         <section className="detail-page">
             <h1 className="text-secondary">Detalles del producto</h1>

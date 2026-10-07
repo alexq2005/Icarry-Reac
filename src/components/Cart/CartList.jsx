@@ -1,21 +1,17 @@
-/*------------------------------------------------------------*/
-/*                     lista del carrito                       */
-/*------------------------------------------------------------*/
-/* Recorre el carrito del contexto y renderiza un CartItem por producto. */
+/* Recorro los productos del carrito y muestro una tarjeta para cada uno. */
 
-import{useCart}from "../../context/CartContext";
-import{ CartItem } from "./CartItem";
+import { useCart } from "../../context/CartContext"
+import { CartItem } from "./CartItem"
 
 export const CartList = () => {
-    // Obtiene los productos guardados en el carrito.
-    const {cart}=useCart();
+    const { cart } = useCart()
 
-    return(
+    return (
+        /* Uso este contenedor para acomodar las tarjetas del carrito. */
         <div className="cart-items-container">
-            {/* key=id: React necesita identificar cada elemento de forma unica */}
             {cart.map((element) => (
                 <CartItem item={element} key={element.id} />
             ))}
         </div>
     )
-};
+}

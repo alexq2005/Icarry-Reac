@@ -1,9 +1,5 @@
-/*------------------------------------------------------------*/
-/*                     detalle del producto                   */
-/*------------------------------------------------------------*/
-/*
-  Panel glass: alto auto; ANCHO suficiente para imagen 32rem + info.
-*/
+/* Estilos para la página donde muestro el detalle del producto. */
+
 main:has(.detail-page) {
   flex: 0 0 auto;
   align-self: center;
@@ -56,9 +52,7 @@ main:has(.detail-page)::before {
   box-sizing: border-box;
 }
 
-/*------------------------------------------------------------*/
-/*                     imagen — tamaño OK (no achicar)         */
-/*------------------------------------------------------------*/
+/* Mantengo la imagen en su proporción para que no se deforme. */
 .detail-layout .detail-media {
   border-radius: var(--glass-radius, 1.6rem);
   overflow: hidden;
@@ -86,24 +80,29 @@ main:has(.detail-page)::before {
   aspect-ratio: unset;
 }
 
-/*------------------------------------------------------------*/
-/*                     info + CTA                              */
-/*------------------------------------------------------------*/
+/* Acomodo el texto y los datos de compra del producto. */
 .detail-info {
   display: flex;
   flex-direction: column;
   text-align: left;
   padding: 0;
   width: auto;
-  min-width: 0; /* permite encoger/wrap en grid sin overflow */
+  min-width: 0;
   max-width: 100%;
   height: fit-content;
   min-height: 0;
   overflow-wrap: anywhere;
+  gap: 0;
+}
+
+.detail-chip {
+  position: static;
+  align-self: flex-start;
+  margin: 0 0 1rem;
 }
 
 .detail-title {
-  margin: 0 0 0.8rem;
+  margin: 0 0 1.2rem;
   color: var(--color-dorado, #f2c66d);
   font-size: clamp(1.9rem, 2.8vw, 2.6rem);
   letter-spacing: 0.06em;
@@ -115,28 +114,42 @@ main:has(.detail-page)::before {
   max-width: 100%;
 }
 
+/* Destaco juntos el precio y el botón para agregar el producto. */
+.detail-buy {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.2rem;
+  margin: 0 0 1.6rem;
+  padding: 1.4rem 1.6rem;
+  border-radius: var(--glass-radius-sm, 1.2rem);
+  border: 1px solid rgba(242, 198, 109, 0.22);
+  background: rgba(34, 28, 46, 0.35);
+}
+
+.detail-price {
+  margin: 0;
+  font-family: "Oxanium", sans-serif;
+  font-size: clamp(2.2rem, 3vw, 2.8rem);
+  font-weight: 700;
+  color: var(--color-dorado, #f2c66d);
+  text-shadow: var(--text-on-glass);
+  letter-spacing: 0.02em;
+}
+
 .detail-description {
   margin: 0;
   padding: 0;
   color: var(--color-muted-glass, rgba(227, 219, 232, 0.88));
   font-size: 1.5rem;
-  line-height: 1.6;
+  line-height: 1.65;
   max-width: 100%;
   overflow-wrap: anywhere;
   text-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
 }
 
-.detail-price {
-  margin: 1.2rem 0 0;
-  font-family: "Oxanium", sans-serif;
-  font-size: 2.1rem;
-  font-weight: 700;
-  color: var(--color-dorado, #f2c66d);
-  text-shadow: var(--text-on-glass);
-}
-
 .detail-cta-wrap {
-  margin-top: 1.2rem;
+  margin: 0;
   padding: 0;
   background: none;
   position: static;
@@ -150,8 +163,10 @@ main:has(.detail-page)::before {
   max-width: 100%;
   display: inline-block;
   border-radius: var(--btn-radius, 1.2rem);
-  padding: 1.1rem 2rem;
+  padding: 1.2rem 2.4rem;
   box-sizing: border-box;
+  font-weight: 700;
+  letter-spacing: 0.04em;
 }
 
 .detail-cta:focus-visible {
@@ -160,7 +175,6 @@ main:has(.detail-page)::before {
 }
 
 @media (min-width: 768px) {
-  /* Imagen fija; info toma el resto del panel ancho */
   .detail-layout {
     grid-template-columns: auto minmax(20rem, 1fr);
     gap: var(--space-md, 2.4rem);
@@ -174,25 +188,48 @@ main:has(.detail-page)::before {
     margin-inline: 0;
   }
 
-  .detail-layout .detail-media > img.detail-media__img,
-  .detail-layout .detail-media > img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center 30%;
-  }
-
   .detail-info {
     width: auto;
     min-width: 20rem;
     max-width: none;
   }
 
-  .detail-cta-wrap {
-    position: static;
-    background: none;
-    padding: 0;
-    max-width: 100%;
+  .detail-buy {
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 1.6rem 2rem;
+  }
+}
+
+/* En el celular ordeno la imagen y los datos uno debajo del otro. */
+@media (max-width: 767px) {
+  .detail-layout {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .detail-info {
+    display: contents;
+  }
+
+  .detail-media { order: 1; }
+  .detail-chip { order: 2; margin-top: 0.4rem; }
+  .detail-title { order: 3; }
+  .detail-buy { order: 4; width: 100%; box-sizing: border-box; }
+  .detail-description { order: 5; }
+
+  .detail-layout .detail-media {
+    width: min(32rem, 100%);
+    max-width: min(32rem, 100%);
+    max-height: 50vh;
+  }
+
+  .detail-cta-wrap,
+  .detail-cta {
+    width: 100%;
+    text-align: center;
   }
 }
 
@@ -201,30 +238,5 @@ main:has(.detail-page)::before {
     width: min(calc(100% - 2rem), 80rem);
     max-width: min(calc(100% - 2rem), 80rem);
     padding: var(--space-sm, 1.5rem);
-  }
-
-  .detail-page,
-  .detail-layout {
-    width: 100%;
-    max-width: 100%;
-  }
-
-  .detail-layout .detail-media {
-    width: min(32rem, 100%);
-    max-width: min(32rem, 100%);
-    max-height: 50vh;
-  }
-
-  .detail-info {
-    max-width: 100%;
-  }
-
-  .detail-cta-wrap {
-    width: 100%;
-  }
-
-  .detail-cta {
-    width: 100%;
-    text-align: center;
   }
 }

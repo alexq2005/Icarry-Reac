@@ -1,7 +1,4 @@
-/*------------------------------------------------------------*/
-/*                     estilo del header                        */
-/*------------------------------------------------------------*/
-/* Header sticky arriba; glass unificado, acento oro suave */
+/* Dejo la cabecera fija para que siga visible al bajar por la página. */
 header {
   position: sticky;
   top: 0;
@@ -17,9 +14,7 @@ header {
   gap: var(--space-sm, 1.5rem);
 }
 
-/*------------------------------------------------------------*/
-/*                     logo                                    */
-/*------------------------------------------------------------*/
+/* Ajusto el tamaño del logo. */
 header img {
   height: 4.8rem;
   transition: transform 0.3s ease, filter 0.3s ease;

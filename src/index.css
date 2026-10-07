@@ -1,18 +1,15 @@
-/*------------------------------------------------------------*/
-/*                     tema y reset                           */
-/*------------------------------------------------------------*/
-/* Variables de color y reset basico del sitio (tema gaming oscuro) */
+/* Acá defino los colores y estilos generales que uso en el sitio. */
 :root {
   --color-fondo: #1a1522;
   --color-dorado: #f2c66d;
   --color-texto: #fff7fb;
   --color-suave: #e3dbe8;
-  /* Escala de ritmo vertical (item 2) */
+  /* Estos valores me ayudan a mantener espacios parecidos en toda la página. */
   --space-sm: 1.5rem;
   --space-md: 2.4rem;
   --space-lg: 3rem;
 
-  /*----- sistema glass unificado (polish) -----*/
+  /* Uso estas variables para los paneles translúcidos. */
   --glass-bg: linear-gradient(145deg, rgba(34, 28, 46, 0.16), rgba(30, 24, 40, 0.07));
   --glass-bg-mid: rgba(34, 28, 46, 0.2);
   --glass-border: rgba(242, 198, 109, 0.16);
@@ -25,7 +22,7 @@
   --btn-radius: 1.2rem;
   --text-on-glass: 0 1px 3px rgba(0, 0, 0, 0.65), 0 2px 14px rgba(0, 0, 0, 0.4);
   --color-body-glass: rgba(255, 250, 252, 0.96);
-  --color-muted-glass: rgba(236, 228, 240, 0.92);
+  --color-muted-glass: rgba(220, 212, 228, 0.78);
 }
 
 * {
@@ -34,7 +31,7 @@
   box-sizing: border-box;
 }
 
-/* 62.5% => 1rem = 10px (facilita calculos) */
+/* Con este tamaño, cada rem equivale a 10px y es más fácil calcular medidas. */
 html {
   font-size: 62.5%;
 }
@@ -51,10 +48,7 @@ body {
   position: relative;
 }
 
-/*------------------------------------------------------------*/
-/*                     fondo animado                           */
-/*------------------------------------------------------------*/
-/* Capa fija detras del contenido; rota imagenes del assets */
+/* Esta capa queda detrás del contenido y cambia las imágenes del fondo. */
 body::before {
   content: "";
   position: fixed;
@@ -77,9 +71,7 @@ body::before {
   100% { background-image: url("./assets/fondo.jpg"); }
 }
 
-/*------------------------------------------------------------*/
-/*                     tipografia y base                       */
-/*------------------------------------------------------------*/
+/* Acá dejo la tipografía y los estilos básicos de la página. */
 img {
   display: block;
   max-width: 100%;
@@ -124,9 +116,7 @@ h2 {
   text-shadow: var(--text-on-glass);
 }
 
-/*------------------------------------------------------------*/
-/*                     botones y utilidades                   */
-/*------------------------------------------------------------*/
+/* En esta parte están los estilos que comparten los botones. */
 .btn {
   border: none;
   border-radius: var(--btn-radius);
@@ -143,7 +133,7 @@ h2 {
     background-color 0.22s ease;
 }
 
-/* Acento primario: oro #f2c66d (CTAs, nav activo, links clave) */
+/* Uso el dorado para destacar las acciones y enlaces importantes. */
 .bg-primary {
   background-color: var(--color-dorado);
   color: #120e16;
@@ -167,8 +157,7 @@ h2 {
   box-shadow: 0 0.6rem 1.6rem rgba(138, 121, 168, 0.28);
 }
 
-/* Success / delete: solo acciones de carrito (Finalizar / Eliminar).
-   El header y la nav usan oro, no estos semanticos. */
+/* El verde confirma una acción y el rojo indica que se va a eliminar algo. */
 .bg-success {
   background-color: #3d9b6a;
   color: #fff7fb;
@@ -199,9 +188,7 @@ h2 {
 .text-dark { color: #120e16; }
 .text-secondary { color: var(--color-dorado); }
 
-/*------------------------------------------------------------*/
-/*                     tipografia mobile (item 6)              */
-/*------------------------------------------------------------*/
+/* En pantallas chicas achico algunos textos y espacios. */
 @media (max-width: 600px) {
   body {
     font-size: 1.75rem;
@@ -221,4 +208,37 @@ h2 {
     font-size: 1.5rem;
     padding: 1.4rem 2.2rem;
   }
+}
+
+/* Estos estilos son para las etiquetas de categoría y los botones delineados. */
+.category-chip {
+  display: inline-block;
+  padding: 0.35rem 0.9rem;
+  font-family: "Oxanium", sans-serif;
+  font-size: 1.15rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-dorado, #f2c66d);
+  border: 1px solid rgba(242, 198, 109, 0.55);
+  border-radius: 999px;
+  background: rgba(34, 28, 46, 0.55);
+  backdrop-filter: blur(0.6rem);
+  -webkit-backdrop-filter: blur(0.6rem);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.45);
+  line-height: 1.3;
+  white-space: nowrap;
+}
+
+.btn-outline {
+  background-color: transparent;
+  color: var(--color-dorado, #f2c66d);
+  border: 1px solid rgba(242, 198, 109, 0.55);
+  text-decoration: none;
+}
+
+.btn-outline:hover {
+  background-color: rgba(242, 198, 109, 0.12);
+  border-color: var(--color-dorado, #f2c66d);
+  color: var(--color-dorado, #f2c66d);
 }

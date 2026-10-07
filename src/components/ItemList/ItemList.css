@@ -1,6 +1,4 @@
-/*------------------------------------------------------------*/
-/*                     listado de productos                     */
-/*------------------------------------------------------------*/
+/* Estilos para la lista de productos. */
 .products-container {
   width: 100%;
   margin-top: 0;
@@ -34,17 +32,13 @@
   height: 100%;
 }
 
-/*------------------------------------------------------------*/
-/*                     animacion de entrada                     */
-/*------------------------------------------------------------*/
+/* Hago que las tarjetas aparezcan suavemente. */
 @keyframes aparecer-tarjeta {
   from { opacity: 0; transform: translateY(1.6rem); }
   to { opacity: 1; transform: translateY(0); }
 }
 
-/*------------------------------------------------------------*/
-/*                     responsive del listado                    */
-/*------------------------------------------------------------*/
+/* Ajusto la lista para que se vea bien en pantallas chicas. */
 @media (max-width: 920px) {
   .products-container {
     grid-template-columns: repeat(2, minmax(0, 1fr));

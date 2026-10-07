@@ -1,8 +1,6 @@
-/*------------------------------------------------------------*/
-/*                     tarjeta de producto                     */
-/*------------------------------------------------------------*/
-/* Tarjeta glass unificada: borde liviano, blur y radio del sistema */
+/* Estilos generales de las tarjetas de producto. */
 .card {
+  position: relative;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -22,9 +20,7 @@
   box-shadow: var(--glass-shadow-hover, 0 1.6rem 3.2rem rgba(242, 198, 109, 0.07));
 }
 
-/*------------------------------------------------------------*/
-/*                     imagen y texto producto                  */
-/*------------------------------------------------------------*/
+/* Ajusto cómo se ven la imagen y los textos de la tarjeta. */
 .card img {
   width: 100%;
   aspect-ratio: 4 / 3;
@@ -33,7 +29,7 @@
   object-position: center 35%;
 }
 
-/* nombre del producto — max. 2 lineas */
+/* Limito el nombre a dos líneas para que las tarjetas queden parejas. */
 .card h3 {
   padding: 1.4rem 1.5rem 0.6rem;
   font-family: "Oxanium", sans-serif;
@@ -48,7 +44,7 @@
   text-shadow: var(--text-on-glass, 0 1px 2px rgba(0, 0, 0, 0.5));
 }
 
-/* descripcion (clamp en listado; ItemDetail.css la muestra completa) */
+/* En la tarjeta corto la descripción; en el detalle se ve completa. */
 .card > p:first-of-type {
   padding: 0 1.5rem;
   color: var(--color-muted-glass, rgba(227, 219, 232, 0.88));
@@ -63,7 +59,7 @@
   text-shadow: 0 1px 4px rgba(0, 0, 0, 0.55), 0 2px 10px rgba(0, 0, 0, 0.25);
 }
 
-/* precio con color dorado — empuja boton al fondo */
+/* Destaco el precio y dejo el botón al final de la tarjeta. */
 .card-precio {
   padding: 1rem 1.5rem 1.4rem;
   font-size: 1.9rem !important;
@@ -75,9 +71,7 @@
   text-shadow: var(--text-on-glass, 0 1px 2px rgba(0, 0, 0, 0.5));
 }
 
-/*------------------------------------------------------------*/
-/*                     boton de la tarjeta                     */
-/*------------------------------------------------------------*/
+/* Estilos del botón que aparece en la tarjeta. */
 .card .btn,
 .card span.btn {
   margin: 0 1.5rem 1.5rem;
@@ -87,4 +81,12 @@
   width: calc(100% - 3rem);
   font-size: 1.5rem;
   padding: 1.3rem 1.8rem;
+}
+
+/* Estilos de la etiqueta de categoría. */
+.card > .category-chip {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  z-index: 2;
 }

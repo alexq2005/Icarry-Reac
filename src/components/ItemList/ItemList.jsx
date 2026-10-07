@@ -1,23 +1,19 @@
-/*------------------------------------------------------------*/
-/*                     listado de productos                    */
-/*------------------------------------------------------------*/
-/* Recibe el array de productos y arma la grilla de tarjetas.
-   Cada tarjeta enlaza al detalle (/product/:id). */
+/* Muestro los productos en tarjetas y cada tarjeta lleva a su detalle. */
 
 import { Item } from "../Item/Item"
 import { Link } from "react-router-dom"
 import "./ItemList.css"
 
 export const ItemList = ({ products }) => {
-    /*----- sin resultados -----*/
+    /* Si no hay productos para mostrar, aviso con este mensaje. */
     if (!products.length) {
         return <p>No hay productos</p>
     }
 
-    /*----- grilla -----*/
+    /* Recorro los productos y creo una tarjeta para cada uno. */
     return (
         <div className="products-container">
-            {products.map(product => (
+            {products.map((product) => (
                 <Link to={`/product/${product.id}`} key={product.id}>
                     <Item {...product}>
                         <span className="btn bg-primary text-dark">Ver detalle</span>

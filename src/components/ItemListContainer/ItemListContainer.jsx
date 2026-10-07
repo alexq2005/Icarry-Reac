@@ -1,35 +1,32 @@
-/*------------------------------------------------------------*/
-/*                     contenedor del catalogo                 */
-/*------------------------------------------------------------*/
-/* Trae los productos de /data/products.json y se los pasa a ItemList.
-   Si hay :category en la URL, filtra antes de renderizar. */
+/* Cargo el catálogo y, si hay una categoría en la URL, filtro los productos. */
 
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import { ItemList } from "../ItemList/ItemList"
 import "./ItemListContainer.css"
 
+/* Acá guardo el título y la descripción de cada categoría. */
 const categoryInfo = {
     "items-del-juego": {
         title: "Items del juego",
         description:
-            "Equipá a tus héroes como verdaderas leyendas: Arcanas que iluminan el campo, Personas que reescriben su destino e Immortals dignos de una Ancient. Cada cosmético es botín de gloria listo para tu inventario, con entrega rápida y trades que no te dejan en la base. Elegí tu arsenal, dominá la partida y que te vean venir desde la fountain.",
+            "Equipá a tus héroes con artículos únicos: Arcanas, Personas, tesoros inmortales y bundles con efectos especiales. Elegí tus favoritos y llevá tu colección al siguiente nivel.",
     },
     "merchandising": {
         title: "Merchandising",
         description:
-            "La batalla no termina cuando cae el Ancient: llevala al mundo real con figuras, remeras, posters y trofeos de fan. Armá tu setup como un trono de campeón o regalale a tu ally el recuerdo de mil ranked. Merch para quienes viven Dota 2 también fuera del mapa, con estilo digno de Radiant y Dire.",
+            "La batalla no termina cuando cae el Ancient: llevá tu pasión al mundo real con figuras, remeras, pósteres y otros productos para fans. Encontrá artículos para tu colección, tu espacio de juego o para hacer un regalo.",
     },
 }
 
 export const ItemListContainer = () => {
-    /*----- params y estado -----*/
+    /* Leo la categoría de la URL y guardo los datos de carga. */
     const { category } = useParams()
     const [products, setProducts] = useState([])
     const [errors, setErrors] = useState(null)
     const [loading, setLoading] = useState(true)
 
-    /*----- carga / filtro por categoria -----*/
+    /* Cargo los productos y filtro la categoría si hace falta. */
     useEffect(() => {
         setLoading(true)
         setErrors(null)
@@ -50,7 +47,7 @@ export const ItemListContainer = () => {
             .finally(() => setLoading(false))
     }, [category])
 
-    /*----- estados de UI -----*/
+    /* Mientras carga o si ocurre un error, muestro un mensaje. */
     if (loading) return <p>Cargando...</p>
     if (errors) return <p>{errors}</p>
 
@@ -58,21 +55,20 @@ export const ItemListContainer = () => {
 
     return (
         <section className="seccion-productos">
-            {/*----- presentacion de la tienda (solo en inicio) -----*/}
+            {/* Esta presentación aparece solamente en la página de inicio. */}
             {!category && (
                 <>
                     <div className="introduccion-tienda">
                         <span className="etiqueta-seccion">Mercado de coleccionistas</span>
                         <h1 className="titulo-home text-secondary">Bienvenidos a la tienda</h1>
                         <p className="parrafo parrafo-lead">
-                            En iCarry se juntan las leyendas: un mercado épico para
-                            coleccionistas de Dota 2 donde cada hallazgo es una victoria.
+                            En iCarry se juntan las leyendas: un mercado para coleccionistas
+                            de Dota 2 donde cada hallazgo es una victoria.
                         </p>
                         <p className="parrafo parrafo-cuerpo">
-                            Explorá el catálogo completo o elegí tu bando —items digitales
-                            para el inventario o merch para el mundo real— con la confianza
-                            de trades verificados. Acá no solo comprás: armás tu legado
-                            entre Radiant y Dire.
+                            Explorá el catálogo completo: encontrá artículos digitales para
+                            tu inventario y productos para llevar Dota 2 al mundo real.
+                            Descubrí tus favoritos y armá tu colección.
                         </p>
                     </div>
 
@@ -84,7 +80,7 @@ export const ItemListContainer = () => {
                 </>
             )}
 
-            {/*----- titulo + descripcion de categoria -----*/}
+            {/* Si elegí una categoría, muestro su título y descripción. */}
             {currentCategory && (
                 <div className="introduccion-tienda">
                     <h1 className="titulo-home text-secondary">{currentCategory.title}</h1>
@@ -92,7 +88,7 @@ export const ItemListContainer = () => {
                 </div>
             )}
 
-            {/* Fallback si la categoria no esta mapeada */}
+            {/* Para una categoría sin descripción, muestro el nombre recibido. */}
             {category && !currentCategory && (
                 <div className="encabezado-productos">
                     <span className="linea-encabezado" aria-hidden="true" />
@@ -100,7 +96,7 @@ export const ItemListContainer = () => {
                     <span className="linea-encabezado" aria-hidden="true" />
                 </div>
             )}
-
+            {/* Muestro acá las tarjetas de los productos. */}
             <ItemList products={products} />
         </section>
     )

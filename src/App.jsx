@@ -1,8 +1,4 @@
-/*------------------------------------------------------------*/
-/*                     estructura principal                     */
-/*------------------------------------------------------------*/
-/* Armo la pagina: Header arriba, Footer abajo y en el medio
-   el contenido cambia segun la ruta (SPA con React Router). */
+/* En este componente organizo las partes principales y las rutas de la tienda. */
 
 import { Route, Routes } from "react-router-dom"
 import "./App.css"
@@ -10,31 +6,32 @@ import { Footer } from "./components/Footer/Footer"
 import { Header } from "./components/Header/Header"
 import { ItemListContainer } from "./components/ItemListContainer/ItemListContainer"
 import { ItemDetailContainer } from "./components/ItemDetailContainer/ItemDetailContainer"
-import {CartView} from "./components/Cart/CartView"
+import { CartView } from "./components/Cart/CartView"
 
 function App() {
   return (
     <>
-      {/* Layout fijo: no depende de la ruta */}
+      {/* Muestro la cabecera en todas las páginas. */}
       <Header />
 
-      {/* Rutas de la app: catalogo, carrito, detalle y filtro por categoria */}
+      {/* Según la URL, muestro la página que corresponde. */}
       <main>
         <Routes>
-          {/* Catalogo completo */}
+          {/* Página principal con todos los productos. */}
           <Route path="/" element={<ItemListContainer />} />
-          {/* Pagina para consultar y gestionar el carrito */}
+          {/* Página del carrito. */}
           <Route path="/cart" element={<CartView />} />
-          {/* Detalle de un producto por id */}
+          {/* Detalle de un producto específico. */}
           <Route path="/product/:id" element={<ItemDetailContainer />} />
-          {/* Filtro opcional por categoria (reusa ItemListContainer) */}
+          {/* Lista los productos de una categoría. */}
           <Route path="/category/:category" element={<ItemListContainer />} />
         </Routes>
       </main>
 
+      {/* El pie también aparece en todas las páginas. */}
       <Footer />
     </>
-  );
+  )
 }
 
 export default App

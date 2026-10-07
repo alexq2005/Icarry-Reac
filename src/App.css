@@ -1,7 +1,4 @@
-/*------------------------------------------------------------*/
-/*                     layout principal                       */
-/*------------------------------------------------------------*/
-/* #root ocupa toda la altura para empujar el footer al fondo */
+/* Hago que la app ocupe la pantalla y dejo el pie abajo cuando hay poco contenido. */
 #root {
   width: 100%;
   display: flex;
@@ -9,7 +6,7 @@
   min-height: 100vh;
 }
 
-/* Contenedor central del contenido de cada ruta Ã¢â‚¬â€ glass unificado */
+/* Este estilo se comparte entre las páginas principales. */
 main {
   flex: 1;
   width: min(1200px, 90%);
@@ -27,7 +24,7 @@ main {
   animation: main-appear 0.55s ease-out both;
 }
 
-/* Detalle de producto: el glass abraza el contenido (no estira a 100vh) */
+/* En la página de detalle, el panel se ajusta al contenido. */
 main:has(.detail-page) {
   flex: 0 0 auto;
   height: fit-content;
@@ -36,7 +33,7 @@ main:has(.detail-page) {
   max-width: min(80rem, 94vw);
 }
 
-/* Marco interior decorativo (no captura clicks) */
+/* Agrego un borde interior decorativo sin bloquear los clics. */
 main::before {
   content: "";
   position: absolute;
@@ -47,9 +44,7 @@ main::before {
   pointer-events: none;
 }
 
-/*------------------------------------------------------------*/
-/*                     animacion de entrada                     */
-/*------------------------------------------------------------*/
+/* La página aparece suavemente al cargar. */
 @keyframes main-appear {
   from {
     opacity: 0;
@@ -62,9 +57,7 @@ main::before {
   }
 }
 
-/*------------------------------------------------------------*/
-/*                     responsive                              */
-/*------------------------------------------------------------*/
+/* En pantallas chicas reduzco los márgenes y el espacio interior. */
 @media (max-width: 640px) {
   main {
     width: min(calc(100% - 2rem), 1200px);
@@ -79,7 +72,7 @@ main::before {
   }
 }
 
-/* Respeta preferencia de menos movimiento del sistema */
+/* Si la persona prefiere menos movimiento, desactivo la animación. */
 @media (prefers-reduced-motion: reduce) {
   main {
     animation: none;

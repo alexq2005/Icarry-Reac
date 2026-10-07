@@ -1,6 +1,4 @@
-/*------------------------------------------------------------*/
-/*                     pagina del carrito                      */
-/*------------------------------------------------------------*/
+/* Estilos de la página del carrito. */
 .cart-container {
     display: flex;
     flex-direction: column;
@@ -8,9 +6,7 @@
     gap: var(--space-md);
 }
 
-/*------------------------------------------------------------*/
-/*                     listado de items                        */
-/*------------------------------------------------------------*/
+/* Acomodo las tarjetas de los productos del carrito. */
 .cart-items-container {
     margin: 0 0 var(--space-md);
     display: flex;
@@ -24,9 +20,7 @@
     max-width: 100%;
 }
 
-/*------------------------------------------------------------*/
-/*                     estado vacio                            */
-/*------------------------------------------------------------*/
+/* Estilos que muestro cuando el carrito no tiene productos. */
 .empty-cart-state {
     display: flex;
     flex-direction: column;
@@ -46,7 +40,7 @@
     box-shadow: var(--glass-shadow, 0 1.4rem 3.6rem rgba(0, 0, 0, 0.14));
 }
 
-/* Icono decorativo — jerarquia visual sin tocar el copy */
+/* Agrego un carrito como detalle visual para el estado vacío. */
 .empty-cart-state::before {
     content: "\1F6D2";
     display: block;
@@ -77,8 +71,17 @@
     text-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
 }
 
-.empty-cart-cta {
+.empty-cart-actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
     margin-top: 2.4rem;
+    width: 100%;
+}
+
+.empty-cart-cta {
+    margin-top: 0;
     display: inline-block;
     text-decoration: none;
 }
@@ -88,9 +91,7 @@
     outline-offset: 3px;
 }
 
-/*------------------------------------------------------------*/
-/*                     resumen y acciones                      */
-/*------------------------------------------------------------*/
+/* Estilos del total y del botón para confirmar la compra. */
 .cart-actions {
     display: flex;
     flex-direction: column;
@@ -114,9 +115,7 @@
     object-fit: contain;
 }
 
-/*------------------------------------------------------------*/
-/*                     legibilidad sobre fondo                 */
-/*------------------------------------------------------------*/
+/* Agrego sombra al título para que se lea mejor sobre el fondo. */
 .cart-container h1 {
     text-shadow: var(--text-on-glass);
 }

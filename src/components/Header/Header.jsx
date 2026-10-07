@@ -1,9 +1,4 @@
-/*------------------------------------------------------------*/
-/*                     cabecera del sitio                       */
-/*------------------------------------------------------------*/
-/* Cabecera con el logo y el menu. Se muestra en todas las paginas
-   porque esta fuera del Routes en App.jsx.
-   Es sticky: queda fijo arriba al hacer scroll. */
+/* Muestro el logo y el menú en la cabecera de todas las páginas. */
 
 import { Nav } from "../Nav/Nav"
 import { Link } from "react-router-dom"
@@ -13,11 +8,12 @@ import "./Header.css"
 export const Header = () => {
     return (
         <header>
-            {/* Logo vuelve al inicio */}
+            {/* Al hacer clic en el logo vuelvo al inicio. */}
             <Link to={"/"}>
                 <img src={logo} alt="iCarry" />
             </Link>
 
+            {/* Acá están los enlaces principales del sitio. */}
             <Nav />
         </header>
     )
