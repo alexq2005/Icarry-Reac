@@ -13,12 +13,12 @@ const categoryInfo = {
     "items-del-juego": {
         title: "Items del juego",
         description:
-            "Cosméticos digitales para tu héroe: Arcanas, Personas, Immortals y bundles con efectos únicos. Comprás seguro, recibís al toque y actualizás tu inventario sin vueltas.",
+            "Equipá a tus héroes como verdaderas leyendas: Arcanas que iluminan el campo, Personas que reescriben su destino e Immortals dignos de una Ancient. Cada cosmético es botín de gloria listo para tu inventario, con entrega rápida y trades que no te dejan en la base. Elegí tu arsenal, dominá la partida y que te vean venir desde la fountain.",
     },
     "merchandising": {
         title: "Merchandising",
         description:
-            "Productos físicos para fans de Dota 2: figuras, remeras, posters y más. Para armar tu setup, regalar o lucir el juego fuera de la partida.",
+            "La batalla no termina cuando cae el Ancient: llevala al mundo real con figuras, remeras, posters y trofeos de fan. Armá tu setup como un trono de campeón o regalale a tu ally el recuerdo de mil ranked. Merch para quienes viven Dota 2 también fuera del mapa, con estilo digno de Radiant y Dire.",
     },
 }
 
@@ -65,9 +65,12 @@ export const ItemListContainer = () => {
                         <span className="etiqueta-seccion">Mercado de coleccionistas</span>
                         <h1 className="titulo-home text-secondary">Bienvenidos a la tienda</h1>
                         <p className="parrafo">
-                            iCarry es tu punto de encuentro para coleccionistas de Dota 2:
-                            catálogo curado, trades verificados y precios competitivos,
-                            todo en un solo lugar.
+                            En iCarry se juntan las leyendas: un mercado épico para
+                            coleccionistas de Dota 2 donde cada hallazgo es una victoria.
+                            Explorá el catálogo completo o elegí tu bando —items digitales
+                            para el inventario o merch para el mundo real— con la confianza
+                            de trades verificados. Acá no solo comprás: armás tu legado
+                            entre Radiant y Dire.
                         </p>
                     </div>
 
