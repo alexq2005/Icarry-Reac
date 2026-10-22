@@ -10,7 +10,7 @@ import { CartProvider } from "./context/CartContext.jsx";
 /* Envuelvo la app con el router y el proveedor para poder usar el carrito en todas las páginas. */
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <BrowserRouter>
+    <BrowserRouter basename={import.meta.env.BASE_URL}>
       <CartProvider>
         <App />
       </CartProvider>

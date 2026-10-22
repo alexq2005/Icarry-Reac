@@ -4,5 +4,6 @@ import { defineConfig } from "vite";
 // Configuro Vite para que pueda compilar y ejecutar la app de React.
 // https://vite.dev/config/
 export default defineConfig({
+  base: process.env.GITHUB_PAGES === "true" ? "/Icarry-Reac/" : "/",
   plugins: [react()],
 });
