@@ -1,0 +1,285 @@
+/* Acá defino los colores y estilos generales que uso en el sitio. */
+/* -------------------------------------------------------------------------- */
+/*                         VARIABLES Y COLORES GLOBALES                       */
+/* -------------------------------------------------------------------------- */
+:root {
+  --color-fondo: #1a1522;
+  --color-dorado: #f2c66d;
+  --color-texto: #fff7fb;
+  --color-suave: #e3dbe8;
+  /* Estos valores me ayudan a mantener espacios parecidos en toda la página. */
+  --space-sm: 1.5rem;
+  --space-md: 2.4rem;
+  --space-lg: 3rem;
+
+  /* Uso estas variables para los paneles translúcidos. */
+  --glass-bg: linear-gradient(
+    145deg,
+    rgba(34, 28, 46, 0.16),
+    rgba(30, 24, 40, 0.07)
+  );
+  --glass-bg-mid: rgba(34, 28, 46, 0.2);
+  --glass-border: rgba(242, 198, 109, 0.16);
+  --glass-border-soft: rgba(255, 247, 251, 0.14);
+  --glass-blur: 1.6rem;
+  --glass-radius: 1.6rem;
+  --glass-radius-sm: 1.2rem;
+  --glass-shadow: 0 1.4rem 3.6rem rgba(0, 0, 0, 0.14);
+  --glass-shadow-hover: 0 1.6rem 3.2rem rgba(242, 198, 109, 0.07);
+  --btn-radius: 1.2rem;
+  --text-on-glass: 0 1px 3px rgba(0, 0, 0, 0.65), 0 2px 14px rgba(0, 0, 0, 0.4);
+  --color-body-glass: rgba(255, 250, 252, 0.96);
+  --color-muted-glass: rgba(220, 212, 228, 0.78);
+}
+
+/* -------------------------------------------------------------------------- */
+/*                           REGLAS GENERALES                                 */
+/* -------------------------------------------------------------------------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Con este tamaño, cada rem equivale a 10px y es más fácil calcular medidas. */
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  font-size: 1.6rem;
+  line-height: 1.55;
+  color: var(--color-texto);
+  background-color: var(--color-fondo);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  position: relative;
+}
+
+/* -------------------------------------------------------------------------- */
+/*                        FONDO ANIMADO DEL SITIO                             */
+/* -------------------------------------------------------------------------- */
+/* Esta capa queda detrás del contenido y cambia las imágenes del fondo. */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: brightness(0.58) contrast(1.06) saturate(0.9);
+  box-shadow: inset 0 0 0 2000px rgba(26, 21, 34, 0.14);
+  animation: rotarFondo 24s infinite;
+  background-image: url("./assets/fondo.jpg");
+}
+
+@keyframes rotarFondo {
+  0% {
+    background-image: url("./assets/fondo.jpg");
+  }
+  25% {
+    background-image: url("./assets/fondo1.jpg");
+  }
+  50% {
+    background-image: url("./assets/fondo2.jpg");
+  }
+  75% {
+    background-image: url("./assets/fondo3.jpg");
+  }
+  100% {
+    background-image: url("./assets/fondo.jpg");
+  }
+}
+
+/* -------------------------------------------------------------------------- */
+/*                       TIPOGRAFÍA Y ELEMENTOS BASE                          */
+/* -------------------------------------------------------------------------- */
+/* Acá dejo la tipografía y los estilos básicos de la página. */
+img {
+  display: block;
+  max-width: 100%;
+}
+
+ul {
+  list-style: none;
+}
+
+img,
+a {
+  vertical-align: middle;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+h1,
+h2,
+.card h3,
+.card-precio {
+  font-family: "Oxanium", sans-serif;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: var(--space-md);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: clamp(2.4rem, 5vw, 3.6rem);
+  line-height: 1.15;
+  text-shadow: var(--text-on-glass);
+}
+
+h2 {
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: clamp(2rem, 3.5vw, 3.2rem);
+  line-height: 1.2;
+  text-shadow: var(--text-on-glass);
+}
+
+/* -------------------------------------------------------------------------- */
+/*                         BOTONES Y ESTADOS                                 */
+/* -------------------------------------------------------------------------- */
+/* En esta parte están los estilos que comparten los botones. */
+.btn {
+  border: none;
+  border-radius: var(--btn-radius);
+  padding: 1.5rem 2.6rem;
+  cursor: pointer;
+  font-size: 1.6rem;
+  font-weight: 700;
+  font-family: "Noto Sans Lycian", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition:
+    transform 0.22s cubic-bezier(0.25, 0.8, 0.25, 1),
+    box-shadow 0.22s ease,
+    background-color 0.22s ease;
+}
+
+/* Uso el dorado para destacar las acciones y enlaces importantes. */
+.bg-primary {
+  background-color: var(--color-dorado);
+  color: #120e16;
+  box-shadow: 0 0.4rem 1.4rem rgba(242, 198, 109, 0.18);
+}
+
+.bg-primary:hover {
+  background-color: #dbb056;
+  transform: translateY(-2px);
+  box-shadow: 0 0.8rem 2rem rgba(242, 198, 109, 0.28);
+}
+
+.bg-secondary {
+  background-color: #8a79a8;
+  color: #fff7fb;
+}
+
+.bg-secondary:hover {
+  background-color: #9d8dbb;
+  transform: translateY(-2px);
+  box-shadow: 0 0.6rem 1.6rem rgba(138, 121, 168, 0.28);
+}
+
+/* El verde confirma una acción y el rojo indica que se va a eliminar algo. */
+.bg-success {
+  background-color: #3d9b6a;
+  color: #fff7fb;
+}
+
+.bg-success:hover {
+  background-color: #34855a;
+  transform: translateY(-2px);
+  box-shadow: 0 0.6rem 1.6rem rgba(61, 155, 106, 0.28);
+}
+
+.bg-delete {
+  background-color: #c94a4a;
+  color: #fff7fb;
+}
+
+.bg-delete:hover {
+  background-color: #b03f3f;
+  transform: translateY(-2px);
+  box-shadow: 0 0.6rem 1.6rem rgba(201, 74, 74, 0.28);
+}
+
+.btn:active {
+  transform: translateY(0);
+}
+
+.text-light {
+  color: #fff7fb;
+}
+.text-dark {
+  color: #120e16;
+}
+.text-secondary {
+  color: var(--color-dorado);
+}
+
+/* -------------------------------------------------------------------------- */
+/*                      AJUSTES PARA PANTALLAS CHICAS                         */
+/* -------------------------------------------------------------------------- */
+/* En pantallas chicas achico algunos textos y espacios. */
+@media (max-width: 600px) {
+  body {
+    font-size: 1.75rem;
+    line-height: 1.65;
+  }
+
+  h1 {
+    font-size: clamp(2.2rem, 8vw, 2.8rem);
+    margin-bottom: var(--space-sm);
+  }
+
+  h2 {
+    font-size: clamp(1.8rem, 6vw, 2.4rem);
+  }
+
+  .btn {
+    font-size: 1.5rem;
+    padding: 1.4rem 2.2rem;
+  }
+}
+
+/* -------------------------------------------------------------------------- */
+/*                     CATEGORÍAS Y BOTONES DELINEADOS                        */
+/* -------------------------------------------------------------------------- */
+/* Estos estilos son para las etiquetas de categoría y los botones delineados. */
+.category-chip {
+  display: inline-block;
+  padding: 0.35rem 0.9rem;
+  font-family: "Oxanium", sans-serif;
+  font-size: 1.15rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-dorado, #f2c66d);
+  border: 1px solid rgba(242, 198, 109, 0.55);
+  border-radius: 999px;
+  background: rgba(34, 28, 46, 0.55);
+  backdrop-filter: blur(0.6rem);
+  -webkit-backdrop-filter: blur(0.6rem);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.45);
+  line-height: 1.3;
+  white-space: nowrap;
+}
+
+.btn-outline {
+  background-color: transparent;
+  color: var(--color-dorado, #f2c66d);
+  border: 1px solid rgba(242, 198, 109, 0.55);
+  text-decoration: none;
+}
+
+.btn-outline:hover {
+  background-color: rgba(242, 198, 109, 0.12);
+  border-color: var(--color-dorado, #f2c66d);
+  color: var(--color-dorado, #f2c66d);
+}

@@ -1,0 +1,171 @@
+/* Estilos de la presentación del catálogo. */
+/* -------------------------------------------------------------------------- */
+/*                      INTRODUCCIÓN DE LA TIENDA                             */
+/* -------------------------------------------------------------------------- */
+.seccion-productos {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0;
+}
+
+/* Acomodo el texto de introducción de la tienda y las categorías. */
+.introduccion-tienda {
+  width: min(78rem, 100%);
+  margin: 0 auto var(--space-lg);
+  padding: var(--space-lg) var(--space-md) var(--space-md);
+  border: 1px solid var(--glass-border, rgba(242, 198, 109, 0.14));
+  border-top: 1px solid rgba(242, 198, 109, 0.28);
+  border-radius: var(--glass-radius, 1.6rem);
+  background: var(
+    --glass-bg,
+    linear-gradient(145deg, rgba(34, 28, 46, 0.16), rgba(30, 24, 40, 0.07))
+  );
+  backdrop-filter: blur(var(--glass-blur, 1.6rem));
+  -webkit-backdrop-filter: blur(var(--glass-blur, 1.6rem));
+  box-shadow: var(--glass-shadow, 0 1.4rem 3.6rem rgba(0, 0, 0, 0.14));
+  animation: aparecer 0.7s ease both;
+}
+
+.etiqueta-seccion {
+  display: block;
+  margin-bottom: var(--space-sm);
+  color: var(--color-dorado);
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  text-shadow: var(--text-on-glass);
+}
+
+.introduccion-tienda .titulo-home {
+  margin-bottom: 0;
+  font-size: clamp(3rem, 6vw, 5.4rem);
+  line-height: 1.05;
+}
+
+.introduccion-tienda .parrafo {
+  padding: 0;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.introduccion-tienda .parrafo-lead {
+  padding-top: var(--space-md);
+  font-size: clamp(1.8rem, 2.4vw, 2.2rem);
+  line-height: 1.45;
+  color: var(--color-body-glass, rgba(247, 242, 250, 0.94));
+  font-weight: 500;
+  text-shadow: var(--text-on-glass);
+}
+
+.introduccion-tienda .parrafo-cuerpo {
+  padding-top: var(--space-sm);
+  font-size: 1.55rem;
+  line-height: 1.65;
+  color: var(--color-muted-glass, rgba(227, 219, 232, 0.88));
+  text-shadow:
+    0 1px 4px rgba(0, 0, 0, 0.55),
+    0 2px 12px rgba(0, 0, 0, 0.28);
+}
+
+/* -------------------------------------------------------------------------- */
+/*                      ENCABEZADO DEL CATÁLOGO                               */
+/* -------------------------------------------------------------------------- */
+/* Estilos del título que aparece antes del listado. */
+.encabezado-productos {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  margin-top: 0;
+  margin-bottom: var(--space-md);
+}
+
+.encabezado-productos h2 {
+  flex: 0 0 auto;
+  margin: 0;
+}
+
+.linea-encabezado {
+  height: 1px;
+  flex: 1;
+  background: linear-gradient(90deg, transparent, rgba(242, 198, 109, 0.42));
+}
+
+.linea-encabezado:last-child {
+  background: linear-gradient(90deg, rgba(242, 198, 109, 0.42), transparent);
+}
+
+.seccion-productos h2 {
+  text-align: center;
+  font-size: 3.2rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-dorado);
+}
+
+.parrafo {
+  width: 80%;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: var(--space-lg) 0;
+  text-align: center;
+  font-size: 1.8rem;
+  line-height: 1.6;
+  color: var(--color-muted-glass, rgba(227, 219, 232, 0.88));
+  text-shadow:
+    0 1px 4px rgba(0, 0, 0, 0.55),
+    0 2px 12px rgba(0, 0, 0, 0.28);
+}
+
+/* -------------------------------------------------------------------------- */
+/*                       ANIMACIÓN Y RESPONSIVE                               */
+/* -------------------------------------------------------------------------- */
+/* La presentación aparece suavemente al cargar. */
+@keyframes aparecer {
+  from {
+    opacity: 0;
+    transform: translateY(1.2rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Ajusto el catálogo para pantallas chicas. */
+@media (max-width: 640px) {
+  .introduccion-tienda {
+    margin-bottom: var(--space-md);
+    padding: var(--space-md) var(--space-sm);
+    border-radius: var(--glass-radius-sm, 1.2rem);
+  }
+
+  .etiqueta-seccion {
+    font-size: 0.9rem;
+    letter-spacing: 0.18em;
+  }
+
+  .introduccion-tienda .titulo-home {
+    font-size: clamp(2.6rem, 10vw, 3.6rem);
+  }
+
+  .introduccion-tienda .parrafo-lead {
+    font-size: 1.7rem;
+  }
+
+  .introduccion-tienda .parrafo-cuerpo {
+    font-size: 1.45rem;
+  }
+
+  .encabezado-productos {
+    gap: 1rem;
+    margin-bottom: var(--space-md);
+  }
+
+  .seccion-productos h2 {
+    font-size: 2.2rem;
+  }
+}

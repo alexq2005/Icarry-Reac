@@ -1,0 +1,49 @@
+/* Dejo la cabecera fija para que siga visible al bajar por la página. */
+/* -------------------------------------------------------------------------- */
+/*                            CABECERA PRINCIPAL                              */
+/* -------------------------------------------------------------------------- */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(30, 24, 40, 0.3);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border-bottom: 1px solid var(--glass-border);
+  padding: 1rem 3rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-sm, 1.5rem);
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                  LOGO                                      */
+/* -------------------------------------------------------------------------- */
+/* Ajusto el tamaño del logo. */
+header img {
+  height: 4.8rem;
+  transition:
+    transform 0.3s ease,
+    filter 0.3s ease;
+  filter: drop-shadow(0 0 10px rgba(242, 198, 109, 0.16));
+}
+
+header img:hover {
+  transform: scale(1.06);
+  filter: drop-shadow(0 0 14px rgba(242, 198, 109, 0.28));
+}
+
+/* -------------------------------------------------------------------------- */
+/*                         DISEÑO RESPONSIVE                                  */
+/* -------------------------------------------------------------------------- */
+@media (max-width: 720px) {
+  header {
+    padding: 1rem var(--space-sm, 1.5rem);
+    flex-wrap: wrap;
+  }
+
+  header img {
+    height: 4rem;
+  }
+}

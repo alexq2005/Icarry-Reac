@@ -1,0 +1,77 @@
+/* -------------------------------------------------------------------------- */
+/*                         FORMULARIO DE PRODUCTO                             */
+/* -------------------------------------------------------------------------- */
+.product-form {
+width: min(72rem, 100%);
+margin: 2rem auto;
+padding: 2.4rem;
+border: 1px solid var(--glass-border);
+border-radius: var(--glass-radius);
+background: var(--glass-bg);
+box-shadow: var(--glass-shadow);
+backdrop-filter: blur(var(--glass-blur));
+-webkit-backdrop-filter: blur(var(--glass-blur));
+}
+
+.product-form h2 {
+margin-bottom: 2rem;
+color: var(--color-texto);
+text-align: center;
+}
+
+/* -------------------------------------------------------------------------- */
+/*                            CAMPOS DEL FORMULARIO                           */
+/* -------------------------------------------------------------------------- */
+.product-form > div {
+display: flex;
+flex-direction: column;
+gap: 0.6rem;
+margin-bottom: 1.6rem;
+}
+
+.product-form label {
+color: var(--color-texto);
+font-weight: 600;
+}
+
+.product-form input[type="text"],
+.product-form input[type="number"],
+.product-form input[type="file"],
+.product-form textarea {
+width: 100%;
+padding: 1rem 1.2rem;
+border: 1px solid var(--glass-border-soft);
+border-radius: 0.8rem;
+background: rgba(20, 16, 27, 0.72);
+color: var(--color-texto);
+font: inherit;
+}
+
+.product-form textarea {
+min-height: 13rem;
+resize: vertical;
+}
+
+.product-form input:focus,
+.product-form textarea:focus {
+outline: 2px solid var(--color-dorado);
+outline-offset: 2px;
+}
+
+/* -------------------------------------------------------------------------- */
+/*                         BOTÓN Y MENSAJES DE ERROR                          */
+/* -------------------------------------------------------------------------- */
+.product-form button {
+width: 100%;
+margin-top: 1rem;
+}
+
+.product-form button:disabled {
+cursor: wait;
+opacity: 0.7;
+}
+
+.product-form .error {
+color: #ff9b9b;
+font-size: 1.4rem;
+}

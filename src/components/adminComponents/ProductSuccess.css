@@ -1,0 +1,38 @@
+/* -------------------------------------------------------------------------- */
+/*                         CONFIRMACIÓN DE ALTA                               */
+/* -------------------------------------------------------------------------- */
+.product-success {
+  width: min(72rem, 100%);
+  margin: 2rem auto;
+  padding: 2.4rem;
+  border: 1px solid var(--glass-border);
+  border-radius: var(--glass-radius);
+  background: var(--glass-bg);
+  box-shadow: var(--glass-shadow);
+  text-align: center;
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+}
+
+/* -------------------------------------------------------------------------- */
+/*                         MENSAJE Y ACCIONES                                 */
+/* -------------------------------------------------------------------------- */
+.product-success__icon {
+  margin-bottom: 1rem;
+  font-size: 3rem;
+}
+
+.product-success h2 {
+  margin-bottom: 1.2rem;
+}
+
+.product-success p {
+  margin-bottom: 1.2rem;
+  color: var(--color-suave);
+}
+
+.product-success__actions {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
