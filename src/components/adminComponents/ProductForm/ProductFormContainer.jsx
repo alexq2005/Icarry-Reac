@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { ProductFormUI } from "./ProductFormUI";
-import { validateProduct } from "../../../Utils/validateProduct";
-import { uploadImage } from "../../../components/uploadImage";
+import { validateProduct } from "../../../utils/validateProduct";
+import { uploadImage } from "../../../services/uploadImage";
 import {
   createProduct,
   getProductById,
