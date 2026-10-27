@@ -28,19 +28,19 @@ export const Dashboard = () => {
             ➕ Cargar
           </Link>
 
-          <Link to="#" className="action-card disabled">
-            ✏️ Modificar
+          <Link to="/admin/products" className="action-card">
+            ✏️ Editar / eliminar
           </Link>
 
-          <Link to="#" className="action-card disabled">
-            🗑️ Eliminar
+          <Link to="/admin/orders" className="action-card">
+            🧾 Órdenes de compra
           </Link>
         </div>
       </section>
 
       <section className="dashboard-help">
         <h3>Ayuda</h3>
-        <p>Desde este panel podés gestionar los productos de la tienda.</p>
+        <p>Desde este panel podés gestionar productos y consultar las compras.</p>
       </section>
     </div>
   );

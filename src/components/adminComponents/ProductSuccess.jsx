@@ -13,8 +13,11 @@ export const ProductSuccess = () => {
       <p>ID de producto: {id}</p>
       <p>Ya podés cargar otro producto.</p>
       <div className="product-success__actions">
-        <Link className="btn bg-success" to="/admin">
+        <Link className="btn bg-success" to="/admin/products/new">
           Cargar otro producto
+        </Link>
+        <Link className="btn bg-primary" to="/admin/products">
+          Ver productos
         </Link>
       </div>
     </section>

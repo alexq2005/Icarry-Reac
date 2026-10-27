@@ -1,0 +1,220 @@
+.admin-products,
+.admin-orders {
+  width: min(110rem, calc(100% - 3.2rem));
+  margin: 3.2rem auto;
+  padding: clamp(2rem, 4vw, 4rem);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--glass-radius);
+  background: var(--glass-bg);
+  box-shadow: var(--glass-shadow);
+  backdrop-filter: blur(var(--glass-blur));
+}
+
+.admin-page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 2rem;
+  margin-bottom: 2.8rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid var(--glass-border);
+}
+
+.admin-page-header h1 {
+  margin: 0.4rem 0 0.8rem;
+  text-align: left;
+}
+
+.admin-page-header p:not(.admin-eyebrow) {
+  color: var(--color-muted-glass);
+}
+
+.admin-eyebrow {
+  color: var(--color-dorado);
+  font-family: "Oxanium", sans-serif;
+  font-size: 1.2rem;
+  letter-spacing: 0.16em;
+}
+
+.admin-page-actions,
+.admin-row-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem;
+}
+
+.admin-page-actions .btn,
+.admin-row-actions .btn {
+  font-size: 1.3rem;
+  padding: 1rem 1.5rem;
+}
+
+.btn-admin-secondary {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid var(--glass-border-soft);
+  border-radius: var(--btn-radius);
+  background: rgba(20, 16, 27, 0.55);
+  color: var(--color-texto);
+  font-weight: 700;
+  transition:
+    border-color 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.btn-admin-secondary:hover {
+  border-color: var(--color-dorado);
+  background: rgba(242, 198, 109, 0.12);
+}
+
+.admin-table-wrap {
+  overflow-x: auto;
+  border: 1px solid var(--glass-border-soft);
+  border-radius: var(--glass-radius-sm);
+  background: rgba(20, 16, 27, 0.48);
+}
+
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.admin-table th,
+.admin-table td {
+  padding: 1.4rem 1.6rem;
+  border-bottom: 1px solid var(--glass-border-soft);
+  color: var(--color-texto);
+}
+
+.admin-table th {
+  color: var(--color-dorado);
+  font-family: "Oxanium", sans-serif;
+  font-size: 1.3rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.admin-table tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.admin-product-cell {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  min-width: 20rem;
+  font-weight: 600;
+}
+
+.admin-product-cell img {
+  width: 5.2rem;
+  height: 5.2rem;
+  object-fit: cover;
+  border-radius: 0.8rem;
+  border: 1px solid var(--glass-border);
+}
+
+.admin-message,
+.admin-empty-state {
+  padding: 2rem;
+  color: var(--color-muted-glass);
+  text-align: center;
+}
+
+.admin-message-error {
+  margin-bottom: 1.6rem;
+  border: 1px solid rgba(255, 155, 155, 0.35);
+  border-radius: var(--glass-radius-sm);
+  color: #ffb1b1;
+}
+
+.admin-empty-state {
+  border: 1px dashed var(--glass-border);
+  border-radius: var(--glass-radius-sm);
+}
+
+.admin-empty-state h2 {
+  margin-bottom: 0.8rem;
+}
+
+.order-list {
+  display: grid;
+  gap: 1.6rem;
+}
+
+.order-card {
+  padding: 2rem;
+  border: 1px solid var(--glass-border-soft);
+  border-radius: var(--glass-radius-sm);
+  background: rgba(20, 16, 27, 0.52);
+}
+
+.order-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1.6rem;
+  margin-bottom: 1.6rem;
+}
+
+.order-card-header h2 {
+  margin-bottom: 0.5rem;
+  color: var(--color-texto);
+  font-size: 1.9rem;
+  text-transform: none;
+}
+
+.order-card-header p,
+.order-card-total {
+  color: var(--color-muted-glass);
+}
+
+.order-status {
+  padding: 0.5rem 1rem;
+  border: 1px solid rgba(112, 204, 154, 0.4);
+  border-radius: 99rem;
+  color: #9de0b9;
+  font-size: 1.2rem;
+  text-transform: capitalize;
+}
+
+.order-items {
+  display: grid;
+  gap: 0.8rem;
+  padding: 1.4rem 0;
+  border-top: 1px solid var(--glass-border-soft);
+}
+
+.order-item {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  color: var(--color-suave);
+}
+
+.order-card-total {
+  padding-top: 1.2rem;
+  border-top: 1px solid var(--glass-border-soft);
+  text-align: right;
+  font-weight: 700;
+}
+
+@media (max-width: 720px) {
+  .admin-page-header,
+  .order-card-header {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .admin-table th,
+  .admin-table td {
+    padding: 1.1rem;
+  }
+
+  .admin-row-actions {
+    min-width: 20rem;
+  }
+}

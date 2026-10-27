@@ -2,6 +2,9 @@ export const ProductFormUI = ({
   product,
   errors,
   loading,
+  editMode,
+  loadingProduct,
+  image,
   onChange,
   onFileChange,
   onSubmit,
@@ -9,7 +12,7 @@ export const ProductFormUI = ({
   return (
     <section>
       <form className="product-form" onSubmit={onSubmit}>
-        <h2>Agregar nuevo producto</h2>
+        <h2>{editMode ? "Editar producto" : "Agregar nuevo producto"}</h2>
 
         <div>
           <label htmlFor="product-name">Nombre:</label>
@@ -62,6 +65,9 @@ export const ProductFormUI = ({
 
         <div>
           <label htmlFor="product-image">Imagen:</label>
+          {image && (
+            <img className="product-form-image" src={image} alt={product.name} />
+          )}
           <input
             id="product-image"
             type="file"
@@ -71,8 +77,16 @@ export const ProductFormUI = ({
           {errors.file && <p className="error">{errors.file}</p>}
         </div>
 
-        <button className="btn bg-primary" type="submit" disabled={loading}>
-          {loading ? "Guardando..." : "Guardar"}
+        <button
+          className="btn bg-primary"
+          type="submit"
+          disabled={loading || loadingProduct}
+        >
+          {loading
+            ? "Guardando..."
+            : editMode
+              ? "Guardar cambios"
+              : "Guardar"}
         </button>
 
         {errors.general && <p className="error">{errors.general}</p>}

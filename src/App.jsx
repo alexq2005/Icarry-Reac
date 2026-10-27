@@ -12,6 +12,8 @@ import { AdminLayout } from "./layouts/AdminLayout";
 import { Login } from "./components/Login/Login";
 import { ProtectedRoute } from "./components/ProtectedRoute/ProtectedRoute";
 import { Dashboard } from "./components/adminComponents/Dashboard/Dashboard";
+import { Products } from "./components/adminComponents/Products/Products";
+import { Orders } from "./components/adminComponents/Orders/Orders";
 
 function App() {
   return (
@@ -26,7 +28,6 @@ function App() {
           <Route path="/cart" element={<CartView />} />
         </Route>
 
-        {/* Login por fuera de AdminLayout para acceder si no estamos logueados */}
         <Route path="/admin/login" element={<Login />} />
 
         {/* -----------------------------ADMIN--------------------------- */}
@@ -41,8 +42,20 @@ function App() {
           {/* RUTAS ADMIN */}
           <Route index element={<Navigate to={"dashboard"} />} />
           <Route path="dashboard" element={<Dashboard />} />
-          <Route path="products/new" element={<ProductFormContainer />} />
-          <Route path="products/success/:id" element={<ProductSuccess />} />
+          <Route path="products" element={<Products />} />
+          <Route
+            path="products/new"
+            element={<ProductFormContainer key="new-product" />}
+          />
+          <Route
+            path="products/:id/edit"
+            element={<ProductFormContainer key="edit-product" />}
+          />
+          <Route
+            path="products/success/:id"
+            element={<ProductSuccess />}
+          />
+          <Route path="orders" element={<Orders />} />
         </Route>
       </Routes>
     </>
