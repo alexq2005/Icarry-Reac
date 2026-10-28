@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export const ProductFormUI = ({
   product,
   errors,
@@ -88,6 +90,11 @@ export const ProductFormUI = ({
               ? "Guardar cambios"
               : "Guardar"}
         </button>
+
+        {/* vuelve al panel sin guardar */}
+        <Link className="btn btn-cancel" to="/admin/dashboard">
+          Cancelar
+        </Link>
 
         {errors.general && <p className="error">{errors.general}</p>}
       </form>
