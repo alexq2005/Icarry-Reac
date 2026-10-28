@@ -1,14 +1,11 @@
 export const validateProduct = (product) => {
   const errors = {};
 
-  /* ------------------------------------------------------------------------ */
-  /*                         VALIDACIONES DEL PRODUCTO                        */
-  /* ------------------------------------------------------------------------ */
   if (!product.name.trim()) {
     errors.name = "El nombre es obligatorio";
   }
 
-  if (!product.price || Number(product.price) <= 0) {
+  if (!product.price || product.price <= 0) {
     errors.price = "El precio debe ser mayor que 0";
   }
 
@@ -17,15 +14,11 @@ export const validateProduct = (product) => {
   }
 
   if (!product.category.trim()) {
-    errors.category = "La categoría es obligatoria";
+    errors.category = "La categoria es obligatoria";
   }
 
-  /* ------------------------------------------------------------------------ */
-  /*                            VALIDACIÓN DE IMAGEN                          */
-  /* ------------------------------------------------------------------------ */
-  if (!product.file) {
+  if (!product.file && !product.image) {
     errors.file = "Debes seleccionar una imagen";
   }
-
   return errors;
 };

@@ -31,10 +31,6 @@ export const Dashboard = () => {
           <Link to="/admin/products" className="action-card">
             ✏️ Editar / eliminar
           </Link>
-
-          <Link to="/admin/orders" className="action-card">
-            🧾 Órdenes de compra
-          </Link>
         </div>
       </section>
 
