@@ -23,14 +23,15 @@ export const validateProduct = (product) => {
   /* ------------------------------------------------------------------------ */
   /*                            VALIDACIÓN DE IMAGEN                          */
   /* ------------------------------------------------------------------------ */
-  if (!product.file) {
+  
+  /*if (!product.file) {
     errors.file = "Debes seleccionar una imagen";
-  }
+  }*/
 
 
 
   if (!product.file && !product.image) {
     errors.file = "Debes seleccionar una imagen";
   }
-return errors;
+  return errors;
 };
