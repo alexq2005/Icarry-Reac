@@ -28,6 +28,8 @@ function App() {
           <Route path="/cart" element={<CartView />} />
         </Route>
 
+{/* IMPORTAR EL COMPONENTE LOGIN */}
+
         <Route path="/admin/login" element={<Login />} />
 
         {/* -----------------------------ADMIN--------------------------- */}
@@ -39,21 +41,22 @@ function App() {
             </ProtectedRoute>
           }
         >
-          {/* RUTAS ADMIN */}
+          {/*-------------- RUTAS ADMIN----------------*/}
+{/* Si el admin esta logeado,redirige a la ruta /admin/dashboard */}
+
           <Route index element={<Navigate to={"dashboard"} />} />
-          <Route path="dashboard" element={<Dashboard />} />
-          <Route path="products" element={<Products />} />
-          <Route
-            path="products/new"
-            element={<ProductFormContainer key="new-product" />}
+    {/*      <Route path="dashboard" element={<Dashboard />} /> */}
+          <Route path="products/new" element={<ProductFormContainer />} />
+          <Route path="products/success/:id" element={<ProductSuccess/>}/>
+            
+          {/*Opcional*/}
+
+          <Route path="Dashboard" element={<DashboardFull />} />
+          <Route path ="producs"element={<ProductsAdmintListContainer/>}
           />
           <Route
-            path="products/:id/edit"
-            element={<ProductFormContainer key="edit-product" />}
-          />
-          <Route
-            path="products/success/:id"
-            element={<ProductSuccess />}
+            path="products/edit/:id"
+            element={<ProductFormContainerDual />}
           />
           <Route path="orders" element={<Orders />} />
         </Route>

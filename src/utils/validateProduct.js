@@ -28,4 +28,10 @@ export const validateProduct = (product) => {
   }
 
   return errors;
+
+
+if(!product.file&& !product.image) {
+  errors.file = "Debes seleccionar una Imagen";
+}
+
 };
