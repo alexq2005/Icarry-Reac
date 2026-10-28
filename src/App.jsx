@@ -14,6 +14,7 @@ import { ProtectedRoute } from "./components/ProtectedRoute/ProtectedRoute";
 import { DashboardFull } from "./components/adminComponents/Dashboard/DashboardFull";
 import { ProductAdminListContainer } from "./components/adminComponents/ProductAdminList/ProductAdminListContainer";
 import { ProductFormContainerDual } from "./components/adminComponents/ProductForm/ProductFormContainerDual";
+import { OrderListContainer } from "./components/adminComponents/OrderList/OrderListContainer";
 
 function App() {
   return (
@@ -56,6 +57,7 @@ function App() {
             path="products/edit/:id"
             element={<ProductFormContainerDual />}
           />
+          <Route path="orders" element={<OrderListContainer />} />
         </Route>
       </Routes>
     </>
