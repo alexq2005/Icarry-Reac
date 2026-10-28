@@ -11,9 +11,9 @@ import { PublicLayout } from "./layouts/PublicLayout";
 import { AdminLayout } from "./layouts/AdminLayout";
 import { Login } from "./components/Login/Login";
 import { ProtectedRoute } from "./components/ProtectedRoute/ProtectedRoute";
-import { Dashboard } from "./components/adminComponents/Dashboard/Dashboard";
-import { Products } from "./components/adminComponents/Products/Products";
-import { Orders } from "./components/adminComponents/Orders/Orders";
+import { DashboardFull } from "./components/adminComponents/Dashboard/DashboardFull";
+import { ProductAdminListContainer } from "./components/adminComponents/ProductAdminList/ProductAdminListContainer";
+import { ProductFormContainerDual } from "./components/adminComponents/ProductForm/ProductFormContainerDual";
 
 function App() {
   return (
@@ -42,23 +42,20 @@ function App() {
           }
         >
           {/*-------------- RUTAS ADMIN----------------*/}
-{/* Si el admin esta logeado,redirige a la ruta /admin/dashboard */}
-
+          {/* Si el admin esta logeado, redirige a la ruta /admin/dashboard */}
           <Route index element={<Navigate to={"dashboard"} />} />
-    {/*      <Route path="dashboard" element={<Dashboard />} /> */}
+          {/*<Route path="dasboard" element={<Dashboard/>}*/}
           <Route path="products/new" element={<ProductFormContainer />} />
-          <Route path="products/success/:id" element={<ProductSuccess/>}/>
-            
-          {/*Opcional*/}
+          <Route path="products/success/:id" element={<ProductSuccess />} />
 
-          <Route path="Dashboard" element={<DashboardFull />} />
-          <Route path ="producs"element={<ProductsAdmintListContainer/>}
-          />
+          {/* Opcionales */}
+        
+          <Route path="dashboard" element={<DashboardFull />} />
+          <Route path="products" element={<ProductAdminListContainer />} />
           <Route
             path="products/edit/:id"
             element={<ProductFormContainerDual />}
           />
-          <Route path="orders" element={<Orders />} />
         </Route>
       </Routes>
     </>

@@ -133,7 +133,7 @@ export const Products = () => {
                     <div className="admin-row-actions">
                       <Link
                         className="btn btn-admin-secondary"
-                        to={`/admin/products/${product.id}/edit`}
+                        to={`/admin/products/edit/${product.id}`}
                         aria-label={`Editar ${product.name}`}
                       >
                         Editar
