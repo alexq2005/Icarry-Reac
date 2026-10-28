@@ -1,8 +1,6 @@
-import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { getOrders } from "../../../services/productsService";
-import "../Products/Products.css";
 
+//formatear precio en pesos
 const formatPrice = (price) =>
   new Intl.NumberFormat("es-AR", {
     style: "currency",
@@ -10,50 +8,18 @@ const formatPrice = (price) =>
     minimumFractionDigits: 2,
   }).format(Number(price));
 
-const formatOrderDate = (createdAt) => {
+//formatear fecha de la orden
+const formatDate = (createdAt) => {
   if (!createdAt?.toDate) {
     return "Fecha no disponible";
   }
-
   return new Intl.DateTimeFormat("es-AR", {
     dateStyle: "long",
     timeStyle: "short",
   }).format(createdAt.toDate());
 };
 
-export const Orders = () => {
-  const [orders, setOrders] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState("");
-
-  useEffect(() => {
-    let active = true;
-
-    const loadOrders = async () => {
-      try {
-        const orderList = await getOrders();
-        if (active) {
-          setOrders(orderList);
-        }
-      } catch (loadError) {
-        console.error("Error al cargar las órdenes:", loadError);
-        if (active) {
-          setError("No se pudieron cargar las órdenes. Intentá nuevamente.");
-        }
-      } finally {
-        if (active) {
-          setLoading(false);
-        }
-      }
-    };
-
-    loadOrders();
-
-    return () => {
-      active = false;
-    };
-  }, []);
-
+export const OrderListUI = ({ orders, loading, error, onCancel }) => {
   return (
     <section className="admin-orders">
       <header className="admin-page-header">
@@ -78,6 +44,7 @@ export const Orders = () => {
         </p>
       )}
 
+      {/* cargando / vacío / lista */}
       {loading ? (
         <p className="admin-message" role="status">
           Cargando órdenes...
@@ -94,18 +61,17 @@ export const Orders = () => {
               <header className="order-card-header">
                 <div>
                   <h2>Orden {order.id}</h2>
-                  <p>{formatOrderDate(order.createdAt)}</p>
+                  <p>{formatDate(order.createdAt)}</p>
                 </div>
-                <span className="order-status">{order.status || "recibida"}</span>
+                <span className={`order-status ${order.status === "cancelada" ? "order-status-cancelada" : ""}`}>
+                  {order.status || "recibida"}
+                </span>
               </header>
 
               <ul className="order-items">
                 {(order.items || []).map((item, index) => (
-                  <li
-                    className="order-item"
-                    key={`${item.productId || item.name}-${index}`}
-                  >
-                    <span>{item.name || "Producto"}</span>
+                  <li className="order-item" key={`${item.productId}-${index}`}>
+                    <span>{item.name}</span>
                     <span>{formatPrice(item.price)}</span>
                   </li>
                 ))}
@@ -114,7 +80,19 @@ export const Orders = () => {
               <p className="order-card-total">
                 Total: {formatPrice(order.total)}
               </p>
+
+                {order.status !=="cancelada"&&(
+              <button
+              className="btn dashboard-btn-delete"
+              onClick={()=> onCancel(order.id)}
+              >
+              Cancelar Orden
+              </button>
+                )}
+
             </article>
+          
+            
           ))}
         </div>
       )}

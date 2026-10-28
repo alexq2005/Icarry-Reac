@@ -159,3 +159,15 @@ export const getOrders = async () => {
     throw error;
   }
 };
+
+
+/* -------------------------------------------------------------------------- */
+/*                         Cancelar una orden                        */
+/* -------------------------------------------------------------------------- */
+
+export const cancelOrder= async(id)=>{
+const orderRef =doc(db,"orders",id);
+await updateDoc(orderRef,{status: "cancelada"});
+
+
+};
