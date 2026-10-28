@@ -21,9 +21,7 @@ const firebaseConfig = {
 
 /* Creo la instancia principal de Firebase para usarla con sus servicios. */
 const app = initializeApp(firebaseConfig);
-
 const db = getFirestore(app);
-
 // para el login y registro de usuarios, uso el servicio de autenticación de Firebase.
 const auth = getAuth(app);
 

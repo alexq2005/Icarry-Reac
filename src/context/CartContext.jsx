@@ -1,6 +1,7 @@
 /* eslint-disable react-refresh/only-export-components */
 import { createContext, useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { createOrder } from "../services/productsService";
 
 /* -------------------------------------------------------------------------- */
 /*                              CREAMOS CONTEXTO                              */
@@ -31,6 +32,8 @@ export const CartProvider = ({ children }) => {
   const navigate = useNavigate();
   // Guardo acá los productos que se agregan al carrito.
   const [cart, setCart] = useState([]);
+  const [checkoutLoading, setCheckoutLoading] = useState(false);
+  const [checkoutError, setCheckoutError] = useState("");
 
   // Reviso si el producto ya está agregado para no repetirlo.
   const isInCart = (item) => {
@@ -74,10 +77,28 @@ export const CartProvider = ({ children }) => {
     return totalInCents / 100;
   };
   // Muestro la confirmación, vacío el carrito y vuelvo al inicio.
-  const checkout = () => {
-    clearCart();
-    alert("Su compra ha sido realizada");
-    navigate("/");
+  const checkout = async () => {
+    if (cart.length === 0 || checkoutLoading) {
+      return;
+    }
+
+    setCheckoutLoading(true);
+    setCheckoutError("");
+
+    try {
+      const orderId = await createOrder({
+        items: cart,
+        total: getCartTotal(),
+      });
+      clearCart();
+      alert(`Tu compra se realizó correctamente. Número de orden: ${orderId}`);
+      navigate("/");
+    } catch (error) {
+      console.error("Error al finalizar la compra:", error);
+      setCheckoutError("No se pudo registrar la compra. Intentá nuevamente.");
+    } finally {
+      setCheckoutLoading(false);
+    }
   };
 
   // Junto los datos y funciones que quiero compartir.
@@ -89,6 +110,8 @@ export const CartProvider = ({ children }) => {
     getTotalItems,
     getCartTotal,
     checkout,
+    checkoutLoading,
+    checkoutError,
   };
   // Comparto esta información con los componentes que están dentro del proveedor.
   return <CartContext.Provider value={values}>{children}</CartContext.Provider>;
