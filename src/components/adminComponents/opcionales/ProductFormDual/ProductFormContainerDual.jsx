@@ -1,14 +1,14 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { ProductFormUI } from "./ProductFormUI";
-import { validateProduct } from "../../../utils/validateProduct";
-import { uploadImage } from "../../../services/uploadImage";
+import { ProductFormUI } from "../../ProductFormUI";
+import { validateProduct } from "../../../../utils/validateProduct";
+import { uploadImage } from "../../../../services/uploadImage";
 import {
   createProduct,
   getProductById,
   updateProduct,
-} from "../../../services/productsService";
-import "./ProductFormContainer.css";
+} from "../../../../services/productsService";
+import "../../ProductFormContainer.css";
 
 export const ProductFormContainerDual = () => {
   const navigate = useNavigate();

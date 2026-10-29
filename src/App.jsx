@@ -5,16 +5,16 @@ import "./App.css";
 import { ItemListContainer } from "./components/ItemListContainer/ItemListContainer";
 import { ItemDetailContainer } from "./components/ItemDetailContainer/ItemDetailContainer";
 import { CartView } from "./components/Cart/CartView";
-import { ProductFormContainer } from "./components/adminComponents/ProductForm/ProductFormContainer";
+import { ProductFormContainer } from "./components/adminComponents/ProductFormContainer";
 import { ProductSuccess } from "./components/adminComponents/ProductSuccess";
 import { PublicLayout } from "./layouts/PublicLayout";
+import { NotFound } from "./components/NotFound/NotFound";
 import { AdminLayout } from "./layouts/AdminLayout";
 import { Login } from "./components/Login/Login";
 import { ProtectedRoute } from "./components/ProtectedRoute/ProtectedRoute";
-import { DashboardFull } from "./components/adminComponents/Dashboard/DashboardFull";
-import { ProductAdminListContainer } from "./components/adminComponents/ProductAdminList/ProductAdminListContainer";
-import { ProductFormContainerDual } from "./components/adminComponents/ProductForm/ProductFormContainerDual";
-import { OrderListContainer } from "./components/adminComponents/OrderList/OrderListContainer";
+import { DashboardFull } from "./components/adminComponents/opcionales/DashboardFull/DashboardFull";
+import { ProductAdminListContainer } from "./components/adminComponents/opcionales/ProductAdminList/ProductAdminListContainer";
+import { ProductFormContainerDual } from "./components/adminComponents/opcionales/ProductFormDual/ProductFormContainerDual";
 
 function App() {
   return (
@@ -27,6 +27,8 @@ function App() {
           <Route path="/category/:category" element={<ItemListContainer />} />
           <Route path="/product/:id" element={<ItemDetailContainer />} />
           <Route path="/cart" element={<CartView />} />
+          {/* cualquier ruta que no existe */}
+          <Route path="*" element={<NotFound />} />
         </Route>
 
 {/* IMPORTAR EL COMPONENTE LOGIN */}
@@ -57,7 +59,6 @@ function App() {
             path="products/edit/:id"
             element={<ProductFormContainerDual />}
           />
-          <Route path="orders" element={<OrderListContainer />} />
         </Route>
       </Routes>
     </>

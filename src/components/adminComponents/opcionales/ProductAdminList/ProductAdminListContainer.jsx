@@ -3,8 +3,8 @@ import { ProductAdminListUI } from "./ProductAdminListUI";
 import {
   getProducts,
   deleteProduct,
-} from "../../../services/productsService";
-import "../Products/Products.css";
+} from "../../../../services/productsService";
+import "../../Products/Products.css";
 
 export const ProductAdminListContainer = () => {
   const [products, setProducts] = useState([]);
