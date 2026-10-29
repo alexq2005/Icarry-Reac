@@ -1,5 +1,11 @@
 import { Link } from "react-router-dom";
 
+// categorias permitidas
+const categories = [
+  { value: "items-del-juego", label: "Items del juego" },
+  { value: "merchandising", label: "Merchandising" },
+];
+
 export const ProductFormUI = ({
   product,
   errors,
@@ -44,13 +50,19 @@ export const ProductFormUI = ({
 
         <div>
           <label htmlFor="product-category">Categoría:</label>
-          <input
+          <select
             id="product-category"
-            type="text"
             name="category"
             value={product.category}
             onChange={onChange}
-          />
+          >
+            <option value="">Elegí una categoría</option>
+            {categories.map((cat) => (
+              <option key={cat.value} value={cat.value}>
+                {cat.label}
+              </option>
+            ))}
+          </select>
           {errors.category && <p className="error">{errors.category}</p>}
         </div>
 
