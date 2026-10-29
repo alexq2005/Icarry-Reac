@@ -9,6 +9,7 @@ import { ProductFormContainer } from "./components/adminComponents/ProductFormCo
 import { ProductSuccess } from "./components/adminComponents/ProductSuccess";
 import { PublicLayout } from "./layouts/PublicLayout";
 import { NotFound } from "./components/NotFound/NotFound";
+import { OrderListContainer } from "./components/adminComponents/OrderList/OrderListContainer";
 import { AdminLayout } from "./layouts/AdminLayout";
 import { Login } from "./components/Login/Login";
 import { ProtectedRoute } from "./components/ProtectedRoute/ProtectedRoute";
@@ -50,6 +51,7 @@ function App() {
           {/*<Route path="dasboard" element={<Dashboard/>}*/}
           <Route path="products/new" element={<ProductFormContainer />} />
           <Route path="products/success/:id" element={<ProductSuccess />} />
+          <Route path="orders" element={<OrderListContainer />} />
 
           {/* Opcionales */}
         
