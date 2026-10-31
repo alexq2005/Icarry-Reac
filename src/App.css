@@ -86,13 +86,3 @@ main::before {
     border-radius: calc(var(--glass-radius-sm) - 0.4rem);
   }
 }
-
-/* -------------------------------------------------------------------------- */
-/*                       ACCESIBILIDAD Y MOVIMIENTO                           */
-/* -------------------------------------------------------------------------- */
-/* Si la persona prefiere menos movimiento, desactivo la animación. */
-@media (prefers-reduced-motion: reduce) {
-  main {
-    animation: none;
-  }
-}
