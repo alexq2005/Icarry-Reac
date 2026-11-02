@@ -18,7 +18,7 @@ footer p {
   grid-column: 2;
   grid-row: 1;
   color: rgba(227, 219, 232, 0.58);
-  font-size: 1.3rem;
+  font-size: 1.6rem;
   letter-spacing: 0.02em;
 }
 
@@ -56,6 +56,19 @@ footer .nav-list {
   gap: 1.4rem;
   align-items: center;
   list-style: none;
+}
+
+footer .nav-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+/* Logos de las redes, del mismo alto que el texto. */
+footer .nav-list li .social-logo {
+  width: 3.6rem;
+  height: 3.6rem;
+  object-fit: contain;
 }
 
 footer .nav-list li .social-name {
