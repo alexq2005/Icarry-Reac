@@ -95,9 +95,9 @@ main {
 }
 
 /* -------------------------------------------------------------------------- */
-/*                      REGLAS DEL REPO DE REFERENCIA                         */
+/*                      ESTILOS DE LA PAGINA NO ENCONTRADA                       */
 /* -------------------------------------------------------------------------- */
-/* Variables que usan las reglas de referencia, adaptadas a mi paleta. */
+/* Variables de color dorado para los estilos de abajo. */
 :root {
   --accent: var(--color-dorado);
   --accent-bg: rgba(242, 198, 109, 0.12);

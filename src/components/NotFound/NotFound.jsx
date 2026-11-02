@@ -4,7 +4,7 @@ import logo from "../../assets/logo.svg";
 export const NotFound = () => {
   return (
     <section id="center">
-      {/* Uso las reglas .hero y .base del repo de referencia para el logo. */}
+      {/* Muestro el logo centrado arriba del mensaje. */}
       <div className="hero">
         <img className="base" src={logo} alt="iCarry" />
       </div>
