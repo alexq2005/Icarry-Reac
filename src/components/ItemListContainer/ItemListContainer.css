@@ -25,7 +25,6 @@
   backdrop-filter: blur(var(--glass-blur, 1.6rem));
   -webkit-backdrop-filter: blur(var(--glass-blur, 1.6rem));
   box-shadow: var(--glass-shadow, 0 1.4rem 3.6rem rgba(0, 0, 0, 0.14));
-  animation: aparecer 0.7s ease both;
 }
 
 .etiqueta-seccion {
@@ -121,20 +120,8 @@
 }
 
 /* -------------------------------------------------------------------------- */
-/*                       ANIMACIÓN Y RESPONSIVE                               */
+/*                       RESPONSIVE                                                */
 /* -------------------------------------------------------------------------- */
-/* La presentación aparece suavemente al cargar. */
-@keyframes aparecer {
-  from {
-    opacity: 0;
-    transform: translateY(1.2rem);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
 /* Ajusto el catálogo para pantallas chicas. */
 @media (max-width: 640px) {
   .introduccion-tienda {

@@ -4,11 +4,20 @@
     <!-- Configuro el idioma, el ícono y el tamaño de pantalla de la página. -->
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/src/assets/logo.svg" />
+    <!-- Pinto el fondo oscuro antes de que cargue el CSS para evitar el destello blanco. -->
+    <meta name="color-scheme" content="dark" />
+    <style>
+      html {
+        background-color: #1a1522;
+      }
+    </style>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <!-- Cargo las fuentes que uso en el diseño. -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Noto+Sans+Lycian&family=Oxanium:wght@400;600;800&family=Poppins:wght@300;400;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+Lycian&family=Oxanium:wght@400;600;800&family=Poppins:wght@300;400;600;700&display=block"
       rel="stylesheet"
     />
 

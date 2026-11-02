@@ -43,10 +43,6 @@ export const ItemListContainer = () => {
       .finally(() => setLoading(false));
   }, [category]);
 
-  /* Mientras carga o si ocurre un error, muestro un mensaje. */
-  if (loading) return <p>Cargando...</p>;
-  if (errors) return <p>{errors}</p>;
-
   const currentCategory = category ? categoryInfo[category] : null;
 
   return (
@@ -96,8 +92,14 @@ export const ItemListContainer = () => {
           <span className="linea-encabezado" aria-hidden="true" />
         </div>
       )}
-      {/* Muestro acá las tarjetas de los productos. */}
-      <ItemList products={products} />
+      {/* Mientras carga o si ocurre un error, muestro un mensaje en lugar de las tarjetas. */}
+      {loading ? (
+        <p>Cargando...</p>
+      ) : errors ? (
+        <p>{errors}</p>
+      ) : (
+        <ItemList products={products} />
+      )}
     </section>
   );
 };
