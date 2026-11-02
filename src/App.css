@@ -28,29 +28,54 @@ main {
   backdrop-filter: blur(var(--glass-blur));
   -webkit-backdrop-filter: blur(var(--glass-blur));
   animation: main-appear 0.55s ease-out both;
-}
 
-/* -------------------------------------------------------------------------- */
-/*                           PANEL DE DETALLE                                 */
-/* -------------------------------------------------------------------------- */
-/* En la página de detalle, el panel se ajusta al contenido. */
-main:has(.detail-page) {
-  flex: 0 0 auto;
-  height: fit-content;
-  min-height: auto;
-  width: min(80rem, 94vw);
-  max-width: min(80rem, 94vw);
-}
+  /* Agrego un borde interior decorativo sin bloquear los clics. */
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0.8rem;
+    z-index: -1;
+    border: 1px solid var(--glass-border-soft);
+    border-radius: calc(var(--glass-radius) - 0.6rem);
+    pointer-events: none;
+  }
 
-/* Agrego un borde interior decorativo sin bloquear los clics. */
-main::before {
-  content: "";
-  position: absolute;
-  inset: 0.8rem;
-  z-index: -1;
-  border: 1px solid var(--glass-border-soft);
-  border-radius: calc(var(--glass-radius) - 0.6rem);
-  pointer-events: none;
+  /* En la página de detalle, el panel se ajusta al contenido. */
+  &:has(.detail-page) {
+    flex: 0 0 auto;
+    height: fit-content;
+    min-height: auto;
+    width: min(80rem, 94vw);
+    max-width: min(80rem, 94vw);
+  }
+
+  /* Links y botones del panel: efecto al pasar el mouse y foco con teclado. */
+  a,
+  button {
+    transition: box-shadow 0.3s, border-color 0.3s;
+
+    &:hover {
+      box-shadow: 0 0 0.8rem rgba(242, 198, 109, 0.35);
+    }
+
+    &:focus-visible {
+      outline: 2px solid var(--color-dorado, #f2c66d);
+      outline-offset: 2px;
+    }
+  }
+
+  /* En pantallas chicas reduzco los márgenes y el espacio interior. */
+  @media (max-width: 640px) {
+    width: min(calc(100% - 2rem), 1200px);
+    margin: var(--space-sm) auto;
+    padding: var(--space-md) var(--space-sm);
+    border-radius: var(--glass-radius-sm);
+
+    &::before {
+      inset: 0.6rem;
+      border-radius: calc(var(--glass-radius-sm) - 0.4rem);
+    }
+  }
 }
 
 /* -------------------------------------------------------------------------- */
@@ -66,23 +91,5 @@ main::before {
   to {
     opacity: 1;
     transform: translateY(0);
-  }
-}
-
-/* -------------------------------------------------------------------------- */
-/*                         DISEÑO RESPONSIVE                                  */
-/* -------------------------------------------------------------------------- */
-/* En pantallas chicas reduzco los márgenes y el espacio interior. */
-@media (max-width: 640px) {
-  main {
-    width: min(calc(100% - 2rem), 1200px);
-    margin: var(--space-sm) auto;
-    padding: var(--space-md) var(--space-sm);
-    border-radius: var(--glass-radius-sm);
-  }
-
-  main::before {
-    inset: 0.6rem;
-    border-radius: calc(var(--glass-radius-sm) - 0.4rem);
   }
 }
