@@ -39,46 +39,9 @@
   margin-bottom: 2rem;
 }
 
-.dashboard-actions h3,
 .dashboard-help h3 {
   margin-bottom: 1rem;
   color: var(--text);
-}
-
-.actions-grid {
-  display: flex;
-  gap: 1rem;
-}
-
-.action-card {
-  flex: 1;
-
-  padding: 1.5rem;
-
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-
-  text-align: center;
-  font-size: 1.1rem;
-  font-weight: 600;
-
-  transition: 0.25s;
-}
-
-.action-card:hover:not(.disabled) {
-  transform: translateY(-3px);
-
-  border-color: var(--primary);
-
-  background: var(--primary);
-  color: white;
-}
-
-.action-card.disabled {
-  opacity: 0.45;
-  cursor: not-allowed;
-  pointer-events: none;
 }
 
 /* ---------- AYUDA ---------- */
@@ -143,38 +106,6 @@
 
 .dashboard-manage h3 {
   color: var(--text);
-}
-
-.dashboard-add {
-  display: block;
-  padding: 1.5rem;
-  text-align: center;
-  font-size: 1.1rem;
-  font-weight: 600;
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  transition: 0.25s;
-}
-
-.dashboard-add:hover {
-  border-color: var(--color-dorado);
-  color: var(--color-dorado);
-  transform: translateY(-2px);
-}
-
-.dashboard-orders-link {
-  align-self: flex-start;
-  padding: 0.6rem 1rem;
-  font-size: 0.95rem;
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  transition: 0.25s;
-}
-
-.dashboard-orders-link:hover {
-  border-color: var(--color-dorado);
-  color: var(--color-dorado);
 }
 
 .dashboard-products {
@@ -306,8 +237,7 @@
 }
 
 .dashboard-item-info strong,
-.dashboard-item-info h4,
-.dashboard-item-name {
+.dashboard-item-info h4 {
   font-size: 1.25rem;
 }
 

@@ -5,7 +5,7 @@ import "./App.css";
 import { ItemListContainer } from "./components/ItemListContainer/ItemListContainer";
 import { ItemDetailContainer } from "./components/ItemDetailContainer/ItemDetailContainer";
 import { CartView } from "./components/Cart/CartView";
-import { ProductFormContainer } from "./components/adminComponents/ProductFormContainer";
+import { ProductFormContainer } from "./components/adminComponents/ProductForm/ProductFormContainer";
 import { ProductSuccess } from "./components/adminComponents/ProductSuccess";
 import { PublicLayout } from "./layouts/PublicLayout";
 import { NotFound } from "./components/NotFound/NotFound";
@@ -31,8 +31,6 @@ function App() {
           {/* cualquier ruta que no existe */}
           <Route path="*" element={<NotFound />} />
         </Route>
-
-{/* IMPORTAR EL COMPONENTE LOGIN */}
 
         <Route path="/admin/login" element={<Login />} />
 

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { ProductFormUI } from "../../ProductFormUI";
+import { ProductFormUI } from "../../ProductForm/ProductFormUI";
 import { validateProduct } from "../../../../utils/validateProduct";
 import { uploadImage } from "../../../../services/uploadImage";
 import {
@@ -8,7 +8,7 @@ import {
   getProductById,
   updateProduct,
 } from "../../../../services/productsService";
-import "../../ProductFormContainer.css";
+import "../../ProductForm/ProductFormContainer.css";
 
 export const ProductFormContainerDual = () => {
   const navigate = useNavigate();
