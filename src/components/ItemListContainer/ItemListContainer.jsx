@@ -21,34 +21,31 @@ const categoryInfo = {
 };
 
 export const ItemListContainer = () => {
-  /* Leo la categoría de la URL y guardo el resultado de la consulta. */
+  /* Leo la categoría de la URL y guardo los productos, el error y la carga. */
   const { category } = useParams();
-  const [result, setResult] = useState(null);
+  const [products, setProducts] = useState([]);
+  const [errors, setErrors] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [prevCategory, setPrevCategory] = useState(category);
+
+  /* Si cambia la categoría, reinicio los estados de carga y error (durante el render, como recomienda React). */
+  if (category !== prevCategory) {
+    setPrevCategory(category);
+    setLoading(true);
+    setErrors(null);
+  }
 
   /* Consulto los productos y filtro por categoría cuando corresponde. */
   useEffect(() => {
-    let cancelled = false;
-
     getByCategory(category)
-      .then((data) => {
-        if (!cancelled) {
-          setResult({ category, products: data, error: null });
-        }
-      })
-      .catch((error) => {
-        if (!cancelled) {
-          setResult({ category, products: [], error: error.message });
-        }
-      });
-
-    return () => {
-      cancelled = true;
-    };
+      .then((data) => setProducts(data))
+      .catch((error) => setErrors(error.message))
+      .finally(() => setLoading(false));
   }, [category]);
 
   /* Mientras carga o si ocurre un error, muestro un mensaje. */
-  if (!result || result.category !== category) return <p>Cargando...</p>;
-  if (result.error) return <p>{result.error}</p>;
+  if (loading) return <p>Cargando...</p>;
+  if (errors) return <p>{errors}</p>;
 
   const currentCategory = category ? categoryInfo[category] : null;
 
@@ -100,7 +97,7 @@ export const ItemListContainer = () => {
         </div>
       )}
       {/* Muestro acá las tarjetas de los productos. */}
-      <ItemList products={result.products} />
+      <ItemList products={products} />
     </section>
   );
 };

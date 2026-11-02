@@ -15,16 +15,33 @@ export const OrderListContainer = () => {
       .catch(() => setError("No se pudieron cargar las órdenes"))
       .finally(() => setLoading(false));
   }, []);
-  
-  //Cancelar Orden
-  const handleCancel =(id)=>{
-    if (!confirm("¿Cancelar esta orden?")) return;
-    cancelOrder(id)
-    .then(()=> setOrders(orders.map((o) =>(o.id===id?{...o,status:"cancelada"}:o)))
-  )
-  .catch(()=> setError("No se pudo cancelar la orden"));
 
+  //Cancelar Orden
+  const handleCancel = async (id) => {
+    const confirmed = window.confirm("¿Cancelar esta orden?");
+    if (!confirmed) {
+      return;
+    }
+
+    try {
+      await cancelOrder(id);
+      setOrders(
+        orders.map((order) =>
+          order.id === id ? { ...order, status: "cancelada" } : order,
+        ),
+      );
+    } catch (error) {
+      console.error("Error al cancelar la orden:", error);
+      setError("No se pudo cancelar la orden");
+    }
   };
 
-  return <OrderListUI orders={orders} loading={loading} error={error} onCancel={handleCancel} />;
+  return (
+    <OrderListUI
+      orders={orders}
+      loading={loading}
+      error={error}
+      onCancel={handleCancel}
+    />
+  );
 };

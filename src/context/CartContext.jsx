@@ -37,8 +37,8 @@ export const CartProvider = ({ children }) => {
 
   // Reviso si el producto ya está agregado para no repetirlo.
   const isInCart = (item) => {
-    const inInCart = cart.some((element) => element.id === item.id);
-    return inInCart;
+    const inCart = cart.some((element) => element.id === item.id);
+    return inCart;
   };
 
   // Agrego el producto si todavía no está en el carrito.
@@ -55,8 +55,8 @@ export const CartProvider = ({ children }) => {
 
   // Busco por id y saco del carrito el producto indicado.
   const removeItem = (id) => {
-    const updateCart = cart.filter((element) => element.id !== id);
-    setCart(updateCart);
+    const updatedCart = cart.filter((element) => element.id !== id);
+    setCart(updatedCart);
     alert("Producto eliminado del carrito.");
   };
 

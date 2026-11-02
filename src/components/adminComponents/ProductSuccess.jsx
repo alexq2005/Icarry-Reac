@@ -6,13 +6,13 @@ export const ProductSuccess = () => {
 
   return (
     <section className="product-success">
-      <div className="product-success__icon" aria-hidden="true">
+      <div className="success-icon" aria-hidden="true">
         ✅
       </div>
       <h2>Producto cargado con éxito</h2>
       <p>ID de producto: {id}</p>
       <p>Ya podés cargar otro producto.</p>
-      <div className="product-success__actions">
+      <div className="success-actions">
         <Link className="btn bg-success" to="/admin/products/new">
           Cargar otro producto
         </Link>

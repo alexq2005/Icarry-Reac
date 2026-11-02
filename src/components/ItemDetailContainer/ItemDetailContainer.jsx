@@ -6,45 +6,45 @@ import { ItemDetail } from "../ItemDetail/ItemDetail";
 import { getProductById } from "../../services/productsService";
 
 export const ItemDetailContainer = () => {
-  /* Leo el id de la URL y guardo el resultado de la búsqueda. */
+  /* Leo el id de la URL y guardo el producto, el error y la carga. */
   const { id } = useParams();
-  const [result, setResult] = useState(null);
+  const [itemDetail, setItemDetail] = useState(null);
+  const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [prevId, setPrevId] = useState(id);
+
+  /* Si cambia el id, reinicio los estados antes de buscar (durante el render, como recomienda React). */
+  if (id !== prevId) {
+    setPrevId(id);
+    setItemDetail(null);
+    setLoading(true);
+    setError(null);
+  }
 
   /* Consulto Firestore para encontrar el producto solicitado. */
   useEffect(() => {
-    let cancelled = false;
-
     getProductById(id)
-      .then((item) => {
-        if (!cancelled) setResult({ id, item, error: null });
-      })
-      .catch((error) => {
-        if (!cancelled) {
-          setResult({ id, item: null, error: error.message });
-        }
-      });
-
-    return () => {
-      cancelled = true;
-    };
+      .then((data) => setItemDetail(data))
+      .catch((error) => setError(error.message))
+      .finally(() => setLoading(false));
   }, [id]);
 
   /* Mientras carga o si ocurre un error, muestro un mensaje. */
-  if (!result || result.id !== id) {
+  if (loading) {
     return (
       <section className="detail-page">
         <p>Cargando...</p>
       </section>
     );
   }
-  if (result.error) {
+  if (error) {
     return (
       <section className="detail-page">
-        <p>{result.error}</p>
+        <p>{error}</p>
       </section>
     );
   }
-  if (!result.item) {
+  if (!itemDetail) {
     return (
       <section className="detail-page">
         <p>Producto no encontrado</p>
@@ -56,7 +56,7 @@ export const ItemDetailContainer = () => {
   return (
     <section className="detail-page">
       <h1 className="text-secondary">Detalles del producto</h1>
-      <ItemDetail item={result.item} />
+      <ItemDetail item={itemDetail} />
     </section>
   );
 };

@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { formatPrice } from "../../../../utils/formatPrice";
 import "../../Dashboard/Dashboard.css";
 
 export const ProductAdminListUI = ({ products, loading, error, onDelete }) => {
@@ -22,7 +23,7 @@ export const ProductAdminListUI = ({ products, loading, error, onDelete }) => {
             <div className="dashboard-item-info">
               <strong>{prod.name}</strong>
               <span className="dashboard-item-category">{prod.category}</span>
-              <span className="dashboard-item-price">${prod.price}</span>
+              <span className="dashboard-item-price">{formatPrice(prod.price)}</span>
             </div>
 
             <div className="dashboard-item-actions">

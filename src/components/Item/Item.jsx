@@ -1,21 +1,8 @@
 /* Esta tarjeta muestra los datos de un producto y recibe una acción como children. */
 
 import "./Item.css";
-
-/* Uso estos nombres para mostrar las categorías de forma más clara. */
-const CATEGORY_LABELS = {
-  "items-del-juego": "Items del juego",
-  merchandising: "Merchandising",
-};
-
-/* Formateo el precio para mostrarlo en pesos argentinos. */
-const formatPrice = (value) =>
-  new Intl.NumberFormat("es-AR", {
-    style: "currency",
-    currency: "ARS",
-    minimumFractionDigits: 2,
-    maximumFractionDigits: 2,
-  }).format(Number(value));
+import { CATEGORY_LABELS } from "../../utils/categoryLabels";
+import { formatPrice } from "../../utils/formatPrice";
 
 export const Item = ({
   name,

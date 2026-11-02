@@ -17,7 +17,7 @@
 /* -------------------------------------------------------------------------- */
 /*                         MENSAJE Y ACCIONES                                 */
 /* -------------------------------------------------------------------------- */
-.product-success__icon {
+.success-icon {
   margin-bottom: 1rem;
   font-size: 3rem;
 }
@@ -31,7 +31,7 @@
   color: var(--color-suave);
 }
 
-.product-success__actions {
+.success-actions {
   display: flex;
   justify-content: center;
   margin-top: 2rem;

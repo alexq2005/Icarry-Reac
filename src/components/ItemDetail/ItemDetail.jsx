@@ -2,21 +2,8 @@
 
 import { useCart } from "../../context/CartContext";
 import "./ItemDetail.css";
-
-/* Uso estos nombres para mostrar las categorías de forma más clara. */
-const CATEGORY_LABELS = {
-  "items-del-juego": "Items del juego",
-  merchandising: "Merchandising",
-};
-
-/* Formateo el precio para mostrarlo en pesos y con dos decimales. */
-const formatPrice = (value) =>
-  new Intl.NumberFormat("es-AR", {
-    style: "currency",
-    currency: "ARS",
-    minimumFractionDigits: 2,
-    maximumFractionDigits: 2,
-  }).format(Number(value));
+import { CATEGORY_LABELS } from "../../utils/categoryLabels";
+import { formatPrice } from "../../utils/formatPrice";
 
 export const ItemDetail = ({ item }) => {
   const { addItem } = useCart();
@@ -28,7 +15,7 @@ export const ItemDetail = ({ item }) => {
     <article className="detail-layout">
       {/* Muestro la imagen principal del producto. */}
       <div className="detail-media">
-        <img className="detail-media__img" src={item.image} alt={item.name} />
+        <img className="detail-media-img" src={item.image} alt={item.name} />
       </div>
 
       {/* En este bloque muestro la información y las acciones del producto. */}

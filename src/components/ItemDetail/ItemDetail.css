@@ -76,7 +76,7 @@ main:has(.detail-page)::before {
   flex-shrink: 0;
 }
 
-.detail-layout .detail-media > img.detail-media__img,
+.detail-layout .detail-media > img.detail-media-img,
 .detail-layout .detail-media > img {
   display: block;
   width: 100%;

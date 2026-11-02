@@ -145,6 +145,11 @@ h2 {
 /* -------------------------------------------------------------------------- */
 /*                         BOTONES Y ESTADOS                                 */
 /* -------------------------------------------------------------------------- */
+/* Color de texto base para botones, como la clase primary de Belén. */
+.primary {
+  color: var(--color-texto);
+}
+
 /* En esta parte están los estilos que comparten los botones. */
 .btn {
   border: none;

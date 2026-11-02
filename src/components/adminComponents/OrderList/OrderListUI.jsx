@@ -1,12 +1,5 @@
 import { Link } from "react-router-dom";
-
-//formatear precio en pesos
-const formatPrice = (price) =>
-  new Intl.NumberFormat("es-AR", {
-    style: "currency",
-    currency: "ARS",
-    minimumFractionDigits: 2,
-  }).format(Number(price));
+import { formatPrice } from "../../../utils/formatPrice";
 
 //formatear fecha de la orden
 const formatDate = (createdAt) => {
@@ -63,7 +56,11 @@ export const OrderListUI = ({ orders, loading, error, onCancel }) => {
                   <h2>Orden {order.id}</h2>
                   <p>{formatDate(order.createdAt)}</p>
                 </div>
-                <span className={`order-status ${order.status === "cancelada" ? "order-status-cancelada" : ""}`}>
+                <span
+                  className={`order-status ${
+                    order.status === "cancelada" ? "order-status-cancelada" : ""
+                  }`}
+                >
                   {order.status || "recibida"}
                 </span>
               </header>
@@ -81,18 +78,15 @@ export const OrderListUI = ({ orders, loading, error, onCancel }) => {
                 Total: {formatPrice(order.total)}
               </p>
 
-                {order.status !=="cancelada"&&(
-              <button
-              className="btn dashboard-btn-delete"
-              onClick={()=> onCancel(order.id)}
-              >
-              Cancelar Orden
-              </button>
-                )}
-
+              {order.status !== "cancelada" && (
+                <button
+                  className="btn dashboard-btn-delete"
+                  onClick={() => onCancel(order.id)}
+                >
+                  Cancelar Orden
+                </button>
+              )}
             </article>
-          
-            
           ))}
         </div>
       )}

@@ -162,12 +162,13 @@ export const getOrders = async () => {
 
 
 /* -------------------------------------------------------------------------- */
-/*                         Cancelar una orden                        */
+/*                         CANCELAR UNA ORDEN                                 */
 /* -------------------------------------------------------------------------- */
-
-export const cancelOrder= async(id)=>{
-const orderRef =doc(db,"orders",id);
-await updateDoc(orderRef,{status: "cancelada"});
-
-
+export const cancelOrder = async (id) => {
+  try {
+    await updateDoc(doc(ordersRef, id), { status: "cancelada" });
+  } catch (error) {
+    console.error("Error al cancelar la orden de compra:", error);
+    throw error;
+  }
 };
