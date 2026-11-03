@@ -1,4 +1,6 @@
-/* Busco el producto usando el id de la URL y después muestro su detalle. */
+/* -------------------------------------------------------------------------- */
+/*   BUSCO EL PRODUCTO USANDO EL ID DE LA URL Y DESPUÉS MUESTRO SU DETALLE    */
+/* -------------------------------------------------------------------------- */
 
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
@@ -7,14 +9,19 @@ import { ItemDetail } from "../ItemDetail/ItemDetail";
 import { getProductById } from "../../services/productsService";
 
 export const ItemDetailContainer = () => {
-  /* Leo el id de la URL y guardo el producto, el error y la carga. */
+  /* -------------------------------------------------------------------------- */
+  /*       LEO EL ID DE LA URL Y GUARDO EL PRODUCTO, EL ERROR Y LA CARGA        */
+  /* -------------------------------------------------------------------------- */
   const { id } = useParams();
   const [itemDetail, setItemDetail] = useState(null);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
   const [prevId, setPrevId] = useState(id);
 
-  /* Si cambia el id, reinicio los estados antes de buscar (durante el render, como recomienda React). */
+  /* -------------------------------------------------------------------------- */
+  /*           SI CAMBIA EL ID, REINICIO LOS ESTADOS ANTES DE BUSCAR            */
+  /*                 (DURANTE EL RENDER, COMO RECOMIENDA REACT)                 */
+  /* -------------------------------------------------------------------------- */
   if (id !== prevId) {
     setPrevId(id);
     setItemDetail(null);
@@ -22,7 +29,9 @@ export const ItemDetailContainer = () => {
     setError(null);
   }
 
-  /* Consulto Firestore para encontrar el producto solicitado. */
+  /* -------------------------------------------------------------------------- */
+  /*          CONSULTO FIRESTORE PARA ENCONTRAR EL PRODUCTO SOLICITADO          */
+  /* -------------------------------------------------------------------------- */
   useEffect(() => {
     getProductById(id)
       .then((data) => setItemDetail(data))
@@ -30,7 +39,9 @@ export const ItemDetailContainer = () => {
       .finally(() => setLoading(false));
   }, [id]);
 
-  /* Mientras carga o si ocurre un error, muestro un mensaje. */
+  /* -------------------------------------------------------------------------- */
+  /*          MIENTRAS CARGA O SI OCURRE UN ERROR, MUESTRO UN MENSAJE           */
+  /* -------------------------------------------------------------------------- */
   if (loading) {
     return (
       <section className="detail-page">
@@ -55,10 +66,14 @@ export const ItemDetailContainer = () => {
     );
   }
 
-  /* Cuando encuentro el producto, muestro su información. */
+  /* -------------------------------------------------------------------------- */
+  /*            CUANDO ENCUENTRO EL PRODUCTO, MUESTRO SU INFORMACIÓN            */
+  /* -------------------------------------------------------------------------- */
   return (
     <section className="detail-page">
-      {/* En la pestaña muestro el nombre del producto */}
+      {/* -------------------------------------------------------------------------- */}
+      {/*                EN LA PESTAÑA MUESTRO EL NOMBRE DEL PRODUCTO                */}
+      {/* -------------------------------------------------------------------------- */}
       <Helmet>
         <title>{`${itemDetail.name} | iCarry`}</title>
       </Helmet>

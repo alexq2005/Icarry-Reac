@@ -1,6 +1,8 @@
-/* Dejo la cabecera fija para que siga visible al bajar por la página. */
 /* -------------------------------------------------------------------------- */
-/*                            CABECERA PRINCIPAL                              */
+/*     DEJO LA CABECERA FIJA PARA QUE SIGA VISIBLE AL BAJAR POR LA PÁGINA     */
+/* -------------------------------------------------------------------------- */
+/* -------------------------------------------------------------------------- */
+/*                             CABECERA PRINCIPAL                             */
 /* -------------------------------------------------------------------------- */
 header {
   position: sticky;
@@ -16,9 +18,11 @@ header {
 }
 
 /* -------------------------------------------------------------------------- */
-/*                                  LOGO                                      */
+/*                                    LOGO                                    */
 /* -------------------------------------------------------------------------- */
-/* Ajusto el tamaño del logo. */
+/* -------------------------------------------------------------------------- */
+/*                         AJUSTO EL TAMAÑO DEL LOGO                          */
+/* -------------------------------------------------------------------------- */
 header img {
   height: 4.8rem;
   transition:
@@ -33,15 +37,19 @@ header img:hover {
 }
 
 /* -------------------------------------------------------------------------- */
-/*                         DISEÑO RESPONSIVE                                  */
+/*                             DISEÑO RESPONSIVE                              */
 /* -------------------------------------------------------------------------- */
 @media (max-width: 720px) {
-  /* en celular pongo el logo arriba y el menu entero abajo */
+  /* -------------------------------------------------------------------------- */
+  /*           EN CELULAR PONGO EL LOGO ARRIBA Y EL MENU ENTERO ABAJO           */
+  /* -------------------------------------------------------------------------- */
   header {
     padding: 1rem var(--space-sm, 1.5rem);
     flex-direction: column;
     gap: 0.6rem;
-    /* en celular el header no queda fijo para que no tape el contenido */
+    /* -------------------------------------------------------------------------- */
+    /*      EN CELULAR EL HEADER NO QUEDA FIJO PARA QUE NO TAPE EL CONTENIDO      */
+    /* -------------------------------------------------------------------------- */
     position: static;
   }
 

@@ -1,6 +1,8 @@
-/* Estilos del menú y de sus enlaces. */
 /* -------------------------------------------------------------------------- */
-/*                            ENLACES DE NAVEGACIÓN                           */
+/*                     ESTILOS DEL MENÚ Y DE SUS ENLACES                      */
+/* -------------------------------------------------------------------------- */
+/* -------------------------------------------------------------------------- */
+/*                           ENLACES DE NAVEGACIÓN                            */
 /* -------------------------------------------------------------------------- */
 .nav-list {
   display: flex;
@@ -67,9 +69,11 @@
 }
 
 /* -------------------------------------------------------------------------- */
-/*                              WIDGET DEL CARRITO                             */
+/*                             WIDGET DEL CARRITO                             */
 /* -------------------------------------------------------------------------- */
-/* Estilos del acceso al carrito. */
+/* -------------------------------------------------------------------------- */
+/*                       ESTILOS DEL ACCESO AL CARRITO                        */
+/* -------------------------------------------------------------------------- */
 .cart-widget {
   font-size: 1.6rem;
   position: relative;
@@ -79,12 +83,16 @@
   padding-right: 0.4rem;
 }
 
-/* El icono toma el color del enlace, así cambia junto con el texto. */
+/* -------------------------------------------------------------------------- */
+/*      EL ICONO TOMA EL COLOR DEL ENLACE, ASÍ CAMBIA JUNTO CON EL TEXTO      */
+/* -------------------------------------------------------------------------- */
 .cart-icon {
   font-size: 2rem;
 }
 
-/* Destaco la cantidad de productos con un círculo. */
+/* -------------------------------------------------------------------------- */
+/*              DESTACO LA CANTIDAD DE PRODUCTOS CON UN CÍRCULO               */
+/* -------------------------------------------------------------------------- */
 .incart {
   position: absolute;
   top: -0.7rem;
@@ -114,7 +122,9 @@
     justify-content: center;
   }
 
-  /* links mas altos para tocarlos comodo con el dedo */
+  /* -------------------------------------------------------------------------- */
+  /*              LINKS MAS ALTOS PARA TOCARLOS COMODO CON EL DEDO              */
+  /* -------------------------------------------------------------------------- */
   .nav-list .nav-link {
     font-size: 1.3rem;
     letter-spacing: 0.06em;

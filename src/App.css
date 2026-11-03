@@ -1,4 +1,7 @@
-/* Hago que la app ocupe la pantalla y dejo el pie abajo cuando hay poco contenido. */
+/* -------------------------------------------------------------------------- */
+/*              HAGO QUE LA APP OCUPE LA PANTALLA Y DEJO EL PIE               */
+/*                      ABAJO CUANDO HAY POCO CONTENIDO                       */
+/* -------------------------------------------------------------------------- */
 /* -------------------------------------------------------------------------- */
 /*                            CONTENEDOR PRINCIPAL                            */
 /* -------------------------------------------------------------------------- */
@@ -12,7 +15,9 @@
 /* -------------------------------------------------------------------------- */
 /*                         PANEL GENERAL DE CONTENIDO                         */
 /* -------------------------------------------------------------------------- */
-/* Este estilo se comparte entre las páginas principales. */
+/* -------------------------------------------------------------------------- */
+/*           ESTE ESTILO SE COMPARTE ENTRE LAS PÁGINAS PRINCIPALES            */
+/* -------------------------------------------------------------------------- */
 main {
   flex: 1;
   width: min(1200px, 90%);
@@ -26,7 +31,9 @@ main {
   background: var(--glass-bg);
   box-shadow: var(--glass-shadow);
 
-  /* Agrego un borde interior decorativo sin bloquear los clics. */
+  /* -------------------------------------------------------------------------- */
+  /*         AGREGO UN BORDE INTERIOR DECORATIVO SIN BLOQUEAR LOS CLICS         */
+  /* -------------------------------------------------------------------------- */
   &::before {
     content: "";
     position: absolute;
@@ -37,7 +44,9 @@ main {
     pointer-events: none;
   }
 
-  /* En la página de detalle, el panel se ajusta al contenido. */
+  /* -------------------------------------------------------------------------- */
+  /*          EN LA PÁGINA DE DETALLE, EL PANEL SE AJUSTA AL CONTENIDO          */
+  /* -------------------------------------------------------------------------- */
   &:has(.detail-page) {
     flex: 0 0 auto;
     height: fit-content;
@@ -46,7 +55,9 @@ main {
     max-width: min(80rem, 94vw);
   }
 
-  /* Links y botones del panel: efecto al pasar el mouse y foco con teclado. */
+  /* -------------------------------------------------------------------------- */
+  /*   LINKS Y BOTONES DEL PANEL: EFECTO AL PASAR EL MOUSE Y FOCO CON TECLADO   */
+  /* -------------------------------------------------------------------------- */
   a,
   button {
     transition: box-shadow 0.3s, border-color 0.3s;
@@ -61,7 +72,9 @@ main {
     }
   }
 
-  /* En pantallas chicas reduzco los márgenes y el espacio interior. */
+  /* -------------------------------------------------------------------------- */
+  /*       EN PANTALLAS CHICAS REDUZCO LOS MÁRGENES Y EL ESPACIO INTERIOR       */
+  /* -------------------------------------------------------------------------- */
   @media (max-width: 640px) {
     width: min(calc(100% - 2rem), 1200px);
     margin: var(--space-sm) auto;
@@ -76,9 +89,11 @@ main {
 }
 
 /* -------------------------------------------------------------------------- */
-/*                      ESTILOS DE LA PAGINA NO ENCONTRADA                       */
+/*                     ESTILOS DE LA PAGINA NO ENCONTRADA                     */
 /* -------------------------------------------------------------------------- */
-/* Variables de color dorado para los estilos de abajo. */
+/* -------------------------------------------------------------------------- */
+/*            VARIABLES DE COLOR DORADO PARA LOS ESTILOS DE ABAJO             */
+/* -------------------------------------------------------------------------- */
 :root {
   --accent: var(--color-dorado);
   --accent-bg: rgba(242, 198, 109, 0.12);
@@ -130,7 +145,9 @@ main {
   }
 }
 
-/* Avisos del carrito con los colores de la tienda. */
+/* -------------------------------------------------------------------------- */
+/*              AVISOS DEL CARRITO CON LOS COLORES DE LA TIENDA               */
+/* -------------------------------------------------------------------------- */
 .Toastify__toast-theme--dark {
   background-color: #1a1522;
   color: #f0eaf2;

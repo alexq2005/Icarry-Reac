@@ -9,7 +9,9 @@ import {
   updateProduct,
 } from "../../../../services/productsService";
 import "../../ProductForm/ProductFormContainer.css";
-//Import para Toastify
+/* -------------------------------------------------------------------------- */
+/*                            IMPORT PARA TOASTIFY                            */
+/* -------------------------------------------------------------------------- */
 import { toast } from "react-toastify";
 
 export const ProductFormContainerDual = () => {
@@ -25,7 +27,9 @@ export const ProductFormContainerDual = () => {
     description: "",
   });
 
-  //si hay id, traemos el producto para editarlo
+  /* -------------------------------------------------------------------------- */
+  /*                SI HAY ID, TRAEMOS EL PRODUCTO PARA EDITARLO                */
+  /* -------------------------------------------------------------------------- */
   useEffect(() => {
     if (!id) return;
 
@@ -57,11 +61,15 @@ export const ProductFormContainerDual = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    //modificamos los estados para el "loading mientras se procesa"
+    /* -------------------------------------------------------------------------- */
+    /*       MODIFICAMOS LOS ESTADOS PARA EL "LOADING MIENTRAS SE PROCESA"        */
+    /* -------------------------------------------------------------------------- */
     setErrors({});
     setLoading(true);
 
-    //validar inputs (si edito, alcanza con la imagen actual)
+    /* -------------------------------------------------------------------------- */
+    /*          VALIDAR INPUTS (SI EDITO, ALCANZA CON LA IMAGEN ACTUAL)           */
+    /* -------------------------------------------------------------------------- */
     const newErrors = validateProduct({ ...product, file: file || product.image });
     if (Object.keys(newErrors).length > 0) {
       setErrors(newErrors);
@@ -70,10 +78,14 @@ export const ProductFormContainerDual = () => {
     }
 
     try {
-      //subir la imagen solo si se eligio una nueva
+      /* -------------------------------------------------------------------------- */
+      /*                SUBIR LA IMAGEN SOLO SI SE ELIGIO UNA NUEVA                 */
+      /* -------------------------------------------------------------------------- */
       const imageUrl = file ? await uploadImage(file) : product.image;
 
-      //armar la estructura del producto
+      /* -------------------------------------------------------------------------- */
+      /*                      ARMAR LA ESTRUCTURA DEL PRODUCTO                      */
+      /* -------------------------------------------------------------------------- */
       const productData = {
         ...product,
         price: Number(product.price),
@@ -81,18 +93,26 @@ export const ProductFormContainerDual = () => {
       };
 
       if (id) {
-        //modificacion
+        /* -------------------------------------------------------------------------- */
+        /*                                MODIFICACION                                */
+        /* -------------------------------------------------------------------------- */
         await updateProduct(id, productData);
         toast.success("Producto actualizado");
         navigate("/admin/dashboard", { replace: true });
       } else {
-        //alta
+        /* -------------------------------------------------------------------------- */
+        /*                                    ALTA                                    */
+        /* -------------------------------------------------------------------------- */
         const newId = await createProduct(productData);
-        //vaciar formulario
+        /* -------------------------------------------------------------------------- */
+        /*                             VACIAR FORMULARIO                              */
+        /* -------------------------------------------------------------------------- */
         setProduct({ name: "", price: "", category: "", description: "" });
         setFile(null);
 
-        //navegar a la pagina de exito
+        /* -------------------------------------------------------------------------- */
+        /*                        NAVEGAR A LA PAGINA DE EXITO                        */
+        /* -------------------------------------------------------------------------- */
         navigate(`/admin/products/success/${newId}`, { replace: true });
       }
     } catch (error) {

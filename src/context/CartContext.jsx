@@ -7,15 +7,22 @@ import { createOrder } from "../services/productsService";
 /* -------------------------------------------------------------------------- */
 /*                              CREAMOS CONTEXTO                              */
 /* -------------------------------------------------------------------------- */
-/* Creo este contexto para compartir los datos del carrito con otros componentes. */
+/* -------------------------------------------------------------------------- */
+/*              CREO ESTE CONTEXTO PARA COMPARTIR LOS DATOS DEL               */
+/*                       CARRITO CON OTROS COMPONENTES                        */
+/* -------------------------------------------------------------------------- */
 const CartContext = createContext(null);
 
 /* -------------------------------------------------------------------------- */
-/*                                 CUSTOM HOOK                                */
+/*                                CUSTOM HOOK                                 */
 /* -------------------------------------------------------------------------- */
-/* Uso este hook para acceder al carrito desde los demás componentes. */
+/* -------------------------------------------------------------------------- */
+/*     USO ESTE HOOK PARA ACCEDER AL CARRITO DESDE LOS DEMÁS COMPONENTES      */
+/* -------------------------------------------------------------------------- */
 export const useCart = () => {
-  // Acá obtengo el carrito y las funciones que comparto con el contexto.
+  /* -------------------------------------------------------------------------- */
+  /*    ACÁ OBTENGO EL CARRITO Y LAS FUNCIONES QUE COMPARTO CON EL CONTEXTO     */
+  /* -------------------------------------------------------------------------- */
   const context = useContext(CartContext);
 
   if (!context) {
@@ -25,51 +32,71 @@ export const useCart = () => {
 };
 
 /* -------------------------------------------------------------------------- */
-/*                                  PROVEEDOR                                 */
+/*                                 PROVEEDOR                                  */
 /* -------------------------------------------------------------------------- */
-/* Acá guardo los productos y las funciones para manejar el carrito. */
+/* -------------------------------------------------------------------------- */
+/*      ACÁ GUARDO LOS PRODUCTOS Y LAS FUNCIONES PARA MANEJAR EL CARRITO      */
+/* -------------------------------------------------------------------------- */
 export const CartProvider = ({ children }) => {
-  // Después de confirmar la compra, vuelvo a la página principal.
+  /* -------------------------------------------------------------------------- */
+  /*        DESPUÉS DE CONFIRMAR LA COMPRA, VUELVO A LA PÁGINA PRINCIPAL        */
+  /* -------------------------------------------------------------------------- */
   const navigate = useNavigate();
-  // Guardo acá los productos que se agregan al carrito.
+  /* -------------------------------------------------------------------------- */
+  /*             GUARDO ACÁ LOS PRODUCTOS QUE SE AGREGAN AL CARRITO             */
+  /* -------------------------------------------------------------------------- */
   const [cart, setCart] = useState([]);
   const [checkoutLoading, setCheckoutLoading] = useState(false);
   const [checkoutError, setCheckoutError] = useState("");
 
-  // Reviso si el producto ya está agregado para no repetirlo.
+  /* -------------------------------------------------------------------------- */
+  /*          REVISO SI EL PRODUCTO YA ESTÁ AGREGADO PARA NO REPETIRLO          */
+  /* -------------------------------------------------------------------------- */
   const isInCart = (item) => {
     const inCart = cart.some((element) => element.id === item.id);
     return inCart;
   };
 
-  // Agrego el producto si todavía no está en el carrito.
+  /* -------------------------------------------------------------------------- */
+  /*            AGREGO EL PRODUCTO SI TODAVÍA NO ESTÁ EN EL CARRITO             */
+  /* -------------------------------------------------------------------------- */
   const addItem = (item) => {
     if (isInCart(item)) {
       toast.warning("El producto ya existe en el carrito");
       return;
     }
-    //forma funcional de "prev
+    /* -------------------------------------------------------------------------- */
+    /*                          FORMA FUNCIONAL DE "PREV                          */
+    /* -------------------------------------------------------------------------- */
     //setCart(prevCart => [...prev, item]);
     setCart([...cart, item]);
     toast.success("Producto agregado al carrito.");
   };
 
-  // Busco por id y saco del carrito el producto indicado.
+  /* -------------------------------------------------------------------------- */
+  /*            BUSCO POR ID Y SACO DEL CARRITO EL PRODUCTO INDICADO            */
+  /* -------------------------------------------------------------------------- */
   const removeItem = (id) => {
     const updatedCart = cart.filter((element) => element.id !== id);
     setCart(updatedCart);
     toast.info("Producto eliminado del carrito.");
   };
 
-  // Dejo el carrito vacío.
+  /* -------------------------------------------------------------------------- */
+  /*                           DEJO EL CARRITO VACÍO                            */
+  /* -------------------------------------------------------------------------- */
   const clearCart = () => {
     setCart([]);
   };
-  // Devuelvo cuántos productos hay en el carrito.
+  /* -------------------------------------------------------------------------- */
+  /*                DEVUELVO CUÁNTOS PRODUCTOS HAY EN EL CARRITO                */
+  /* -------------------------------------------------------------------------- */
   const getTotalItems = () => {
     return cart.length;
   };
-  // Sumo los precios en centavos para evitar errores con los decimales.
+  /* -------------------------------------------------------------------------- */
+  /*     SUMO LOS PRECIOS EN CENTAVOS PARA EVITAR ERRORES CON LOS DECIMALES     */
+  /* -------------------------------------------------------------------------- */
   const getCartTotal = () => {
     const totalInCents = cart.reduce(
       (acc, element) => acc + Math.round(Number(element.price) * 100),
@@ -77,7 +104,9 @@ export const CartProvider = ({ children }) => {
     );
     return totalInCents / 100;
   };
-  // Muestro la confirmación, vacío el carrito y vuelvo al inicio.
+  /* -------------------------------------------------------------------------- */
+  /*        MUESTRO LA CONFIRMACIÓN, VACÍO EL CARRITO Y VUELVO AL INICIO        */
+  /* -------------------------------------------------------------------------- */
   const checkout = async () => {
     if (cart.length === 0 || checkoutLoading) {
       return;
@@ -102,7 +131,9 @@ export const CartProvider = ({ children }) => {
     }
   };
 
-  // Junto los datos y funciones que quiero compartir.
+  /* -------------------------------------------------------------------------- */
+  /*              JUNTO LOS DATOS Y FUNCIONES QUE QUIERO COMPARTIR              */
+  /* -------------------------------------------------------------------------- */
   const values = {
     cart,
     addItem,
@@ -114,6 +145,9 @@ export const CartProvider = ({ children }) => {
     checkoutLoading,
     checkoutError,
   };
-  // Comparto esta información con los componentes que están dentro del proveedor.
+  /* -------------------------------------------------------------------------- */
+  /*               COMPARTO ESTA INFORMACIÓN CON LOS COMPONENTES                */
+  /*                       QUE ESTÁN DENTRO DEL PROVEEDOR                       */
+  /* -------------------------------------------------------------------------- */
   return <CartContext.Provider value={values}>{children}</CartContext.Provider>;
 };

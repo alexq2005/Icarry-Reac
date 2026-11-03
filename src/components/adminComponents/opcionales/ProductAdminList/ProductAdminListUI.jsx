@@ -5,7 +5,9 @@ import { formatPrice } from "../../../../utils/formatPrice";
 import "../../Dashboard/Dashboard.css";
 
 export const ProductAdminListUI = ({ products, loading, error, onDelete }) => {
-  //si estoy fuera del panel, muestro el boton para volver
+  /* -------------------------------------------------------------------------- */
+  /*           SI ESTOY FUERA DEL PANEL, MUESTRO EL BOTON PARA VOLVER           */
+  /* -------------------------------------------------------------------------- */
   const { pathname } = useLocation();
   const outsidePanel = pathname === "/admin/products";
 

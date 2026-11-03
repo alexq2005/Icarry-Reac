@@ -31,14 +31,18 @@ export const DashboardFullUI = ({ onLogout }) => {
         <h3>Gestión de productos</h3>
 
         <div className="dashboard-actions">
-          {/* Accion principal: cargar un producto nuevo */}
+          {/* -------------------------------------------------------------------------- */}
+          {/*                 ACCION PRINCIPAL: CARGAR UN PRODUCTO NUEVO                 */}
+          {/* -------------------------------------------------------------------------- */}
           <Link to="/admin/products/new" className="dashboard-action dashboard-action-main">
             <span className="dashboard-action-icon" aria-hidden="true"><FaPlus /></span>
             <span className="dashboard-action-title">Cargar producto</span>
             <span className="dashboard-action-text">Sumá un producto nuevo a la tienda.</span>
           </Link>
 
-          {/* Accion secundaria: ver las compras */}
+          {/* -------------------------------------------------------------------------- */}
+          {/*                     ACCION SECUNDARIA: VER LAS COMPRAS                     */}
+          {/* -------------------------------------------------------------------------- */}
           <Link to="/admin/orders" className="dashboard-action">
             <span className="dashboard-action-icon" aria-hidden="true"><FaClipboardList /></span>
             <span className="dashboard-action-title">Órdenes de compra</span>

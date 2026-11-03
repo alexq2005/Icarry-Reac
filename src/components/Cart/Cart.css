@@ -1,6 +1,8 @@
-/* Estilos de la página del carrito. */
 /* -------------------------------------------------------------------------- */
-/*                         CONTENEDOR Y PRODUCTOS                             */
+/*                      ESTILOS DE LA PÁGINA DEL CARRITO                      */
+/* -------------------------------------------------------------------------- */
+/* -------------------------------------------------------------------------- */
+/*                           CONTENEDOR Y PRODUCTOS                           */
 /* -------------------------------------------------------------------------- */
 .cart-container {
   display: flex;
@@ -9,7 +11,9 @@
   gap: var(--space-md);
 }
 
-/* Acomodo las tarjetas de los productos del carrito. */
+/* -------------------------------------------------------------------------- */
+/*             ACOMODO LAS TARJETAS DE LOS PRODUCTOS DEL CARRITO              */
+/* -------------------------------------------------------------------------- */
 .cart-items-container {
   margin: 0 0 var(--space-md);
   display: flex;
@@ -24,9 +28,11 @@
 }
 
 /* -------------------------------------------------------------------------- */
-/*                         ESTADO DE CARRITO VACÍO                            */
+/*                          ESTADO DE CARRITO VACÍO                           */
 /* -------------------------------------------------------------------------- */
-/* Estilos que muestro cuando el carrito no tiene productos. */
+/* -------------------------------------------------------------------------- */
+/*          ESTILOS QUE MUESTRO CUANDO EL CARRITO NO TIENE PRODUCTOS          */
+/* -------------------------------------------------------------------------- */
 .empty-cart-state {
   display: flex;
   flex-direction: column;
@@ -47,7 +53,9 @@
   box-shadow: var(--glass-shadow, 0 1.4rem 3.6rem rgba(0, 0, 0, 0.14));
 }
 
-/* Agrego un carrito como detalle visual para el estado vacío. */
+/* -------------------------------------------------------------------------- */
+/*         AGREGO UN CARRITO COMO DETALLE VISUAL PARA EL ESTADO VACÍO         */
+/* -------------------------------------------------------------------------- */
 .empty-cart-state::before {
   content: "\1F6D2";
   display: block;
@@ -99,9 +107,11 @@
 }
 
 /* -------------------------------------------------------------------------- */
-/*                          ACCIONES Y TOTAL                                  */
+/*                              ACCIONES Y TOTAL                              */
 /* -------------------------------------------------------------------------- */
-/* Estilos del total y del botón para confirmar la compra. */
+/* -------------------------------------------------------------------------- */
+/*           ESTILOS DEL TOTAL Y DEL BOTÓN PARA CONFIRMAR LA COMPRA           */
+/* -------------------------------------------------------------------------- */
 .cart-actions {
   display: flex;
   flex-direction: column;
@@ -125,7 +135,9 @@
   object-fit: contain;
 }
 
-/* Agrego sombra al título para que se lea mejor sobre el fondo. */
+/* -------------------------------------------------------------------------- */
+/*        AGREGO SOMBRA AL TÍTULO PARA QUE SE LEA MEJOR SOBRE EL FONDO        */
+/* -------------------------------------------------------------------------- */
 .cart-container h1 {
   text-shadow: var(--text-on-glass);
 }

@@ -1,4 +1,7 @@
-/* Esta tarjeta muestra los datos de un producto y recibe una acción como children. */
+/* -------------------------------------------------------------------------- */
+/*              ESTA TARJETA MUESTRA LOS DATOS DE UN PRODUCTO Y               */
+/*                      RECIBE UNA ACCIÓN COMO CHILDREN                       */
+/* -------------------------------------------------------------------------- */
 
 import "./Item.css";
 import { CATEGORY_LABELS } from "../../utils/categoryLabels";
@@ -16,14 +19,20 @@ export const Item = ({
 
   return (
     <article className="card">
-      {/* Muestro la categoría si el producto tiene una. */}
+      {/* -------------------------------------------------------------------------- */}
+      {/*               MUESTRO LA CATEGORÍA SI EL PRODUCTO TIENE UNA                */}
+      {/* -------------------------------------------------------------------------- */}
       {categoryLabel && <span className="category-chip">{categoryLabel}</span>}
-      {/* Acá muestro la imagen, el nombre, la descripción y el precio. */}
+      {/* -------------------------------------------------------------------------- */}
+      {/*        ACÁ MUESTRO LA IMAGEN, EL NOMBRE, LA DESCRIPCIÓN Y EL PRECIO        */}
+      {/* -------------------------------------------------------------------------- */}
       <img src={image} alt={name} loading="lazy" />
       <h3>{name}</h3>
       <p>{description}</p>
       <p className="card-precio">{formatPrice(price)}</p>
-      {/* Cada pantalla puede agregar acá su propio botón o enlace. */}
+      {/* -------------------------------------------------------------------------- */}
+      {/*          CADA PANTALLA PUEDE AGREGAR ACÁ SU PROPIO BOTÓN O ENLACE          */}
+      {/* -------------------------------------------------------------------------- */}
       {children}
     </article>
   );

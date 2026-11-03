@@ -7,9 +7,9 @@ import { createProduct } from "../../../services/productsService";
 import "./ProductFormContainer.css";
 
 export const ProductFormContainer = () => {
-  /* ------------------------------------------------------------------------ */
-  /*                            ESTADO DEL FORMULARIO                         */
-  /* ------------------------------------------------------------------------ */
+  /* -------------------------------------------------------------------------- */
+  /*                           ESTADO DEL FORMULARIO                            */
+  /* -------------------------------------------------------------------------- */
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
   const [errors, setErrors] = useState({});
@@ -21,9 +21,9 @@ export const ProductFormContainer = () => {
     description: "",
   });
 
-  /* ------------------------------------------------------------------------ */
-  /*                         MANEJO DE CAMBIOS DEL FORMULARIO                 */
-  /* ------------------------------------------------------------------------ */
+  /* -------------------------------------------------------------------------- */
+  /*                      MANEJO DE CAMBIOS DEL FORMULARIO                      */
+  /* -------------------------------------------------------------------------- */
   const handleChange = (e) => {
     const { name, value } = e.target;
     setProduct({ ...product, [name]: value });
@@ -34,15 +34,17 @@ export const ProductFormContainer = () => {
     setFile(file);
   };
 
-  /* ------------------------------------------------------------------------ */
-  /*                    VALIDACIÓN Y GUARDADO DEL PRODUCTO                    */
-  /* ------------------------------------------------------------------------ */
+  /* -------------------------------------------------------------------------- */
+  /*                     VALIDACIÓN Y GUARDADO DEL PRODUCTO                     */
+  /* -------------------------------------------------------------------------- */
   const handleSubmit = async (e) => {
     e.preventDefault();
     setErrors({});
     setLoading(true);
 
-    // Valido los datos antes de subir la imagen o guardar el producto.
+    /* -------------------------------------------------------------------------- */
+    /*      VALIDO LOS DATOS ANTES DE SUBIR LA IMAGEN O GUARDAR EL PRODUCTO       */
+    /* -------------------------------------------------------------------------- */
     const newErrors = validateProduct({ ...product, file });
     if (Object.keys(newErrors).length > 0) {
       setErrors(newErrors);
@@ -51,7 +53,9 @@ export const ProductFormContainer = () => {
     }
 
     try {
-      // Subo la imagen y armo la estructura del producto.
+      /* -------------------------------------------------------------------------- */
+      /*              SUBO LA IMAGEN Y ARMO LA ESTRUCTURA DEL PRODUCTO              */
+      /* -------------------------------------------------------------------------- */
       const imageUrl = await uploadImage(file);
       const productData = {
         ...product,
@@ -61,7 +65,9 @@ export const ProductFormContainer = () => {
 
       const id = await createProduct(productData);
 
-      // Limpio el formulario y muestro la confirmación del alta.
+      /* -------------------------------------------------------------------------- */
+      /*          LIMPIO EL FORMULARIO Y MUESTRO LA CONFIRMACIÓN DEL ALTA           */
+      /* -------------------------------------------------------------------------- */
       setProduct({ name: "", price: "", category: "", description: "" });
       setFile(null);
       navigate(`/admin/products/success/${id}`, { replace: true });
@@ -73,9 +79,9 @@ export const ProductFormContainer = () => {
     }
   };
 
-  /* ------------------------------------------------------------------------ */
-  /*                            VISTA DEL FORMULARIO                          */
-  /* ------------------------------------------------------------------------ */
+  /* -------------------------------------------------------------------------- */
+  /*                            VISTA DEL FORMULARIO                            */
+  /* -------------------------------------------------------------------------- */
   return (
     <ProductFormUI
       product={product}

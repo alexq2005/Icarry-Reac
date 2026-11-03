@@ -1,7 +1,12 @@
-/* En este componente organizo las partes principales y las rutas de la tienda. */
+/* -------------------------------------------------------------------------- */
+/*                   EN ESTE COMPONENTE ORGANIZO LAS PARTES                   */
+/*                    PRINCIPALES Y LAS RUTAS DE LA TIENDA                    */
+/* -------------------------------------------------------------------------- */
 
 import { Navigate, Route, Routes } from "react-router-dom";
-//Import para Toastify
+/* -------------------------------------------------------------------------- */
+/*                            IMPORT PARA TOASTIFY                            */
+/* -------------------------------------------------------------------------- */
 import { ToastContainer } from "react-toastify";
 import "./App.css";
 import { ItemListContainer } from "./components/ItemListContainer/ItemListContainer";
@@ -22,21 +27,29 @@ import { ProductFormContainerDual } from "./components/adminComponents/opcionale
 function App() {
   return (
     <>
-      {/* ----------------------RUTAS PUBLICAS -------------------------*/}
+      {/* -------------------------------------------------------------------------- */}
+      {/*                               RUTAS PUBLICAS                               */}
+      {/* -------------------------------------------------------------------------- */}
       <Routes>
         <Route element={<PublicLayout />}>
           <Route path="/" element={<ItemListContainer />} />
-          {/* Ruta opcional para filtrar categorias */}
+          {/* -------------------------------------------------------------------------- */}
+          {/*                   RUTA OPCIONAL PARA FILTRAR CATEGORIAS                    */}
+          {/* -------------------------------------------------------------------------- */}
           <Route path="/category/:category" element={<ItemListContainer />} />
           <Route path="/product/:id" element={<ItemDetailContainer />} />
           <Route path="/cart" element={<CartView />} />
-          {/* cualquier ruta que no existe */}
+          {/* -------------------------------------------------------------------------- */}
+          {/*                        CUALQUIER RUTA QUE NO EXISTE                        */}
+          {/* -------------------------------------------------------------------------- */}
           <Route path="*" element={<NotFound />} />
         </Route>
 
         <Route path="/admin/login" element={<Login />} />
 
-        {/* -----------------------------ADMIN--------------------------- */}
+        {/* -------------------------------------------------------------------------- */}
+        {/*                                   ADMIN                                    */}
+        {/* -------------------------------------------------------------------------- */}
         <Route
           path="/admin"
           element={
@@ -45,15 +58,21 @@ function App() {
             </ProtectedRoute>
           }
         >
-          {/*-------------- RUTAS ADMIN----------------*/}
-          {/* Si el admin esta logeado, redirige a la ruta /admin/dashboard */}
+          {/* -------------------------------------------------------------------------- */}
+          {/*                                RUTAS ADMIN                                 */}
+          {/* -------------------------------------------------------------------------- */}
+          {/* -------------------------------------------------------------------------- */}
+          {/*       SI EL ADMIN ESTA LOGEADO, REDIRIGE A LA RUTA /ADMIN/DASHBOARD        */}
+          {/* -------------------------------------------------------------------------- */}
           <Route index element={<Navigate to={"dashboard"} />} />
           {/*<Route path="dasboard" element={<Dashboard/>}*/}
           <Route path="products/new" element={<ProductFormContainer />} />
           <Route path="products/success/:id" element={<ProductSuccess />} />
           <Route path="orders" element={<OrderListContainer />} />
 
-          {/* Opcionales */}
+          {/* -------------------------------------------------------------------------- */}
+          {/*                                 OPCIONALES                                 */}
+          {/* -------------------------------------------------------------------------- */}
         
           <Route path="dashboard" element={<DashboardFull />} />
           <Route path="products" element={<ProductAdminListContainer />} />
@@ -63,7 +82,9 @@ function App() {
           />
         </Route>
       </Routes>
-      {/* Aca aparecen los avisos del carrito */}
+      {/* -------------------------------------------------------------------------- */}
+      {/*                    ACA APARECEN LOS AVISOS DEL CARRITO                     */}
+      {/* -------------------------------------------------------------------------- */}
       <ToastContainer theme="dark" />
     </>
   );

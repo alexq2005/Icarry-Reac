@@ -1,6 +1,8 @@
-/* Estilos para la página donde muestro el detalle del producto. */
 /* -------------------------------------------------------------------------- */
-/*                       ESTRUCTURA DEL DETALLE                               */
+/*        ESTILOS PARA LA PÁGINA DONDE MUESTRO EL DETALLE DEL PRODUCTO        */
+/* -------------------------------------------------------------------------- */
+/* -------------------------------------------------------------------------- */
+/*                           ESTRUCTURA DEL DETALLE                           */
 /* -------------------------------------------------------------------------- */
 
 main:has(.detail-page) {
@@ -56,9 +58,11 @@ main:has(.detail-page)::before {
 }
 
 /* -------------------------------------------------------------------------- */
-/*                           IMAGEN DEL PRODUCTO                              */
+/*                            IMAGEN DEL PRODUCTO                             */
 /* -------------------------------------------------------------------------- */
-/* Mantengo la imagen en su proporción para que no se deforme. */
+/* -------------------------------------------------------------------------- */
+/*         MANTENGO LA IMAGEN EN SU PROPORCIÓN PARA QUE NO SE DEFORME         */
+/* -------------------------------------------------------------------------- */
 .detail-layout .detail-media {
   border-radius: var(--glass-radius, 1.6rem);
   overflow: hidden;
@@ -87,9 +91,11 @@ main:has(.detail-page)::before {
 }
 
 /* -------------------------------------------------------------------------- */
-/*                        INFORMACIÓN DEL PRODUCTO                            */
+/*                          INFORMACIÓN DEL PRODUCTO                          */
 /* -------------------------------------------------------------------------- */
-/* Acomodo el texto y los datos de compra del producto. */
+/* -------------------------------------------------------------------------- */
+/*            ACOMODO EL TEXTO Y LOS DATOS DE COMPRA DEL PRODUCTO             */
+/* -------------------------------------------------------------------------- */
 .detail-info {
   display: flex;
   flex-direction: column;
@@ -124,9 +130,11 @@ main:has(.detail-page)::before {
 }
 
 /* -------------------------------------------------------------------------- */
-/*                         PRECIO Y BOTÓN DE COMPRA                           */
+/*                          PRECIO Y BOTÓN DE COMPRA                          */
 /* -------------------------------------------------------------------------- */
-/* Destaco juntos el precio y el botón para agregar el producto. */
+/* -------------------------------------------------------------------------- */
+/*        DESTACO JUNTOS EL PRECIO Y EL BOTÓN PARA AGREGAR EL PRODUCTO        */
+/* -------------------------------------------------------------------------- */
 .detail-buy {
   display: flex;
   flex-direction: column;
@@ -187,7 +195,7 @@ main:has(.detail-page)::before {
 }
 
 /* -------------------------------------------------------------------------- */
-/*                        DISEÑO PARA ESCRITORIO                              */
+/*                           DISEÑO PARA ESCRITORIO                           */
 /* -------------------------------------------------------------------------- */
 @media (min-width: 768px) {
   .detail-layout {
@@ -219,9 +227,11 @@ main:has(.detail-page)::before {
 }
 
 /* -------------------------------------------------------------------------- */
-/*                         DISEÑO PARA CELULAR                                */
+/*                            DISEÑO PARA CELULAR                             */
 /* -------------------------------------------------------------------------- */
-/* En el celular ordeno la imagen y los datos uno debajo del otro. */
+/* -------------------------------------------------------------------------- */
+/*       EN EL CELULAR ORDENO LA IMAGEN Y LOS DATOS UNO DEBAJO DEL OTRO       */
+/* -------------------------------------------------------------------------- */
 @media (max-width: 767px) {
   .detail-layout {
     display: flex;

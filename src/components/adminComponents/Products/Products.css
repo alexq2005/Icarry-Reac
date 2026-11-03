@@ -158,7 +158,9 @@
   }
 }
 
-/* estado cancelada en rojo */
+/* -------------------------------------------------------------------------- */
+/*                          ESTADO CANCELADA EN ROJO                          */
+/* -------------------------------------------------------------------------- */
 .order-status.order-status-cancelada {
   color: #ff6b6b;
   border-color: rgba(255, 107, 107, 0.6);

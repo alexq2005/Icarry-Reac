@@ -1,6 +1,8 @@
-/* Estilos generales de las tarjetas de producto. */
 /* -------------------------------------------------------------------------- */
-/*                       ESTRUCTURA DE LA TARJETA                             */
+/*               ESTILOS GENERALES DE LAS TARJETAS DE PRODUCTO                */
+/* -------------------------------------------------------------------------- */
+/* -------------------------------------------------------------------------- */
+/*                          ESTRUCTURA DE LA TARJETA                          */
 /* -------------------------------------------------------------------------- */
 .card {
   position: relative;
@@ -28,21 +30,27 @@
 }
 
 /* -------------------------------------------------------------------------- */
-/*                       IMAGEN Y DESCRIPCIÓN                                 */
+/*                            IMAGEN Y DESCRIPCIÓN                            */
 /* -------------------------------------------------------------------------- */
-/* Ajusto cómo se ven la imagen y los textos de la tarjeta. */
+/* -------------------------------------------------------------------------- */
+/*          AJUSTO CÓMO SE VEN LA IMAGEN Y LOS TEXTOS DE LA TARJETA           */
+/* -------------------------------------------------------------------------- */
 .card img {
   width: 100%;
   aspect-ratio: 4 / 3;
   object-fit: contain;
-  /* fondo oscuro parejo para que todas las fotos ocupen lo mismo */
+  /* -------------------------------------------------------------------------- */
+  /*        FONDO OSCURO PAREJO PARA QUE TODAS LAS FOTOS OCUPEN LO MISMO        */
+  /* -------------------------------------------------------------------------- */
   background: #0f0c14;
   padding: 1.2rem;
   border-bottom: 1px solid rgba(242, 198, 109, 0.1);
   object-position: center;
 }
 
-/* Limito el nombre a dos líneas para que las tarjetas queden parejas. */
+/* -------------------------------------------------------------------------- */
+/*     LIMITO EL NOMBRE A DOS LÍNEAS PARA QUE LAS TARJETAS QUEDEN PAREJAS     */
+/* -------------------------------------------------------------------------- */
 .card h3 {
   padding: 1.4rem 1.5rem 0.6rem;
   font-family: "Oxanium", sans-serif;
@@ -57,7 +65,9 @@
   text-shadow: var(--text-on-glass, 0 1px 2px rgba(0, 0, 0, 0.5));
 }
 
-/* En la tarjeta corto la descripción; en el detalle se ve completa. */
+/* -------------------------------------------------------------------------- */
+/*      EN LA TARJETA CORTO LA DESCRIPCIÓN; EN EL DETALLE SE VE COMPLETA      */
+/* -------------------------------------------------------------------------- */
 .card > p:first-of-type {
   padding: 0 1.5rem;
   color: var(--color-muted-glass, rgba(227, 219, 232, 0.88));
@@ -75,9 +85,11 @@
 }
 
 /* -------------------------------------------------------------------------- */
-/*                        PRECIO Y ACCIÓN                                     */
+/*                              PRECIO Y ACCIÓN                               */
 /* -------------------------------------------------------------------------- */
-/* Destaco el precio y dejo el botón al final de la tarjeta. */
+/* -------------------------------------------------------------------------- */
+/*          DESTACO EL PRECIO Y DEJO EL BOTÓN AL FINAL DE LA TARJETA          */
+/* -------------------------------------------------------------------------- */
 .card-precio {
   padding: 1rem 1.5rem 1.4rem;
   font-size: 1.9rem !important;
@@ -89,7 +101,9 @@
   text-shadow: var(--text-on-glass, 0 1px 2px rgba(0, 0, 0, 0.5));
 }
 
-/* Estilos del botón que aparece en la tarjeta. */
+/* -------------------------------------------------------------------------- */
+/*                ESTILOS DEL BOTÓN QUE APARECE EN LA TARJETA                 */
+/* -------------------------------------------------------------------------- */
 .card .btn,
 .card span.btn {
   margin: 0 1.5rem 1.5rem;
@@ -101,7 +115,9 @@
   padding: 1.3rem 1.8rem;
 }
 
-/* Estilos de la etiqueta de categoría. */
+/* -------------------------------------------------------------------------- */
+/*                    ESTILOS DE LA ETIQUETA DE CATEGORÍA                     */
+/* -------------------------------------------------------------------------- */
 .card > .category-chip {
   position: absolute;
   top: 1rem;

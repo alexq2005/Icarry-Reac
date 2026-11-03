@@ -1,4 +1,6 @@
-/* Muestro los productos del carrito o una invitación a volver al catálogo. */
+/* -------------------------------------------------------------------------- */
+/*  MUESTRO LOS PRODUCTOS DEL CARRITO O UNA INVITACIÓN A VOLVER AL CATÁLOGO   */
+/* -------------------------------------------------------------------------- */
 
 import { useCart } from "../../context/CartContext";
 import "./Cart.css";
@@ -19,12 +21,16 @@ export const CartView = () => {
 
       {cart.length ? (
         <>
-          {/* Si hay productos, muestro la lista y el total. */}
+          {/* -------------------------------------------------------------------------- */}
+          {/*               SI HAY PRODUCTOS, MUESTRO LA LISTA Y EL TOTAL                */}
+          {/* -------------------------------------------------------------------------- */}
           <CartList />
           <CartSummary />
         </>
       ) : (
-        /* Si no hay productos, muestro este mensaje. */
+        /* -------------------------------------------------------------------------- */
+        /*                 SI NO HAY PRODUCTOS, MUESTRO ESTE MENSAJE                  */
+        /* -------------------------------------------------------------------------- */
         <div className="empty-cart-state">
           <p className="empty-cart" role="status">
             El carrito está vacío
@@ -32,7 +38,9 @@ export const CartView = () => {
           <p className="empty-cart-hint">
             Explorá el catálogo o elegí una categoría y sumá tus favoritos.
           </p>
-          {/* Dejo accesos para volver al catálogo o ver una categoría. */}
+          {/* -------------------------------------------------------------------------- */}
+          {/*          DEJO ACCESOS PARA VOLVER AL CATÁLOGO O VER UNA CATEGORÍA          */}
+          {/* -------------------------------------------------------------------------- */}
           <div className="empty-cart-actions">
             <Link className="btn bg-primary empty-cart-cta" to="/">
               Volver al catálogo

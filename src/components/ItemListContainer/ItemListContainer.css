@@ -1,6 +1,8 @@
-/* Estilos de la presentación del catálogo. */
 /* -------------------------------------------------------------------------- */
-/*                      INTRODUCCIÓN DE LA TIENDA                             */
+/*                  ESTILOS DE LA PRESENTACIÓN DEL CATÁLOGO                   */
+/* -------------------------------------------------------------------------- */
+/* -------------------------------------------------------------------------- */
+/*                         INTRODUCCIÓN DE LA TIENDA                          */
 /* -------------------------------------------------------------------------- */
 .seccion-productos {
   display: flex;
@@ -10,7 +12,9 @@
   gap: 0;
 }
 
-/* Acomodo el texto de introducción de la tienda y las categorías. */
+/* -------------------------------------------------------------------------- */
+/*       ACOMODO EL TEXTO DE INTRODUCCIÓN DE LA TIENDA Y LAS CATEGORÍAS       */
+/* -------------------------------------------------------------------------- */
 .introduccion-tienda {
   width: min(78rem, 100%);
   margin: 0 auto var(--space-lg);
@@ -69,9 +73,11 @@
 }
 
 /* -------------------------------------------------------------------------- */
-/*                      ENCABEZADO DEL CATÁLOGO                               */
+/*                          ENCABEZADO DEL CATÁLOGO                           */
 /* -------------------------------------------------------------------------- */
-/* Estilos del título que aparece antes del listado. */
+/* -------------------------------------------------------------------------- */
+/*              ESTILOS DEL TÍTULO QUE APARECE ANTES DEL LISTADO              */
+/* -------------------------------------------------------------------------- */
 .encabezado-productos {
   width: 100%;
   display: flex;
@@ -119,9 +125,11 @@
 }
 
 /* -------------------------------------------------------------------------- */
-/*                       RESPONSIVE                                                */
+/*                                 RESPONSIVE                                 */
 /* -------------------------------------------------------------------------- */
-/* Ajusto el catálogo para pantallas chicas. */
+/* -------------------------------------------------------------------------- */
+/*                  AJUSTO EL CATÁLOGO PARA PANTALLAS CHICAS                  */
+/* -------------------------------------------------------------------------- */
 @media (max-width: 640px) {
   .introduccion-tienda {
     margin-bottom: var(--space-md);

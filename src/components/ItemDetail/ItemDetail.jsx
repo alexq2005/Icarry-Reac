@@ -1,4 +1,7 @@
-/* En esta parte muestro los datos del producto y el botón para agregarlo al carrito. */
+/* -------------------------------------------------------------------------- */
+/*             EN ESTA PARTE MUESTRO LOS DATOS DEL PRODUCTO Y EL              */
+/*                      BOTÓN PARA AGREGARLO AL CARRITO                       */
+/* -------------------------------------------------------------------------- */
 
 import { useNavigate } from "react-router-dom";
 import { FaArrowLeft } from "react-icons/fa";
@@ -16,19 +19,25 @@ export const ItemDetail = ({ item }) => {
 
   return (
     <article className="detail-layout">
-      {/* Muestro la imagen principal del producto. */}
+      {/* -------------------------------------------------------------------------- */}
+      {/*                  MUESTRO LA IMAGEN PRINCIPAL DEL PRODUCTO                  */}
+      {/* -------------------------------------------------------------------------- */}
       <div className="detail-media">
         <img className="detail-media-img" src={item.image} alt={item.name} />
       </div>
 
-      {/* En este bloque muestro la información y las acciones del producto. */}
+      {/* -------------------------------------------------------------------------- */}
+      {/*     EN ESTE BLOQUE MUESTRO LA INFORMACIÓN Y LAS ACCIONES DEL PRODUCTO      */}
+      {/* -------------------------------------------------------------------------- */}
       <div className="detail-info">
         {categoryLabel && (
           <span className="category-chip detail-chip">{categoryLabel}</span>
         )}
         <h2 className="detail-title">{item.name}</h2>
 
-        {/* Muestro el precio y el botón para agregar al carrito. */}
+        {/* -------------------------------------------------------------------------- */}
+        {/*            MUESTRO EL PRECIO Y EL BOTÓN PARA AGREGAR AL CARRITO            */}
+        {/* -------------------------------------------------------------------------- */}
         <div className="detail-buy">
           <p className="detail-price">{formatPrice(item.price)}</p>
           <div className="detail-cta-wrap">
@@ -42,10 +51,14 @@ export const ItemDetail = ({ item }) => {
           </div>
         </div>
 
-        {/* Muestro la descripción completa del producto. */}
+        {/* -------------------------------------------------------------------------- */}
+        {/*                MUESTRO LA DESCRIPCIÓN COMPLETA DEL PRODUCTO                */}
+        {/* -------------------------------------------------------------------------- */}
         <p className="detail-description">{item.description}</p>
 
-        {/* vuelve a la pagina anterior */}
+        {/* -------------------------------------------------------------------------- */}
+        {/*                        VUELVE A LA PAGINA ANTERIOR                         */}
+        {/* -------------------------------------------------------------------------- */}
         <button className="btn btn-secondary" onClick={() => navigate(-1)}>
           <FaArrowLeft /> Volver
         </button>

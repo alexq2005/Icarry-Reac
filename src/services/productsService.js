@@ -13,10 +13,14 @@ import {
 } from "firebase/firestore";
 import { db } from "../firebase/config";
 
-// Todas las funciones utilizan esta colección de Firestore.
+/* -------------------------------------------------------------------------- */
+/*          TODAS LAS FUNCIONES UTILIZAN ESTA COLECCIÓN DE FIRESTORE          */
+/* -------------------------------------------------------------------------- */
 const productsRef = collection(db, "products");
 
-// Firestore devuelve documentos; los convierto al formato que usa la tienda.
+/* -------------------------------------------------------------------------- */
+/* FIRESTORE DEVUELVE DOCUMENTOS; LOS CONVIERTO AL FORMATO QUE USA LA TIENDA  */
+/* -------------------------------------------------------------------------- */
 const formatProducts = (snapshot) => {
   return snapshot.docs.map((productDoc) => {
     return { id: productDoc.id, ...productDoc.data() };
@@ -24,11 +28,13 @@ const formatProducts = (snapshot) => {
 };
 
 /* -------------------------------------------------------------------------- */
-/*                               TRAER PRODUCTOS                              */
+/*                              TRAER PRODUCTOS                               */
 /* -------------------------------------------------------------------------- */
 export const getProducts = async () => {
   try {
-    // Obtenemos todos los documentos de la colección.
+    /* -------------------------------------------------------------------------- */
+    /*               OBTENEMOS TODOS LOS DOCUMENTOS DE LA COLECCIÓN               */
+    /* -------------------------------------------------------------------------- */
     const snapshot = await getDocs(productsRef);
     return formatProducts(snapshot);
   } catch (error) {
@@ -38,14 +44,18 @@ export const getProducts = async () => {
 };
 
 /* -------------------------------------------------------------------------- */
-/*                            TRAER PRODUCTO POR ID                           */
+/*                           TRAER PRODUCTO POR ID                            */
 /* -------------------------------------------------------------------------- */
 export const getProductById = async (id) => {
   try {
-    // Creamos la referencia al documento y lo buscamos por id.
+    /* -------------------------------------------------------------------------- */
+    /*          CREAMOS LA REFERENCIA AL DOCUMENTO Y LO BUSCAMOS POR ID           */
+    /* -------------------------------------------------------------------------- */
     const productSnapshot = await getDoc(doc(productsRef, id));
 
-    // Verificamos si el documento existe.
+    /* -------------------------------------------------------------------------- */
+    /*                     VERIFICAMOS SI EL DOCUMENTO EXISTE                     */
+    /* -------------------------------------------------------------------------- */
     if (productSnapshot.exists()) {
       return { id: productSnapshot.id, ...productSnapshot.data() };
     }
@@ -58,11 +68,13 @@ export const getProductById = async (id) => {
 };
 
 /* -------------------------------------------------------------------------- */
-/*                         FILTRAR PRODUCTOS POR CATEGORÍA                    */
+/*                      FILTRAR PRODUCTOS POR CATEGORÍA                       */
 /* -------------------------------------------------------------------------- */
 export const getByCategory = async (category) => {
   try {
-    // Si recibimos una categoría, filtramos los productos desde Firestore.
+    /* -------------------------------------------------------------------------- */
+    /*    SI RECIBIMOS UNA CATEGORÍA, FILTRAMOS LOS PRODUCTOS DESDE FIRESTORE     */
+    /* -------------------------------------------------------------------------- */
     let productsQuery;
     if (category) {
       productsQuery = query(productsRef, where("category", "==", category));
@@ -83,7 +95,9 @@ export const getByCategory = async (category) => {
 /* -------------------------------------------------------------------------- */
 export const createProduct = async (productData) => {
   try {
-    // Agregamos el nuevo producto a la colección y devolvemos su id.
+    /* -------------------------------------------------------------------------- */
+    /*       AGREGAMOS EL NUEVO PRODUCTO A LA COLECCIÓN Y DEVOLVEMOS SU ID        */
+    /* -------------------------------------------------------------------------- */
     const productRef = await addDoc(productsRef, productData);
     return productRef.id;
   } catch (error) {
@@ -105,7 +119,7 @@ export const updateProduct = async (id, productData) => {
 };
 
 /* -------------------------------------------------------------------------- */
-/*                            ELIMINAR PRODUCTO                               */
+/*                             ELIMINAR PRODUCTO                              */
 /* -------------------------------------------------------------------------- */
 export const deleteProduct = async (id) => {
   try {
@@ -117,7 +131,7 @@ export const deleteProduct = async (id) => {
 };
 
 /* -------------------------------------------------------------------------- */
-/*                            CREAR ORDEN DE COMPRA                          */
+/*                           CREAR ORDEN DE COMPRA                            */
 /* -------------------------------------------------------------------------- */
 const ordersRef = collection(db, "orders");
 
@@ -143,7 +157,7 @@ export const createOrder = async ({ items, total }) => {
 };
 
 /* -------------------------------------------------------------------------- */
-/*                         TRAER ÓRDENES DE COMPRA                           */
+/*                          TRAER ÓRDENES DE COMPRA                           */
 /* -------------------------------------------------------------------------- */
 export const getOrders = async () => {
   try {
@@ -162,7 +176,7 @@ export const getOrders = async () => {
 
 
 /* -------------------------------------------------------------------------- */
-/*                         CANCELAR UNA ORDEN                                 */
+/*                             CANCELAR UNA ORDEN                             */
 /* -------------------------------------------------------------------------- */
 export const cancelOrder = async (id) => {
   try {

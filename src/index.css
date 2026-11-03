@@ -1,9 +1,13 @@
-/* Acá defino los colores y estilos generales que uso en el sitio. */
 /* -------------------------------------------------------------------------- */
-/*                         VARIABLES Y COLORES GLOBALES                       */
+/*       ACÁ DEFINO LOS COLORES Y ESTILOS GENERALES QUE USO EN EL SITIO       */
+/* -------------------------------------------------------------------------- */
+/* -------------------------------------------------------------------------- */
+/*                        VARIABLES Y COLORES GLOBALES                        */
 /* -------------------------------------------------------------------------- */
 :root {
-  /* colores de bootstrap adaptados a mi diseño */
+  /* -------------------------------------------------------------------------- */
+  /*                 COLORES DE BOOTSTRAP ADAPTADOS A MI DISEÑO                 */
+  /* -------------------------------------------------------------------------- */
   --bs-body-bg: transparent;
   --bs-body-color: #fff7fb;
   --bs-primary-rgb: 242, 198, 109;
@@ -11,12 +15,16 @@
   --color-dorado: #f2c66d;
   --color-texto: #fff7fb;
   --color-suave: #e3dbe8;
-  /* Estos valores me ayudan a mantener espacios parecidos en toda la página. */
+  /* -------------------------------------------------------------------------- */
+  /*  ESTOS VALORES ME AYUDAN A MANTENER ESPACIOS PARECIDOS EN TODA LA PÁGINA   */
+  /* -------------------------------------------------------------------------- */
   --space-sm: 1.5rem;
   --space-md: 2.4rem;
   --space-lg: 3rem;
 
-  /* Uso estas variables para los paneles translúcidos. */
+  /* -------------------------------------------------------------------------- */
+  /*             USO ESTAS VARIABLES PARA LOS PANELES TRANSLÚCIDOS              */
+  /* -------------------------------------------------------------------------- */
   --glass-bg: linear-gradient(
     145deg,
     rgba(34, 28, 46, 0.16),
@@ -37,7 +45,7 @@
 }
 
 /* -------------------------------------------------------------------------- */
-/*                           REGLAS GENERALES                                 */
+/*                              REGLAS GENERALES                              */
 /* -------------------------------------------------------------------------- */
 * {
   margin: 0;
@@ -45,7 +53,9 @@
   box-sizing: border-box;
 }
 
-/* Con este tamaño, cada rem equivale a 10px y es más fácil calcular medidas. */
+/* -------------------------------------------------------------------------- */
+/* CON ESTE TAMAÑO, CADA REM EQUIVALE A 10PX Y ES MÁS FÁCIL CALCULAR MEDIDAS  */
+/* -------------------------------------------------------------------------- */
 html {
   font-size: 62.5%;
   background-color: var(--color-fondo);
@@ -63,16 +73,20 @@ body {
 }
 
 /* -------------------------------------------------------------------------- */
-/*                        FONDO ANIMADO DEL SITIO                             */
+/*                          FONDO ANIMADO DEL SITIO                           */
 /* -------------------------------------------------------------------------- */
-/* Las capas del fondo quedan fijas detras del contenido. */
+/* -------------------------------------------------------------------------- */
+/*           LAS CAPAS DEL FONDO QUEDAN FIJAS DETRAS DEL CONTENIDO            */
+/* -------------------------------------------------------------------------- */
 .fondo-animado {
   position: fixed;
   inset: 0;
   z-index: -1;
   filter: brightness(0.58) contrast(1.06) saturate(0.9);
 
-  /* Velo oscuro suave encima de las imagenes. */
+  /* -------------------------------------------------------------------------- */
+  /*                  VELO OSCURO SUAVE ENCIMA DE LAS IMAGENES                  */
+  /* -------------------------------------------------------------------------- */
   &::after {
     content: "";
     position: absolute;
@@ -89,7 +103,9 @@ body {
     opacity: 0;
     animation: rotarFondo 40s ease-in-out infinite;
 
-    /* La primera imagen arranca visible para que no haya destello al cargar. */
+    /* -------------------------------------------------------------------------- */
+    /*   LA PRIMERA IMAGEN ARRANCA VISIBLE PARA QUE NO HAYA DESTELLO AL CARGAR    */
+    /* -------------------------------------------------------------------------- */
     &:nth-child(1) {
       background-image: url("./assets/fondo.jpg");
       animation-delay: 0s;
@@ -109,7 +125,10 @@ body {
   }
 }
 
-/* Cada imagen dura unos 10 segundos y la siguiente la reemplaza despacio con un fundido de 3 segundos. */
+/* -------------------------------------------------------------------------- */
+/*            CADA IMAGEN DURA UNOS 10 SEGUNDOS Y LA SIGUIENTE LA             */
+/*              REEMPLAZA DESPACIO CON UN FUNDIDO DE 3 SEGUNDOS               */
+/* -------------------------------------------------------------------------- */
 @keyframes rotarFondo {
   0%,
   25% {
@@ -125,9 +144,11 @@ body {
 }
 
 /* -------------------------------------------------------------------------- */
-/*                       TIPOGRAFÍA Y ELEMENTOS BASE                          */
+/*                        TIPOGRAFÍA Y ELEMENTOS BASE                         */
 /* -------------------------------------------------------------------------- */
-/* Acá dejo la tipografía y los estilos básicos de la página. */
+/* -------------------------------------------------------------------------- */
+/*         ACÁ DEJO LA TIPOGRAFÍA Y LOS ESTILOS BÁSICOS DE LA PÁGINA          */
+/* -------------------------------------------------------------------------- */
 img {
   display: block;
   max-width: 100%;
@@ -173,14 +194,18 @@ h2 {
 }
 
 /* -------------------------------------------------------------------------- */
-/*                         BOTONES Y ESTADOS                                 */
+/*                             BOTONES Y ESTADOS                              */
 /* -------------------------------------------------------------------------- */
-/* Color de texto base para los botones. */
+/* -------------------------------------------------------------------------- */
+/*                    COLOR DE TEXTO BASE PARA LOS BOTONES                    */
+/* -------------------------------------------------------------------------- */
 .primary {
   color: var(--color-texto);
 }
 
-/* En esta parte están los estilos que comparten los botones. */
+/* -------------------------------------------------------------------------- */
+/*         EN ESTA PARTE ESTÁN LOS ESTILOS QUE COMPARTEN LOS BOTONES          */
+/* -------------------------------------------------------------------------- */
 .btn {
   border: none;
   border-radius: var(--btn-radius);
@@ -197,7 +222,9 @@ h2 {
     background-color 0.22s ease;
 }
 
-/* Uso el dorado para destacar las acciones y enlaces importantes. */
+/* -------------------------------------------------------------------------- */
+/*       USO EL DORADO PARA DESTACAR LAS ACCIONES Y ENLACES IMPORTANTES       */
+/* -------------------------------------------------------------------------- */
 .bg-primary {
   background-color: var(--color-dorado);
   color: #120e16;
@@ -210,7 +237,9 @@ h2 {
   box-shadow: 0 0.8rem 2rem rgba(242, 198, 109, 0.28);
 }
 
-/* El verde confirma una acción y el rojo indica que se va a eliminar algo. */
+/* -------------------------------------------------------------------------- */
+/*  EL VERDE CONFIRMA UNA ACCIÓN Y EL ROJO INDICA QUE SE VA A ELIMINAR ALGO   */
+/* -------------------------------------------------------------------------- */
 .bg-success {
   background-color: #3d9b6a;
   color: #fff7fb;
@@ -245,7 +274,9 @@ h2 {
   color: var(--color-dorado);
 }
 
-/* el texto seleccionado y los controles tambien van en dorado */
+/* -------------------------------------------------------------------------- */
+/*        EL TEXTO SELECCIONADO Y LOS CONTROLES TAMBIEN VAN EN DORADO         */
+/* -------------------------------------------------------------------------- */
 ::selection {
   background: var(--color-dorado);
   color: #120e16;
@@ -257,9 +288,11 @@ h2 {
 }
 
 /* -------------------------------------------------------------------------- */
-/*                      AJUSTES PARA PANTALLAS CHICAS                         */
+/*                       AJUSTES PARA PANTALLAS CHICAS                        */
 /* -------------------------------------------------------------------------- */
-/* En pantallas chicas achico algunos textos y espacios. */
+/* -------------------------------------------------------------------------- */
+/*            EN PANTALLAS CHICAS ACHICO ALGUNOS TEXTOS Y ESPACIOS            */
+/* -------------------------------------------------------------------------- */
 @media (max-width: 600px) {
   body {
     font-size: 1.75rem;
@@ -282,9 +315,11 @@ h2 {
 }
 
 /* -------------------------------------------------------------------------- */
-/*                     CATEGORÍAS Y BOTONES DELINEADOS                        */
+/*                      CATEGORÍAS Y BOTONES DELINEADOS                       */
 /* -------------------------------------------------------------------------- */
-/* Estos estilos son para las etiquetas de categoría y los botones delineados. */
+/* -------------------------------------------------------------------------- */
+/* ESTOS ESTILOS SON PARA LAS ETIQUETAS DE CATEGORÍA Y LOS BOTONES DELINEADOS */
+/* -------------------------------------------------------------------------- */
 .category-chip {
   display: inline-block;
   padding: 0.35rem 0.9rem;
@@ -316,9 +351,11 @@ h2 {
 }
 
 /* -------------------------------------------------------------------------- */
-/*                                   SPINNER                                  */
+/*                                  SPINNER                                   */
 /* -------------------------------------------------------------------------- */
-/* Ruedita dorada que gira mientras cargan los productos. */
+/* -------------------------------------------------------------------------- */
+/*           RUEDITA DORADA QUE GIRA MIENTRAS CARGAN LOS PRODUCTOS            */
+/* -------------------------------------------------------------------------- */
 .spinner-border {
   display: block;
   width: 4rem;
@@ -330,7 +367,9 @@ h2 {
   animation: girar 0.8s linear infinite;
 }
 
-/* Oculto el texto pero lo dejo para los lectores de pantalla. */
+/* -------------------------------------------------------------------------- */
+/*         OCULTO EL TEXTO PERO LO DEJO PARA LOS LECTORES DE PANTALLA         */
+/* -------------------------------------------------------------------------- */
 .visually-hidden {
   position: absolute;
   width: 1px;
@@ -345,7 +384,10 @@ h2 {
   }
 }
 
-/* si la persona pidio menos movimiento, dejo el fondo quieto y saco los saltitos */
+/* -------------------------------------------------------------------------- */
+/*               SI LA PERSONA PIDIO MENOS MOVIMIENTO, DEJO EL                */
+/*                      FONDO QUIETO Y SACO LOS SALTITOS                      */
+/* -------------------------------------------------------------------------- */
 @media (prefers-reduced-motion: reduce) {
   .fondo-animado span {
     animation: none;

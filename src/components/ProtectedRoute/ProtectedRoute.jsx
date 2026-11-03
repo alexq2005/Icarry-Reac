@@ -6,7 +6,10 @@ const ADMIN_UID = "pdLCW6RDhTb741bri5aILtJkpII2";
 export const ProtectedRoute = ({ children }) => {
   const { user, loading } = useAuth();
 
-  if (loading) return <p>Cargando...</p>; // 🔥 CLAVE: esperamos a saber si hay usuario autenticado antes de redirigir
+  /* -------------------------------------------------------------------------- */
+  /*   CLAVE: ESPERAMOS A SABER SI HAY USUARIO AUTENTICADO ANTES DE REDIRIGIR   */
+  /* -------------------------------------------------------------------------- */
+  if (loading) return <p>Cargando...</p>;
 
   if (!user) return <Navigate to="/admin/login" />;
 

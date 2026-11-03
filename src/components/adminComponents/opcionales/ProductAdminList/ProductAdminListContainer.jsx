@@ -11,7 +11,9 @@ export const ProductAdminListContainer = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
 
-  //traer los productos
+  /* -------------------------------------------------------------------------- */
+  /*                            TRAER LOS PRODUCTOS                             */
+  /* -------------------------------------------------------------------------- */
   useEffect(() => {
     getProducts()
       .then((data) => setProducts(data))
@@ -20,7 +22,9 @@ export const ProductAdminListContainer = () => {
   }, []);
 
   const handleDelete = async (product) => {
-    //confirmar antes de eliminar
+    /* -------------------------------------------------------------------------- */
+    /*                        CONFIRMAR ANTES DE ELIMINAR                         */
+    /* -------------------------------------------------------------------------- */
     const confirmed = window.confirm(
       `¿Querés eliminar el producto "${product.name}"?`,
     );
@@ -29,9 +33,13 @@ export const ProductAdminListContainer = () => {
     }
 
     try {
-      //eliminar
+      /* -------------------------------------------------------------------------- */
+      /*                                  ELIMINAR                                  */
+      /* -------------------------------------------------------------------------- */
       await deleteProduct(product.id);
-      //sacarlo de la lista
+      /* -------------------------------------------------------------------------- */
+      /*                            SACARLO DE LA LISTA                             */
+      /* -------------------------------------------------------------------------- */
       setProducts(products.filter((p) => p.id !== product.id));
     } catch (error) {
       setError(error.message);

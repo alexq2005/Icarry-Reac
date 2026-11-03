@@ -1,16 +1,22 @@
-/* Muestro los productos en tarjetas y cada tarjeta lleva a su detalle. */
+/* -------------------------------------------------------------------------- */
+/*    MUESTRO LOS PRODUCTOS EN TARJETAS Y CADA TARJETA LLEVA A SU DETALLE     */
+/* -------------------------------------------------------------------------- */
 
 import { Item } from "../Item/Item";
 import { Link } from "react-router-dom";
 import "./ItemList.css";
 
 export const ItemList = ({ products }) => {
-  /* Si no hay productos para mostrar, aviso con este mensaje. */
+  /* -------------------------------------------------------------------------- */
+  /*          SI NO HAY PRODUCTOS PARA MOSTRAR, AVISO CON ESTE MENSAJE          */
+  /* -------------------------------------------------------------------------- */
   if (!products.length) {
     return <p>No hay productos</p>;
   }
 
-  /* Recorro los productos y creo una tarjeta para cada uno. */
+  /* -------------------------------------------------------------------------- */
+  /*           RECORRO LOS PRODUCTOS Y CREO UNA TARJETA PARA CADA UNO           */
+  /* -------------------------------------------------------------------------- */
   return (
     <div className="products-container">
       {products.map((product) => (

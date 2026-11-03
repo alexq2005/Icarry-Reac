@@ -2,7 +2,9 @@ import { Link } from "react-router-dom";
 import { FaArrowLeft } from "react-icons/fa";
 import { formatPrice } from "../../../utils/formatPrice";
 
-//formatear fecha de la orden
+/* -------------------------------------------------------------------------- */
+/*                        FORMATEAR FECHA DE LA ORDEN                         */
+/* -------------------------------------------------------------------------- */
 const formatDate = (createdAt) => {
   if (!createdAt?.toDate) {
     return "Fecha no disponible";
@@ -38,7 +40,9 @@ export const OrderListUI = ({ orders, loading, error, onCancel }) => {
         </p>
       )}
 
-      {/* cargando / vacío / lista */}
+      {/* -------------------------------------------------------------------------- */}
+      {/*                          CARGANDO / VACÍO / LISTA                          */}
+      {/* -------------------------------------------------------------------------- */}
       {loading ? (
         <p className="admin-message" role="status">
           Cargando órdenes...

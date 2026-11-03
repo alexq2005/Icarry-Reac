@@ -4,7 +4,9 @@ import logo from "../../assets/logo.svg";
 export const NotFound = () => {
   return (
     <section id="center">
-      {/* Muestro el logo centrado arriba del mensaje. */}
+      {/* -------------------------------------------------------------------------- */}
+      {/*                MUESTRO EL LOGO CENTRADO ARRIBA DEL MENSAJE                 */}
+      {/* -------------------------------------------------------------------------- */}
       <div className="hero">
         <img className="base" src={logo} alt="iCarry" />
       </div>
@@ -12,7 +14,9 @@ export const NotFound = () => {
       <h2>Página no encontrada</h2>
       <p>La página que buscás no existe.</p>
 
-      {/* Uso la regla .counter para el botón de volver. */}
+      {/* -------------------------------------------------------------------------- */}
+      {/*               USO LA REGLA .COUNTER PARA EL BOTÓN DE VOLVER                */}
+      {/* -------------------------------------------------------------------------- */}
       <Link className="counter" to="/">
         Volver al inicio
       </Link>

@@ -1,4 +1,6 @@
-/* En este menú puedo ir al inicio, a las categorías o al carrito. */
+/* -------------------------------------------------------------------------- */
+/*       EN ESTE MENÚ PUEDO IR AL INICIO, A LAS CATEGORÍAS O AL CARRITO       */
+/* -------------------------------------------------------------------------- */
 
 import { NavLink } from "react-router-dom";
 import { TiShoppingCart } from "react-icons/ti";
@@ -15,7 +17,9 @@ export const Nav = () => {
   return (
     <nav>
       <ul className="nav-list">
-        {/* Estos enlaces sirven para recorrer las páginas de productos. */}
+        {/* -------------------------------------------------------------------------- */}
+        {/*        ESTOS ENLACES SIRVEN PARA RECORRER LAS PÁGINAS DE PRODUCTOS         */}
+        {/* -------------------------------------------------------------------------- */}
         <li>
           <NavLink to="/" end className={linkClass}>
             Inicio
@@ -31,13 +35,17 @@ export const Nav = () => {
             Merchandising
           </NavLink>
         </li>
-        {/* Desde acá también puedo revisar el carrito. */}
+        {/* -------------------------------------------------------------------------- */}
+        {/*                 DESDE ACÁ TAMBIÉN PUEDO REVISAR EL CARRITO                 */}
+        {/* -------------------------------------------------------------------------- */}
         <li>
           <NavLink to="/cart" className={linkClass} aria-label="Ir al carrito">
             <span className="cart-widget">
               <TiShoppingCart className="cart-icon" />
               Carrito
-              {/* La cantidad solo aparece cuando el carrito tiene productos. */}
+              {/* -------------------------------------------------------------------------- */}
+              {/*         LA CANTIDAD SOLO APARECE CUANDO EL CARRITO TIENE PRODUCTOS         */}
+              {/* -------------------------------------------------------------------------- */}
               {totalItems > 0 && <span className="incart">{totalItems}</span>}
             </span>
           </NavLink>

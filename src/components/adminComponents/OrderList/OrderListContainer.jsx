@@ -8,7 +8,9 @@ export const OrderListContainer = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
 
-  //traer las órdenes
+  /* -------------------------------------------------------------------------- */
+  /*                             TRAER LAS ÓRDENES                              */
+  /* -------------------------------------------------------------------------- */
   useEffect(() => {
     getOrders()
       .then((data) => setOrders(data))
@@ -16,7 +18,9 @@ export const OrderListContainer = () => {
       .finally(() => setLoading(false));
   }, []);
 
-  //Cancelar Orden
+  /* -------------------------------------------------------------------------- */
+  /*                               CANCELAR ORDEN                               */
+  /* -------------------------------------------------------------------------- */
   const handleCancel = async (id) => {
     const confirmed = window.confirm("¿Cancelar esta orden?");
     if (!confirmed) {

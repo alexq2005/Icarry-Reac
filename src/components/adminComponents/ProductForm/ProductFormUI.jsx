@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
 
-// categorias permitidas
+/* -------------------------------------------------------------------------- */
+/*                           CATEGORIAS PERMITIDAS                            */
+/* -------------------------------------------------------------------------- */
 const categories = [
   { value: "items-del-juego", label: "Items del juego" },
   { value: "merchandising", label: "Merchandising" },
@@ -106,7 +108,9 @@ export const ProductFormUI = ({
               : "Guardar"}
         </button>
 
-        {/* vuelve al panel sin guardar */}
+        {/* -------------------------------------------------------------------------- */}
+        {/*                        VUELVE AL PANEL SIN GUARDAR                         */}
+        {/* -------------------------------------------------------------------------- */}
         <Link className="btn btn-cancel" to="/admin/dashboard">
           Cancelar
         </Link>

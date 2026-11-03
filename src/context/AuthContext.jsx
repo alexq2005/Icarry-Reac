@@ -7,10 +7,14 @@ import {
 import { createContext, useContext, useEffect, useState } from "react";
 import { auth } from "../firebase/config";
 
-//creamos el contexto
+/* -------------------------------------------------------------------------- */
+/*                            CREAMOS EL CONTEXTO                             */
+/* -------------------------------------------------------------------------- */
 const AuthContext = createContext();
 
-//custom hook
+/* -------------------------------------------------------------------------- */
+/*                                CUSTOM HOOK                                 */
+/* -------------------------------------------------------------------------- */
 export const useAuth = () => {
   const context = useContext(AuthContext);
 

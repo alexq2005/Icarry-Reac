@@ -10,7 +10,9 @@
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 }
 
-/* ---------- HEADER ---------- */
+/* -------------------------------------------------------------------------- */
+/*                                   HEADER                                   */
+/* -------------------------------------------------------------------------- */
 
 .dashboard-header {
   display: flex;
@@ -33,7 +35,9 @@
   gap: 1rem;
 }
 
-/* ---------- ACCIONES ---------- */
+/* -------------------------------------------------------------------------- */
+/*                                  ACCIONES                                  */
+/* -------------------------------------------------------------------------- */
 
 .dashboard-actions {
   margin-bottom: 2rem;
@@ -44,7 +48,9 @@
   color: var(--text);
 }
 
-/* ---------- AYUDA ---------- */
+/* -------------------------------------------------------------------------- */
+/*                                   AYUDA                                    */
+/* -------------------------------------------------------------------------- */
 
 .dashboard-help {
   padding: 1.5rem;
@@ -59,7 +65,9 @@
   line-height: 1.6;
 }
 
-/* ---------- BOTONES ---------- */
+/* -------------------------------------------------------------------------- */
+/*                                  BOTONES                                   */
+/* -------------------------------------------------------------------------- */
 
 .header-actions .btn:last-child:hover {
   filter: brightness(0.9);
@@ -78,7 +86,9 @@
   color: #1a1522;
 }
 
-/* ---------- DASHBOARD FULL ---------- */
+/* -------------------------------------------------------------------------- */
+/*                               DASHBOARD FULL                               */
+/* -------------------------------------------------------------------------- */
 
 .dashboard-full .dashboard-help {
   margin-bottom: 2rem;
@@ -202,7 +212,9 @@
   filter: brightness(0.9);
 }
 
-/* ---------- RESPONSIVE ---------- */
+/* -------------------------------------------------------------------------- */
+/*                                 RESPONSIVE                                 */
+/* -------------------------------------------------------------------------- */
 
 @media (max-width: 600px) {
   .dashboard-header {
@@ -226,7 +238,9 @@
   }
 }
 
-/* fuentes mas grandes para el contador y la lista de productos */
+/* -------------------------------------------------------------------------- */
+/*        FUENTES MAS GRANDES PARA EL CONTADOR Y LA LISTA DE PRODUCTOS        */
+/* -------------------------------------------------------------------------- */
 .dashboard-products-header h3 {
   font-size: 1.8rem;
 }
@@ -253,7 +267,9 @@
   font-size: 1.2rem;
   padding: 0.9rem 1.6rem;
 }
-/* cuadros de productos mas grandes */
+/* -------------------------------------------------------------------------- */
+/*                      CUADROS DE PRODUCTOS MAS GRANDES                      */
+/* -------------------------------------------------------------------------- */
 .dashboard-full .dashboard-list {
   display: flex;
   flex-direction: column;
@@ -313,7 +329,9 @@
     align-items: flex-start;
   }
 }
-/* ---------- ACCIONES (Gestion de productos) ---------- */
+/* -------------------------------------------------------------------------- */
+/*                      ACCIONES (GESTION DE PRODUCTOS)                       */
+/* -------------------------------------------------------------------------- */
 .dashboard-full .dashboard-actions {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -380,7 +398,9 @@
   }
 }
 
-/* productos cargados un poco mas grandes */
+/* -------------------------------------------------------------------------- */
+/*                   PRODUCTOS CARGADOS UN POCO MAS GRANDES                   */
+/* -------------------------------------------------------------------------- */
 .dashboard-full .dashboard-products-header h3 {
   font-size: 1.6rem;
 }
@@ -415,7 +435,9 @@
   font-size: 1.1rem;
   padding: 0.8rem 1.5rem;
 }
-/* productos cargados todavia mas grandes */
+/* -------------------------------------------------------------------------- */
+/*                   PRODUCTOS CARGADOS TODAVIA MAS GRANDES                   */
+/* -------------------------------------------------------------------------- */
 .dashboard-full .dashboard-products-header h3 {
   font-size: 1.8rem;
 }
@@ -455,18 +477,24 @@
   padding: 0.9rem 1.7rem;
 }
 
-/* espacio entre el boton volver y la lista */
+/* -------------------------------------------------------------------------- */
+/*                  ESPACIO ENTRE EL BOTON VOLVER Y LA LISTA                  */
+/* -------------------------------------------------------------------------- */
 .dashboard-products > .btn-secondary {
   display: inline-block;
   margin-bottom: 3rem;
 }
 
-/* el cuadro de productos sin fondo para que no opaque */
+/* -------------------------------------------------------------------------- */
+/*            EL CUADRO DE PRODUCTOS SIN FONDO PARA QUE NO OPAQUE             */
+/* -------------------------------------------------------------------------- */
 .dashboard-products {
   background: transparent;
 }
 
-/* en la pagina sola acerco los botones a cada producto */
+/* -------------------------------------------------------------------------- */
+/*            EN LA PAGINA SOLA ACERCO LOS BOTONES A CADA PRODUCTO            */
+/* -------------------------------------------------------------------------- */
 .dashboard-products-solo .dashboard-products-header,
 .dashboard-products-solo .dashboard-list {
   max-width: 70rem;

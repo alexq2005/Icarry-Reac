@@ -1,4 +1,6 @@
-/* Formateo los precios en pesos argentinos con dos decimales. */
+/* -------------------------------------------------------------------------- */
+/*         FORMATEO LOS PRECIOS EN PESOS ARGENTINOS CON DOS DECIMALES         */
+/* -------------------------------------------------------------------------- */
 export const formatPrice = (value) => {
   return new Intl.NumberFormat("es-AR", {
     style: "currency",

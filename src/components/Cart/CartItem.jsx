@@ -1,4 +1,6 @@
-/* Muestro un producto del carrito y agrego el botón para eliminarlo. */
+/* -------------------------------------------------------------------------- */
+/*     MUESTRO UN PRODUCTO DEL CARRITO Y AGREGO EL BOTÓN PARA ELIMINARLO      */
+/* -------------------------------------------------------------------------- */
 
 import { useCart } from "../../context/CartContext";
 import { Item } from "../Item/Item";
@@ -8,7 +10,9 @@ export const CartItem = ({ item }) => {
 
   return (
     <Item {...item}>
-      {/* Con este botón saco el producto del carrito. */}
+      {/* -------------------------------------------------------------------------- */}
+      {/*                CON ESTE BOTÓN SACO EL PRODUCTO DEL CARRITO                 */}
+      {/* -------------------------------------------------------------------------- */}
       <button
         className="btn bg-delete primary"
         onClick={() => removeItem(item.id)}

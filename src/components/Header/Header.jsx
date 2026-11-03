@@ -1,4 +1,6 @@
-/* Muestro el logo y el menú en la cabecera de todas las páginas. */
+/* -------------------------------------------------------------------------- */
+/*       MUESTRO EL LOGO Y EL MENÚ EN LA CABECERA DE TODAS LAS PÁGINAS        */
+/* -------------------------------------------------------------------------- */
 
 import { Nav } from "../Nav/Nav";
 import { Link } from "react-router-dom";
@@ -8,12 +10,16 @@ import "./Header.css";
 export const Header = () => {
   return (
     <header>
-      {/* Al hacer clic en el logo vuelvo al inicio. */}
+      {/* -------------------------------------------------------------------------- */}
+      {/*                 AL HACER CLIC EN EL LOGO VUELVO AL INICIO                  */}
+      {/* -------------------------------------------------------------------------- */}
       <Link to={"/"}>
         <img src={logo} alt="iCarry" />
       </Link>
 
-      {/* Acá están los enlaces principales del sitio. */}
+      {/* -------------------------------------------------------------------------- */}
+      {/*                ACÁ ESTÁN LOS ENLACES PRINCIPALES DEL SITIO                 */}
+      {/* -------------------------------------------------------------------------- */}
       <Nav />
     </header>
   );
