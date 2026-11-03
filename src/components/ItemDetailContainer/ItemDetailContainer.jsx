@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import { ItemDetail } from "../ItemDetail/ItemDetail";
 import { getProductById } from "../../services/productsService";
 
@@ -33,7 +34,9 @@ export const ItemDetailContainer = () => {
   if (loading) {
     return (
       <section className="detail-page">
-        <p>Cargando...</p>
+        <div className="spinner-border" role="status">
+          <span className="visually-hidden">Cargando...</span>
+        </div>
       </section>
     );
   }
@@ -55,6 +58,10 @@ export const ItemDetailContainer = () => {
   /* Cuando encuentro el producto, muestro su información. */
   return (
     <section className="detail-page">
+      {/* En la pestaña muestro el nombre del producto */}
+      <Helmet>
+        <title>{`${itemDetail.name} | iCarry`}</title>
+      </Helmet>
       <h1 className="text-secondary">Detalles del producto</h1>
       <ItemDetail item={itemDetail} />
     </section>

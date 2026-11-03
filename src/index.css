@@ -300,3 +300,33 @@ h2 {
   border-color: var(--color-dorado, #f2c66d);
   color: var(--color-dorado, #f2c66d);
 }
+
+/* -------------------------------------------------------------------------- */
+/*                                   SPINNER                                  */
+/* -------------------------------------------------------------------------- */
+/* Ruedita dorada que gira mientras cargan los productos. */
+.spinner-border {
+  display: block;
+  width: 4rem;
+  height: 4rem;
+  margin: 4rem auto;
+  border: 0.4rem solid rgba(242, 198, 109, 0.2);
+  border-top-color: var(--color-dorado, #f2c66d);
+  border-radius: 50%;
+  animation: girar 0.8s linear infinite;
+}
+
+/* Oculto el texto pero lo dejo para los lectores de pantalla. */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+}
+
+@keyframes girar {
+  to {
+    transform: rotate(360deg);
+  }
+}

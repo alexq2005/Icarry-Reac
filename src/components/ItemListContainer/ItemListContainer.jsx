@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import { ItemList } from "../ItemList/ItemList";
 import { getByCategory } from "../../services/productsService";
 import "./ItemListContainer.css";
@@ -47,6 +48,10 @@ export const ItemListContainer = () => {
 
   return (
     <section className="seccion-productos">
+      {/* Cambio el titulo de la pestaña segun la categoria */}
+      <Helmet>
+        <title>{currentCategory ? `${currentCategory.title} | iCarry` : "iCarry — Tienda Dota 2"}</title>
+      </Helmet>
       {/* Esta presentación aparece solamente en la página de inicio. */}
       {!category && (
         <>
@@ -94,7 +99,9 @@ export const ItemListContainer = () => {
       )}
       {/* Mientras carga o si ocurre un error, muestro un mensaje en lugar de las tarjetas. */}
       {loading ? (
-        <p>Cargando...</p>
+        <div className="spinner-border" role="status">
+          <span className="visually-hidden">Cargando...</span>
+        </div>
       ) : errors ? (
         <p>{errors}</p>
       ) : (

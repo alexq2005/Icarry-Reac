@@ -5,12 +5,16 @@ import "./Cart.css";
 import { CartList } from "./CartList";
 import { CartSummary } from "./CartSummary";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 
 export const CartView = () => {
   const { cart } = useCart();
 
   return (
     <section className="cart-container">
+      <Helmet>
+        <title>Carrito | iCarry</title>
+      </Helmet>
       <h1>Tu carrito de compras</h1>
 
       {cart.length ? (
