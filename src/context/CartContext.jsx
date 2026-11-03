@@ -1,6 +1,7 @@
 /* eslint-disable react-refresh/only-export-components */
 import { createContext, useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 import { createOrder } from "../services/productsService";
 
 /* -------------------------------------------------------------------------- */
@@ -44,20 +45,20 @@ export const CartProvider = ({ children }) => {
   // Agrego el producto si todavía no está en el carrito.
   const addItem = (item) => {
     if (isInCart(item)) {
-      alert("El producto ya existe en el carrito");
+      toast.warning("El producto ya existe en el carrito");
       return;
     }
     //forma funcional de "prev
     //setCart(prevCart => [...prev, item]);
     setCart([...cart, item]);
-    alert("Producto agregado al carrito.");
+    toast.success("Producto agregado al carrito.");
   };
 
   // Busco por id y saco del carrito el producto indicado.
   const removeItem = (id) => {
     const updatedCart = cart.filter((element) => element.id !== id);
     setCart(updatedCart);
-    alert("Producto eliminado del carrito.");
+    toast.info("Producto eliminado del carrito.");
   };
 
   // Dejo el carrito vacío.
@@ -91,7 +92,7 @@ export const CartProvider = ({ children }) => {
         total: getCartTotal(),
       });
       clearCart();
-      alert(`Tu compra se realizó correctamente. Número de orden: ${orderId}`);
+      toast.success(`Tu compra se realizó correctamente. Número de orden: ${orderId}`);
       navigate("/");
     } catch (error) {
       console.error("Error al finalizar la compra:", error);

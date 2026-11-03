@@ -1,6 +1,8 @@
 /* En este componente organizo las partes principales y las rutas de la tienda. */
 
 import { Navigate, Route, Routes } from "react-router-dom";
+//Import para Toastify
+import { ToastContainer } from "react-toastify";
 import "./App.css";
 import { ItemListContainer } from "./components/ItemListContainer/ItemListContainer";
 import { ItemDetailContainer } from "./components/ItemDetailContainer/ItemDetailContainer";
@@ -61,6 +63,8 @@ function App() {
           />
         </Route>
       </Routes>
+      {/* Aca aparecen los avisos del carrito */}
+      <ToastContainer theme="dark" />
     </>
   );
 }

@@ -131,3 +131,11 @@ main {
     gap: 18px;
   }
 }
+
+/* Avisos del carrito con los colores de la tienda. */
+.Toastify__toast-theme--dark {
+  background-color: #1a1522;
+  color: #f0eaf2;
+  border: 1px solid rgba(242, 198, 109, 0.45);
+  font-family: "Oxanium", sans-serif;
+}
