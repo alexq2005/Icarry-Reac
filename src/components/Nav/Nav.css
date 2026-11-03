@@ -81,9 +81,7 @@
 
 /* El icono toma el color del enlace, así cambia junto con el texto. */
 .cart-icon {
-  width: 2rem;
-  height: 2rem;
-  flex-shrink: 0;
+  font-size: 2rem;
 }
 
 /* Destaco la cantidad de productos con un círculo. */
