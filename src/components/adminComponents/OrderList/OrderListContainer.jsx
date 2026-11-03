@@ -9,7 +9,7 @@ export const OrderListContainer = () => {
   const [error, setError] = useState("");
 
   /* -------------------------------------------------------------------------- */
-  /*                             TRAER LAS ÓRDENES                              */
+  /*                       CARGO LAS ORDENES DE FIREBASE                        */
   /* -------------------------------------------------------------------------- */
   useEffect(() => {
     getOrders()
@@ -19,7 +19,7 @@ export const OrderListContainer = () => {
   }, []);
 
   /* -------------------------------------------------------------------------- */
-  /*                               CANCELAR ORDEN                               */
+  /*                        CANCELO LA ORDEN SI CONFIRMA                        */
   /* -------------------------------------------------------------------------- */
   const handleCancel = async (id) => {
     const confirmed = window.confirm("¿Cancelar esta orden?");

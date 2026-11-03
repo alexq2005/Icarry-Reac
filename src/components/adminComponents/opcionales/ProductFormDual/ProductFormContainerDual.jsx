@@ -10,7 +10,7 @@ import {
 } from "../../../../services/productsService";
 import "../../ProductForm/ProductFormContainer.css";
 /* -------------------------------------------------------------------------- */
-/*                            IMPORT PARA TOASTIFY                            */
+/*                          TOASTIFY PARA LOS AVISOS                          */
 /* -------------------------------------------------------------------------- */
 import { toast } from "react-toastify";
 
@@ -28,7 +28,7 @@ export const ProductFormContainerDual = () => {
   });
 
   /* -------------------------------------------------------------------------- */
-  /*                SI HAY ID, TRAEMOS EL PRODUCTO PARA EDITARLO                */
+  /*                    SI HAY ID CARGO EL PRODUCTO A EDITAR                    */
   /* -------------------------------------------------------------------------- */
   useEffect(() => {
     if (!id) return;
@@ -62,13 +62,13 @@ export const ProductFormContainerDual = () => {
     e.preventDefault();
 
     /* -------------------------------------------------------------------------- */
-    /*       MODIFICAMOS LOS ESTADOS PARA EL "LOADING MIENTRAS SE PROCESA"        */
+    /*                     LIMPIO ERRORES Y ACTIVO EL LOADING                     */
     /* -------------------------------------------------------------------------- */
     setErrors({});
     setLoading(true);
 
     /* -------------------------------------------------------------------------- */
-    /*          VALIDAR INPUTS (SI EDITO, ALCANZA CON LA IMAGEN ACTUAL)           */
+    /*                     VALIDO LOS CAMPOS ANTES DE GUARDAR                     */
     /* -------------------------------------------------------------------------- */
     const newErrors = validateProduct({ ...product, file: file || product.image });
     if (Object.keys(newErrors).length > 0) {
@@ -79,12 +79,12 @@ export const ProductFormContainerDual = () => {
 
     try {
       /* -------------------------------------------------------------------------- */
-      /*                SUBIR LA IMAGEN SOLO SI SE ELIGIO UNA NUEVA                 */
+      /*                  SUBO LA IMAGEN SOLO SI ELIGIO UNA NUEVA                   */
       /* -------------------------------------------------------------------------- */
       const imageUrl = file ? await uploadImage(file) : product.image;
 
       /* -------------------------------------------------------------------------- */
-      /*                      ARMAR LA ESTRUCTURA DEL PRODUCTO                      */
+      /*                  ARMO EL PRODUCTO CON EL PRECIO EN NUMERO                  */
       /* -------------------------------------------------------------------------- */
       const productData = {
         ...product,
@@ -94,24 +94,24 @@ export const ProductFormContainerDual = () => {
 
       if (id) {
         /* -------------------------------------------------------------------------- */
-        /*                                MODIFICACION                                */
+        /*                      SI HAY ID ACTUALIZO EL PRODUCTO                       */
         /* -------------------------------------------------------------------------- */
         await updateProduct(id, productData);
         toast.success("Producto actualizado");
         navigate("/admin/dashboard", { replace: true });
       } else {
         /* -------------------------------------------------------------------------- */
-        /*                                    ALTA                                    */
+        /*                        SI NO HAY ID CREO UNO NUEVO                         */
         /* -------------------------------------------------------------------------- */
         const newId = await createProduct(productData);
         /* -------------------------------------------------------------------------- */
-        /*                             VACIAR FORMULARIO                              */
+        /*                            VACIO EL FORMULARIO                             */
         /* -------------------------------------------------------------------------- */
         setProduct({ name: "", price: "", category: "", description: "" });
         setFile(null);
 
         /* -------------------------------------------------------------------------- */
-        /*                        NAVEGAR A LA PAGINA DE EXITO                        */
+        /*                          VOY A LA PAGINA DE EXITO                          */
         /* -------------------------------------------------------------------------- */
         navigate(`/admin/products/success/${newId}`, { replace: true });
       }

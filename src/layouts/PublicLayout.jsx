@@ -4,8 +4,7 @@ import { Header } from "../components/Header/Header";
 
 export const PublicLayout = () => {
   /* -------------------------------------------------------------------------- */
-  /*              OUTLET ES COMO UN CHILDREN, PARA RENDERIZAR CADA              */
-  /*                      ROUTE QUE ENVUELVA PUBLICLAYOUT                       */
+  /*              OUTLET MUESTRA CADA PAGINA ENTRE HEADER Y FOOTER              */
   /* -------------------------------------------------------------------------- */
   return (
     <>

@@ -1,11 +1,10 @@
 /* -------------------------------------------------------------------------- */
-/*                   EN ESTE COMPONENTE ORGANIZO LAS PARTES                   */
-/*                    PRINCIPALES Y LAS RUTAS DE LA TIENDA                    */
+/*                      ACA ARMO LAS RUTAS DE LA TIENDA                       */
 /* -------------------------------------------------------------------------- */
 
 import { Navigate, Route, Routes } from "react-router-dom";
 /* -------------------------------------------------------------------------- */
-/*                            IMPORT PARA TOASTIFY                            */
+/*                          TOASTIFY PARA LOS AVISOS                          */
 /* -------------------------------------------------------------------------- */
 import { ToastContainer } from "react-toastify";
 import "./App.css";
@@ -28,19 +27,19 @@ function App() {
   return (
     <>
       {/* -------------------------------------------------------------------------- */}
-      {/*                               RUTAS PUBLICAS                               */}
+      {/*                     RUTAS PUBLICAS CON HEADER Y FOOTER                     */}
       {/* -------------------------------------------------------------------------- */}
       <Routes>
         <Route element={<PublicLayout />}>
           <Route path="/" element={<ItemListContainer />} />
           {/* -------------------------------------------------------------------------- */}
-          {/*                   RUTA OPCIONAL PARA FILTRAR CATEGORIAS                    */}
+          {/*                     FILTRO POR CATEGORIA DESDE LA URL                      */}
           {/* -------------------------------------------------------------------------- */}
           <Route path="/category/:category" element={<ItemListContainer />} />
           <Route path="/product/:id" element={<ItemDetailContainer />} />
           <Route path="/cart" element={<CartView />} />
           {/* -------------------------------------------------------------------------- */}
-          {/*                        CUALQUIER RUTA QUE NO EXISTE                        */}
+          {/*                    SI LA RUTA NO EXISTE MUESTRO EL 404                     */}
           {/* -------------------------------------------------------------------------- */}
           <Route path="*" element={<NotFound />} />
         </Route>
@@ -48,7 +47,7 @@ function App() {
         <Route path="/admin/login" element={<Login />} />
 
         {/* -------------------------------------------------------------------------- */}
-        {/*                                   ADMIN                                    */}
+        {/*                       PANEL DE ADMIN, SOLO CON LOGIN                       */}
         {/* -------------------------------------------------------------------------- */}
         <Route
           path="/admin"
@@ -59,10 +58,7 @@ function App() {
           }
         >
           {/* -------------------------------------------------------------------------- */}
-          {/*                                RUTAS ADMIN                                 */}
-          {/* -------------------------------------------------------------------------- */}
-          {/* -------------------------------------------------------------------------- */}
-          {/*       SI EL ADMIN ESTA LOGEADO, REDIRIGE A LA RUTA /ADMIN/DASHBOARD        */}
+          {/*                  SI ENTRA A /ADMIN LO MANDO AL DASHBOARD                   */}
           {/* -------------------------------------------------------------------------- */}
           <Route index element={<Navigate to={"dashboard"} />} />
           {/*<Route path="dasboard" element={<Dashboard/>}*/}
@@ -71,7 +67,7 @@ function App() {
           <Route path="orders" element={<OrderListContainer />} />
 
           {/* -------------------------------------------------------------------------- */}
-          {/*                                 OPCIONALES                                 */}
+          {/*                         PAGINAS DEL PANEL DE ADMIN                         */}
           {/* -------------------------------------------------------------------------- */}
         
           <Route path="dashboard" element={<DashboardFull />} />
@@ -83,7 +79,7 @@ function App() {
         </Route>
       </Routes>
       {/* -------------------------------------------------------------------------- */}
-      {/*                    ACA APARECEN LOS AVISOS DEL CARRITO                     */}
+      {/*                      ACA SALEN LOS AVISOS DEL CARRITO                      */}
       {/* -------------------------------------------------------------------------- */}
       <ToastContainer theme="dark" />
     </>

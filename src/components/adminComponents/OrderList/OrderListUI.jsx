@@ -3,7 +3,7 @@ import { FaArrowLeft } from "react-icons/fa";
 import { formatPrice } from "../../../utils/formatPrice";
 
 /* -------------------------------------------------------------------------- */
-/*                        FORMATEAR FECHA DE LA ORDEN                         */
+/*                     PASO LA FECHA DE FIREBASE A TEXTO                      */
 /* -------------------------------------------------------------------------- */
 const formatDate = (createdAt) => {
   if (!createdAt?.toDate) {
@@ -41,7 +41,7 @@ export const OrderListUI = ({ orders, loading, error, onCancel }) => {
       )}
 
       {/* -------------------------------------------------------------------------- */}
-      {/*                          CARGANDO / VACÍO / LISTA                          */}
+      {/*                      CARGANDO, SIN ORDENES O LA LISTA                      */}
       {/* -------------------------------------------------------------------------- */}
       {loading ? (
         <p className="admin-message" role="status">

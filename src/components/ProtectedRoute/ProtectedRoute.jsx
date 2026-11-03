@@ -7,7 +7,7 @@ export const ProtectedRoute = ({ children }) => {
   const { user, loading } = useAuth();
 
   /* -------------------------------------------------------------------------- */
-  /*   CLAVE: ESPERAMOS A SABER SI HAY USUARIO AUTENTICADO ANTES DE REDIRIGIR   */
+  /*                       ESPERO A SABER SI HAY USUARIO                        */
   /* -------------------------------------------------------------------------- */
   if (loading) return <p>Cargando...</p>;
 

@@ -1,5 +1,5 @@
 /* -------------------------------------------------------------------------- */
-/*   BUSCO EL PRODUCTO USANDO EL ID DE LA URL Y DESPUÉS MUESTRO SU DETALLE    */
+/*                   BUSCO EL PRODUCTO POR EL ID DE LA URL                    */
 /* -------------------------------------------------------------------------- */
 
 import { useEffect, useState } from "react";
@@ -10,7 +10,7 @@ import { getProductById } from "../../services/productsService";
 
 export const ItemDetailContainer = () => {
   /* -------------------------------------------------------------------------- */
-  /*       LEO EL ID DE LA URL Y GUARDO EL PRODUCTO, EL ERROR Y LA CARGA        */
+  /*                           ID DE LA URL Y ESTADOS                           */
   /* -------------------------------------------------------------------------- */
   const { id } = useParams();
   const [itemDetail, setItemDetail] = useState(null);
@@ -19,8 +19,7 @@ export const ItemDetailContainer = () => {
   const [prevId, setPrevId] = useState(id);
 
   /* -------------------------------------------------------------------------- */
-  /*           SI CAMBIA EL ID, REINICIO LOS ESTADOS ANTES DE BUSCAR            */
-  /*                 (DURANTE EL RENDER, COMO RECOMIENDA REACT)                 */
+  /*                    SI CAMBIA EL ID REINICIO LOS ESTADOS                    */
   /* -------------------------------------------------------------------------- */
   if (id !== prevId) {
     setPrevId(id);
@@ -30,7 +29,7 @@ export const ItemDetailContainer = () => {
   }
 
   /* -------------------------------------------------------------------------- */
-  /*          CONSULTO FIRESTORE PARA ENCONTRAR EL PRODUCTO SOLICITADO          */
+  /*                       TRAIGO EL PRODUCTO DE FIREBASE                       */
   /* -------------------------------------------------------------------------- */
   useEffect(() => {
     getProductById(id)
@@ -40,7 +39,7 @@ export const ItemDetailContainer = () => {
   }, [id]);
 
   /* -------------------------------------------------------------------------- */
-  /*          MIENTRAS CARGA O SI OCURRE UN ERROR, MUESTRO UN MENSAJE           */
+  /*                     MENSAJE MIENTRAS CARGA O SI FALLA                      */
   /* -------------------------------------------------------------------------- */
   if (loading) {
     return (
@@ -67,12 +66,12 @@ export const ItemDetailContainer = () => {
   }
 
   /* -------------------------------------------------------------------------- */
-  /*            CUANDO ENCUENTRO EL PRODUCTO, MUESTRO SU INFORMACIÓN            */
+  /*                            MUESTRO EL PRODUCTO                             */
   /* -------------------------------------------------------------------------- */
   return (
     <section className="detail-page">
       {/* -------------------------------------------------------------------------- */}
-      {/*                EN LA PESTAÑA MUESTRO EL NOMBRE DEL PRODUCTO                */}
+      {/*                     NOMBRE DEL PRODUCTO EN LA PESTANA                      */}
       {/* -------------------------------------------------------------------------- */}
       <Helmet>
         <title>{`${itemDetail.name} | iCarry`}</title>

@@ -1,9 +1,5 @@
 /* -------------------------------------------------------------------------- */
-/*              HAGO QUE LA APP OCUPE LA PANTALLA Y DEJO EL PIE               */
-/*                      ABAJO CUANDO HAY POCO CONTENIDO                       */
-/* -------------------------------------------------------------------------- */
-/* -------------------------------------------------------------------------- */
-/*                            CONTENEDOR PRINCIPAL                            */
+/*               LA APP OCUPA TODO EL ALTO Y EL PIE QUEDA ABAJO               */
 /* -------------------------------------------------------------------------- */
 #root {
   width: 100%;
@@ -13,10 +9,7 @@
 }
 
 /* -------------------------------------------------------------------------- */
-/*                         PANEL GENERAL DE CONTENIDO                         */
-/* -------------------------------------------------------------------------- */
-/* -------------------------------------------------------------------------- */
-/*           ESTE ESTILO SE COMPARTE ENTRE LAS PÁGINAS PRINCIPALES            */
+/*                 PANEL DONDE VA EL CONTENIDO DE CADA PAGINA                 */
 /* -------------------------------------------------------------------------- */
 main {
   flex: 1;
@@ -32,7 +25,7 @@ main {
   box-shadow: var(--glass-shadow);
 
   /* -------------------------------------------------------------------------- */
-  /*         AGREGO UN BORDE INTERIOR DECORATIVO SIN BLOQUEAR LOS CLICS         */
+  /*                 BORDE DECORATIVO QUE NO BLOQUEA LOS CLICS                  */
   /* -------------------------------------------------------------------------- */
   &::before {
     content: "";
@@ -45,7 +38,7 @@ main {
   }
 
   /* -------------------------------------------------------------------------- */
-  /*          EN LA PÁGINA DE DETALLE, EL PANEL SE AJUSTA AL CONTENIDO          */
+  /*               EN EL DETALLE EL PANEL SE AJUSTA AL CONTENIDO                */
   /* -------------------------------------------------------------------------- */
   &:has(.detail-page) {
     flex: 0 0 auto;
@@ -56,7 +49,7 @@ main {
   }
 
   /* -------------------------------------------------------------------------- */
-  /*   LINKS Y BOTONES DEL PANEL: EFECTO AL PASAR EL MOUSE Y FOCO CON TECLADO   */
+  /*                     BRILLO AL PASAR EL MOUSE O CON TAB                     */
   /* -------------------------------------------------------------------------- */
   a,
   button {
@@ -73,7 +66,7 @@ main {
   }
 
   /* -------------------------------------------------------------------------- */
-  /*       EN PANTALLAS CHICAS REDUZCO LOS MÁRGENES Y EL ESPACIO INTERIOR       */
+  /*                    EN CELULAR ACHICO MARGENES Y RELLENO                    */
   /* -------------------------------------------------------------------------- */
   @media (max-width: 640px) {
     width: min(calc(100% - 2rem), 1200px);
@@ -89,10 +82,7 @@ main {
 }
 
 /* -------------------------------------------------------------------------- */
-/*                     ESTILOS DE LA PAGINA NO ENCONTRADA                     */
-/* -------------------------------------------------------------------------- */
-/* -------------------------------------------------------------------------- */
-/*            VARIABLES DE COLOR DORADO PARA LOS ESTILOS DE ABAJO             */
+/*                     COLORES DE LA PAGINA NO ENCONTRADA                     */
 /* -------------------------------------------------------------------------- */
 :root {
   --accent: var(--color-dorado);
@@ -146,7 +136,7 @@ main {
 }
 
 /* -------------------------------------------------------------------------- */
-/*              AVISOS DEL CARRITO CON LOS COLORES DE LA TIENDA               */
+/*              AVISOS DE TOASTIFY CON LOS COLORES DE LA TIENDA               */
 /* -------------------------------------------------------------------------- */
 .Toastify__toast-theme--dark {
   background-color: #1a1522;

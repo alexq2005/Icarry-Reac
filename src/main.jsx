@@ -1,11 +1,11 @@
 /* -------------------------------------------------------------------------- */
-/*            ESTE ES EL PUNTO DONDE INICIO LA APLICACIÓN DE REACT            */
+/*                             ACA ARRANCA LA APP                             */
 /* -------------------------------------------------------------------------- */
 
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 /* -------------------------------------------------------------------------- */
-/*            BOOTSTRAP PRIMERO, ASI MIS ESTILOS QUEDAN POR ENCIMA            */
+/*                 BOOTSTRAP PRIMERO ASI MIS ESTILOS LO PISAN                 */
 /* -------------------------------------------------------------------------- */
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./styles/index.css";

@@ -1,5 +1,5 @@
 /* -------------------------------------------------------------------------- */
-/*    MUESTRO LOS PRODUCTOS EN TARJETAS Y CADA TARJETA LLEVA A SU DETALLE     */
+/*                      CADA TARJETA LLEVA A SU DETALLE                       */
 /* -------------------------------------------------------------------------- */
 
 import { Item } from "../Item/Item";
@@ -8,14 +8,14 @@ import "./ItemList.css";
 
 export const ItemList = ({ products }) => {
   /* -------------------------------------------------------------------------- */
-  /*          SI NO HAY PRODUCTOS PARA MOSTRAR, AVISO CON ESTE MENSAJE          */
+  /*                         SI NO HAY PRODUCTOS AVISO                          */
   /* -------------------------------------------------------------------------- */
   if (!products.length) {
     return <p>No hay productos</p>;
   }
 
   /* -------------------------------------------------------------------------- */
-  /*           RECORRO LOS PRODUCTOS Y CREO UNA TARJETA PARA CADA UNO           */
+  /*                          UNA TARJETA POR PRODUCTO                          */
   /* -------------------------------------------------------------------------- */
   return (
     <div className="products-container">

@@ -1,5 +1,5 @@
 /* -------------------------------------------------------------------------- */
-/*     MUESTRO UN PRODUCTO DEL CARRITO Y AGREGO EL BOTÓN PARA ELIMINARLO      */
+/*                   TARJETA DEL CARRITO CON BOTON ELIMINAR                   */
 /* -------------------------------------------------------------------------- */
 
 import { useCart } from "../../context/CartContext";
@@ -11,7 +11,7 @@ export const CartItem = ({ item }) => {
   return (
     <Item {...item}>
       {/* -------------------------------------------------------------------------- */}
-      {/*                CON ESTE BOTÓN SACO EL PRODUCTO DEL CARRITO                 */}
+      {/*                        SACO EL PRODUCTO DEL CARRITO                        */}
       {/* -------------------------------------------------------------------------- */}
       <button
         className="btn bg-delete primary"

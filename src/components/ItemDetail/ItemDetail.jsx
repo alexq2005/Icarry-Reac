@@ -1,6 +1,5 @@
 /* -------------------------------------------------------------------------- */
-/*             EN ESTA PARTE MUESTRO LOS DATOS DEL PRODUCTO Y EL              */
-/*                      BOTÓN PARA AGREGARLO AL CARRITO                       */
+/*                   DETALLE DEL PRODUCTO CON BOTON AGREGAR                   */
 /* -------------------------------------------------------------------------- */
 
 import { useNavigate } from "react-router-dom";
@@ -20,14 +19,14 @@ export const ItemDetail = ({ item }) => {
   return (
     <article className="detail-layout">
       {/* -------------------------------------------------------------------------- */}
-      {/*                  MUESTRO LA IMAGEN PRINCIPAL DEL PRODUCTO                  */}
+      {/*                            IMAGEN DEL PRODUCTO                             */}
       {/* -------------------------------------------------------------------------- */}
       <div className="detail-media">
         <img className="detail-media-img" src={item.image} alt={item.name} />
       </div>
 
       {/* -------------------------------------------------------------------------- */}
-      {/*     EN ESTE BLOQUE MUESTRO LA INFORMACIÓN Y LAS ACCIONES DEL PRODUCTO      */}
+      {/*                         CATEGORIA, NOMBRE Y COMPRA                         */}
       {/* -------------------------------------------------------------------------- */}
       <div className="detail-info">
         {categoryLabel && (
@@ -36,7 +35,7 @@ export const ItemDetail = ({ item }) => {
         <h2 className="detail-title">{item.name}</h2>
 
         {/* -------------------------------------------------------------------------- */}
-        {/*            MUESTRO EL PRECIO Y EL BOTÓN PARA AGREGAR AL CARRITO            */}
+        {/*                     PRECIO Y BOTON AGREGAR AL CARRITO                      */}
         {/* -------------------------------------------------------------------------- */}
         <div className="detail-buy">
           <p className="detail-price">{formatPrice(item.price)}</p>
@@ -52,12 +51,12 @@ export const ItemDetail = ({ item }) => {
         </div>
 
         {/* -------------------------------------------------------------------------- */}
-        {/*                MUESTRO LA DESCRIPCIÓN COMPLETA DEL PRODUCTO                */}
+        {/*                            DESCRIPCION COMPLETA                            */}
         {/* -------------------------------------------------------------------------- */}
         <p className="detail-description">{item.description}</p>
 
         {/* -------------------------------------------------------------------------- */}
-        {/*                        VUELVE A LA PAGINA ANTERIOR                         */}
+        {/*                        VUELVO A LA PAGINA ANTERIOR                         */}
         {/* -------------------------------------------------------------------------- */}
         <button className="btn btn-secondary" onClick={() => navigate(-1)}>
           <FaArrowLeft /> Volver

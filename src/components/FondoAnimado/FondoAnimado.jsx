@@ -1,5 +1,5 @@
 /* -------------------------------------------------------------------------- */
-/*          MUESTRO LAS IMAGENES DEL FONDO EN CAPAS QUE SE ALTERNAN           */
+/*                   IMAGENES DEL FONDO QUE SE VAN TURNANDO                   */
 /* -------------------------------------------------------------------------- */
 export const FondoAnimado = () => {
   return (

@@ -2,7 +2,7 @@ export const validateProduct = (product) => {
   const errors = {};
 
   /* -------------------------------------------------------------------------- */
-  /*                         VALIDACIONES DEL PRODUCTO                          */
+  /*                            CAMPOS OBLIGATORIOS                             */
   /* -------------------------------------------------------------------------- */
   if (!product.name.trim()) {
     errors.name = "El nombre es obligatorio";
@@ -21,7 +21,7 @@ export const validateProduct = (product) => {
   }
 
   /* -------------------------------------------------------------------------- */
-  /*                            VALIDACIÓN DE IMAGEN                            */
+  /*                         TIENE QUE HABER UNA IMAGEN                         */
   /* -------------------------------------------------------------------------- */
   if (!product.file && !product.image) {
     errors.file = "Debes seleccionar una imagen";

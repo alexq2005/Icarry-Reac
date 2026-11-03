@@ -14,12 +14,12 @@ import {
 import { db } from "../firebase/config";
 
 /* -------------------------------------------------------------------------- */
-/*          TODAS LAS FUNCIONES UTILIZAN ESTA COLECCIÓN DE FIRESTORE          */
+/*                    COLECCION DE PRODUCTOS EN FIRESTORE                     */
 /* -------------------------------------------------------------------------- */
 const productsRef = collection(db, "products");
 
 /* -------------------------------------------------------------------------- */
-/* FIRESTORE DEVUELVE DOCUMENTOS; LOS CONVIERTO AL FORMATO QUE USA LA TIENDA  */
+/*                    PASO LOS DOCUMENTOS A OBJETOS CON ID                    */
 /* -------------------------------------------------------------------------- */
 const formatProducts = (snapshot) => {
   return snapshot.docs.map((productDoc) => {
@@ -28,12 +28,12 @@ const formatProducts = (snapshot) => {
 };
 
 /* -------------------------------------------------------------------------- */
-/*                              TRAER PRODUCTOS                               */
+/*                         TRAIGO TODOS LOS PRODUCTOS                         */
 /* -------------------------------------------------------------------------- */
 export const getProducts = async () => {
   try {
     /* -------------------------------------------------------------------------- */
-    /*               OBTENEMOS TODOS LOS DOCUMENTOS DE LA COLECCIÓN               */
+    /*                          LEO TODOS LOS DOCUMENTOS                          */
     /* -------------------------------------------------------------------------- */
     const snapshot = await getDocs(productsRef);
     return formatProducts(snapshot);
@@ -44,17 +44,17 @@ export const getProducts = async () => {
 };
 
 /* -------------------------------------------------------------------------- */
-/*                           TRAER PRODUCTO POR ID                            */
+/*                         TRAIGO UN PRODUCTO POR ID                          */
 /* -------------------------------------------------------------------------- */
 export const getProductById = async (id) => {
   try {
     /* -------------------------------------------------------------------------- */
-    /*          CREAMOS LA REFERENCIA AL DOCUMENTO Y LO BUSCAMOS POR ID           */
+    /*                             LO BUSCO POR SU ID                             */
     /* -------------------------------------------------------------------------- */
     const productSnapshot = await getDoc(doc(productsRef, id));
 
     /* -------------------------------------------------------------------------- */
-    /*                     VERIFICAMOS SI EL DOCUMENTO EXISTE                     */
+    /*                           SI EXISTE LO DEVUELVO                            */
     /* -------------------------------------------------------------------------- */
     if (productSnapshot.exists()) {
       return { id: productSnapshot.id, ...productSnapshot.data() };
@@ -68,12 +68,12 @@ export const getProductById = async (id) => {
 };
 
 /* -------------------------------------------------------------------------- */
-/*                      FILTRAR PRODUCTOS POR CATEGORÍA                       */
+/*                          PRODUCTOS POR CATEGORIA                           */
 /* -------------------------------------------------------------------------- */
 export const getByCategory = async (category) => {
   try {
     /* -------------------------------------------------------------------------- */
-    /*    SI RECIBIMOS UNA CATEGORÍA, FILTRAMOS LOS PRODUCTOS DESDE FIRESTORE     */
+    /*                    SI HAY CATEGORIA FILTRO EN FIRESTORE                    */
     /* -------------------------------------------------------------------------- */
     let productsQuery;
     if (category) {
@@ -91,12 +91,12 @@ export const getByCategory = async (category) => {
 };
 
 /* -------------------------------------------------------------------------- */
-/*                               CREAR PRODUCTO                               */
+/*                              CREO UN PRODUCTO                              */
 /* -------------------------------------------------------------------------- */
 export const createProduct = async (productData) => {
   try {
     /* -------------------------------------------------------------------------- */
-    /*       AGREGAMOS EL NUEVO PRODUCTO A LA COLECCIÓN Y DEVOLVEMOS SU ID        */
+    /*                         LO AGREGO Y DEVUELVO SU ID                         */
     /* -------------------------------------------------------------------------- */
     const productRef = await addDoc(productsRef, productData);
     return productRef.id;
@@ -107,7 +107,7 @@ export const createProduct = async (productData) => {
 };
 
 /* -------------------------------------------------------------------------- */
-/*                            ACTUALIZAR PRODUCTO                             */
+/*                           ACTUALIZO UN PRODUCTO                            */
 /* -------------------------------------------------------------------------- */
 export const updateProduct = async (id, productData) => {
   try {
@@ -119,7 +119,7 @@ export const updateProduct = async (id, productData) => {
 };
 
 /* -------------------------------------------------------------------------- */
-/*                             ELIMINAR PRODUCTO                              */
+/*                             BORRO UN PRODUCTO                              */
 /* -------------------------------------------------------------------------- */
 export const deleteProduct = async (id) => {
   try {
@@ -131,7 +131,7 @@ export const deleteProduct = async (id) => {
 };
 
 /* -------------------------------------------------------------------------- */
-/*                           CREAR ORDEN DE COMPRA                            */
+/*                         GUARDO LA ORDEN DE COMPRA                          */
 /* -------------------------------------------------------------------------- */
 const ordersRef = collection(db, "orders");
 
@@ -157,7 +157,7 @@ export const createOrder = async ({ items, total }) => {
 };
 
 /* -------------------------------------------------------------------------- */
-/*                          TRAER ÓRDENES DE COMPRA                           */
+/*                  TRAIGO LAS ORDENES, LAS ULTIMAS PRIMERO                   */
 /* -------------------------------------------------------------------------- */
 export const getOrders = async () => {
   try {
@@ -176,7 +176,7 @@ export const getOrders = async () => {
 
 
 /* -------------------------------------------------------------------------- */
-/*                             CANCELAR UNA ORDEN                             */
+/*                       MARCO LA ORDEN COMO CANCELADA                        */
 /* -------------------------------------------------------------------------- */
 export const cancelOrder = async (id) => {
   try {

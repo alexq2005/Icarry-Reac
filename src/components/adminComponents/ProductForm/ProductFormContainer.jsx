@@ -8,7 +8,7 @@ import "./ProductFormContainer.css";
 
 export const ProductFormContainer = () => {
   /* -------------------------------------------------------------------------- */
-  /*                           ESTADO DEL FORMULARIO                            */
+  /*                           ESTADOS DEL FORMULARIO                           */
   /* -------------------------------------------------------------------------- */
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
@@ -22,7 +22,7 @@ export const ProductFormContainer = () => {
   });
 
   /* -------------------------------------------------------------------------- */
-  /*                      MANEJO DE CAMBIOS DEL FORMULARIO                      */
+  /*                   GUARDO LO QUE SE ESCRIBE EN CADA CAMPO                   */
   /* -------------------------------------------------------------------------- */
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -35,7 +35,7 @@ export const ProductFormContainer = () => {
   };
 
   /* -------------------------------------------------------------------------- */
-  /*                     VALIDACIÓN Y GUARDADO DEL PRODUCTO                     */
+  /*                AL ENVIAR LIMPIO ERRORES Y ACTIVO EL LOADING                */
   /* -------------------------------------------------------------------------- */
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -43,7 +43,7 @@ export const ProductFormContainer = () => {
     setLoading(true);
 
     /* -------------------------------------------------------------------------- */
-    /*      VALIDO LOS DATOS ANTES DE SUBIR LA IMAGEN O GUARDAR EL PRODUCTO       */
+    /*                      VALIDO ANTES DE SUBIR LA IMAGEN                       */
     /* -------------------------------------------------------------------------- */
     const newErrors = validateProduct({ ...product, file });
     if (Object.keys(newErrors).length > 0) {
@@ -54,7 +54,7 @@ export const ProductFormContainer = () => {
 
     try {
       /* -------------------------------------------------------------------------- */
-      /*              SUBO LA IMAGEN Y ARMO LA ESTRUCTURA DEL PRODUCTO              */
+      /*                     SUBO LA IMAGEN Y ARMO EL PRODUCTO                      */
       /* -------------------------------------------------------------------------- */
       const imageUrl = await uploadImage(file);
       const productData = {
@@ -66,7 +66,7 @@ export const ProductFormContainer = () => {
       const id = await createProduct(productData);
 
       /* -------------------------------------------------------------------------- */
-      /*          LIMPIO EL FORMULARIO Y MUESTRO LA CONFIRMACIÓN DEL ALTA           */
+      /*                    LIMPIO EL FORMULARIO Y VOY AL EXITO                     */
       /* -------------------------------------------------------------------------- */
       setProduct({ name: "", price: "", category: "", description: "" });
       setFile(null);
@@ -80,7 +80,7 @@ export const ProductFormContainer = () => {
   };
 
   /* -------------------------------------------------------------------------- */
-  /*                            VISTA DEL FORMULARIO                            */
+  /*                         LE PASO TODO AL FORMULARIO                         */
   /* -------------------------------------------------------------------------- */
   return (
     <ProductFormUI

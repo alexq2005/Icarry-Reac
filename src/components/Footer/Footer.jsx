@@ -1,5 +1,5 @@
 /* -------------------------------------------------------------------------- */
-/*   EN EL PIE DE PÁGINA MUESTRO EL CRÉDITO DEL SITIO Y LAS REDES SOCIALES    */
+/*                       PIE CON EL CREDITO Y LAS REDES                       */
 /* -------------------------------------------------------------------------- */
 
 import "./Footer.css";
@@ -8,7 +8,7 @@ import instagramLogo from "../../assets/instagram.png";
 
 export const Footer = () => {
   /* -------------------------------------------------------------------------- */
-  /*               GUARDO LOS NOMBRES QUE VOY A MOSTRAR EN EL PIE               */
+  /*                             REDES CON SU LOGO                              */
   /* -------------------------------------------------------------------------- */
   const socialLinks = [
     { name: "Whatsapp", logo: whatsappLogo },
@@ -18,12 +18,12 @@ export const Footer = () => {
   return (
     <footer>
       {/* -------------------------------------------------------------------------- */}
-      {/*                       MUESTRO QUIÉN REALIZÓ EL SITIO                       */}
+      {/*                             CREDITO DEL SITIO                              */}
       {/* -------------------------------------------------------------------------- */}
       <p>Sitio realizado por Alex Quiñones</p>
 
       {/* -------------------------------------------------------------------------- */}
-      {/*               MUESTRO EL LOGO Y EL NOMBRE DE CADA RED SOCIAL               */}
+      {/*                            UN LINK POR CADA RED                            */}
       {/* -------------------------------------------------------------------------- */}
       <nav aria-label="Redes sociales">
         <ul className="nav-list">

@@ -1,23 +1,17 @@
 /* -------------------------------------------------------------------------- */
-/*     CON ESTA CONFIGURACIÓN CONECTO LA APP CON EL PROYECTO DE FIREBASE      */
-/* -------------------------------------------------------------------------- */
-/* -------------------------------------------------------------------------- */
-/*            IMPORT THE FUNCTIONS YOU NEED FROM THE SDKS YOU NEED            */
+/*                           CONEXION CON FIREBASE                            */
 /* -------------------------------------------------------------------------- */
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 import { getAuth } from "firebase/auth";
 
 /* -------------------------------------------------------------------------- */
-/* SI MÁS ADELANTE USO AUTH O FIRESTORE, PUEDO INICIALIZAR ESOS SERVICIOS ACÁ */
-/* -------------------------------------------------------------------------- */
-/* -------------------------------------------------------------------------- */
-/*         TODO: ADD SDKS FOR FIREBASE PRODUCTS THAT YOU WANT TO USE          */
+/*                     SERVICIOS DISPONIBLES DE FIREBASE                      */
 /* -------------------------------------------------------------------------- */
 //https://firebase.google.com/docs/web/setup#available-libraries
 
 /* -------------------------------------------------------------------------- */
-/*           ESTOS DATOS IDENTIFICAN LA APLICACIÓN WEB EN FIREBASE            */
+/*                       DATOS DEL PROYECTO EN FIREBASE                       */
 /* -------------------------------------------------------------------------- */
 //
 const firebaseConfig = {
@@ -30,13 +24,12 @@ const firebaseConfig = {
 };
 
 /* -------------------------------------------------------------------------- */
-/*   CREO LA INSTANCIA PRINCIPAL DE FIREBASE PARA USARLA CON SUS SERVICIOS    */
+/*                    ARRANCO FIREBASE Y LA BASE DE DATOS                     */
 /* -------------------------------------------------------------------------- */
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 /* -------------------------------------------------------------------------- */
-/*                PARA EL LOGIN Y REGISTRO DE USUARIOS, USO EL                */
-/*                   SERVICIO DE AUTENTICACIÓN DE FIREBASE                    */
+/*                             AUTH PARA EL LOGIN                             */
 /* -------------------------------------------------------------------------- */
 const auth = getAuth(app);
 

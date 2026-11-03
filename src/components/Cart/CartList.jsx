@@ -1,5 +1,5 @@
 /* -------------------------------------------------------------------------- */
-/*   RECORRO LOS PRODUCTOS DEL CARRITO Y MUESTRO UNA TARJETA PARA CADA UNO    */
+/*                 UNA TARJETA POR CADA PRODUCTO DEL CARRITO                  */
 /* -------------------------------------------------------------------------- */
 
 import { useCart } from "../../context/CartContext";
@@ -10,7 +10,7 @@ export const CartList = () => {
 
   return (
     /* -------------------------------------------------------------------------- */
-    /*         USO ESTE CONTENEDOR PARA ACOMODAR LAS TARJETAS DEL CARRITO         */
+    /*                         CONTENEDOR DE LAS TARJETAS                         */
     /* -------------------------------------------------------------------------- */
     <div className="cart-items-container">
       {cart.map((element) => (

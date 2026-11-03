@@ -11,7 +11,7 @@
 }
 
 /* -------------------------------------------------------------------------- */
-/*                                   HEADER                                   */
+/*                             CABECERA DEL PANEL                             */
 /* -------------------------------------------------------------------------- */
 
 .dashboard-header {
@@ -36,7 +36,7 @@
 }
 
 /* -------------------------------------------------------------------------- */
-/*                                  ACCIONES                                  */
+/*                            BOTONES DE ACCIONES                             */
 /* -------------------------------------------------------------------------- */
 
 .dashboard-actions {
@@ -49,7 +49,7 @@
 }
 
 /* -------------------------------------------------------------------------- */
-/*                                   AYUDA                                    */
+/*                              CUADRO DE AYUDA                               */
 /* -------------------------------------------------------------------------- */
 
 .dashboard-help {
@@ -66,7 +66,7 @@
 }
 
 /* -------------------------------------------------------------------------- */
-/*                                  BOTONES                                   */
+/*                OSCUREZCO EL ULTIMO BOTON AL PASAR EL MOUSE                 */
 /* -------------------------------------------------------------------------- */
 
 .header-actions .btn:last-child:hover {
@@ -87,7 +87,7 @@
 }
 
 /* -------------------------------------------------------------------------- */
-/*                               DASHBOARD FULL                               */
+/*                         ESTILOS DEL PANEL COMPLETO                         */
 /* -------------------------------------------------------------------------- */
 
 .dashboard-full .dashboard-help {
@@ -213,7 +213,7 @@
 }
 
 /* -------------------------------------------------------------------------- */
-/*                                 RESPONSIVE                                 */
+/*                        EN CELULAR APILO LA CABECERA                        */
 /* -------------------------------------------------------------------------- */
 
 @media (max-width: 600px) {
@@ -239,7 +239,7 @@
 }
 
 /* -------------------------------------------------------------------------- */
-/*        FUENTES MAS GRANDES PARA EL CONTADOR Y LA LISTA DE PRODUCTOS        */
+/*                       AGRANDO EL CONTADOR Y LA LISTA                       */
 /* -------------------------------------------------------------------------- */
 .dashboard-products-header h3 {
   font-size: 1.8rem;
@@ -268,7 +268,7 @@
   padding: 0.9rem 1.6rem;
 }
 /* -------------------------------------------------------------------------- */
-/*                      CUADROS DE PRODUCTOS MAS GRANDES                      */
+/*                       LISTA DE PRODUCTOS EN COLUMNA                        */
 /* -------------------------------------------------------------------------- */
 .dashboard-full .dashboard-list {
   display: flex;
@@ -330,7 +330,7 @@
   }
 }
 /* -------------------------------------------------------------------------- */
-/*                      ACCIONES (GESTION DE PRODUCTOS)                       */
+/*                          ACCIONES EN DOS COLUMNAS                          */
 /* -------------------------------------------------------------------------- */
 .dashboard-full .dashboard-actions {
   display: grid;
@@ -399,7 +399,7 @@
 }
 
 /* -------------------------------------------------------------------------- */
-/*                   PRODUCTOS CARGADOS UN POCO MAS GRANDES                   */
+/*                       AGRANDO UN POCO LOS PRODUCTOS                        */
 /* -------------------------------------------------------------------------- */
 .dashboard-full .dashboard-products-header h3 {
   font-size: 1.6rem;
@@ -436,7 +436,7 @@
   padding: 0.8rem 1.5rem;
 }
 /* -------------------------------------------------------------------------- */
-/*                   PRODUCTOS CARGADOS TODAVIA MAS GRANDES                   */
+/*                         AGRANDO MAS LOS PRODUCTOS                          */
 /* -------------------------------------------------------------------------- */
 .dashboard-full .dashboard-products-header h3 {
   font-size: 1.8rem;
@@ -478,7 +478,7 @@
 }
 
 /* -------------------------------------------------------------------------- */
-/*                  ESPACIO ENTRE EL BOTON VOLVER Y LA LISTA                  */
+/*                     SEPARO EL BOTON VOLVER DE LA LISTA                     */
 /* -------------------------------------------------------------------------- */
 .dashboard-products > .btn-secondary {
   display: inline-block;
@@ -486,14 +486,14 @@
 }
 
 /* -------------------------------------------------------------------------- */
-/*            EL CUADRO DE PRODUCTOS SIN FONDO PARA QUE NO OPAQUE             */
+/*                   LISTA SIN FONDO PARA QUE NO OSCUREZCA                    */
 /* -------------------------------------------------------------------------- */
 .dashboard-products {
   background: transparent;
 }
 
 /* -------------------------------------------------------------------------- */
-/*            EN LA PAGINA SOLA ACERCO LOS BOTONES A CADA PRODUCTO            */
+/*                     EN LA PAGINA SOLA ACHICO EL ANCHO                      */
 /* -------------------------------------------------------------------------- */
 .dashboard-products-solo .dashboard-products-header,
 .dashboard-products-solo .dashboard-list {

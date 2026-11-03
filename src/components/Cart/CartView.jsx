@@ -1,5 +1,5 @@
 /* -------------------------------------------------------------------------- */
-/*  MUESTRO LOS PRODUCTOS DEL CARRITO O UNA INVITACIÓN A VOLVER AL CATÁLOGO   */
+/*                     LISTA DEL CARRITO O AVISO DE VACIO                     */
 /* -------------------------------------------------------------------------- */
 
 import { useCart } from "../../context/CartContext";
@@ -22,14 +22,14 @@ export const CartView = () => {
       {cart.length ? (
         <>
           {/* -------------------------------------------------------------------------- */}
-          {/*               SI HAY PRODUCTOS, MUESTRO LA LISTA Y EL TOTAL                */}
+          {/*                   SI HAY PRODUCTOS MUESTRO LISTA Y TOTAL                   */}
           {/* -------------------------------------------------------------------------- */}
           <CartList />
           <CartSummary />
         </>
       ) : (
         /* -------------------------------------------------------------------------- */
-        /*                 SI NO HAY PRODUCTOS, MUESTRO ESTE MENSAJE                  */
+        /*                            SI ESTA VACIO AVISO                             */
         /* -------------------------------------------------------------------------- */
         <div className="empty-cart-state">
           <p className="empty-cart" role="status">
@@ -39,7 +39,7 @@ export const CartView = () => {
             Explorá el catálogo o elegí una categoría y sumá tus favoritos.
           </p>
           {/* -------------------------------------------------------------------------- */}
-          {/*          DEJO ACCESOS PARA VOLVER AL CATÁLOGO O VER UNA CATEGORÍA          */}
+          {/*                       BOTONES PARA VOLVER A COMPRAR                        */}
           {/* -------------------------------------------------------------------------- */}
           <div className="empty-cart-actions">
             <Link className="btn bg-primary empty-cart-cta" to="/">

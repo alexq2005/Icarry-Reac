@@ -32,7 +32,7 @@ export const DashboardFullUI = ({ onLogout }) => {
 
         <div className="dashboard-actions">
           {/* -------------------------------------------------------------------------- */}
-          {/*                 ACCION PRINCIPAL: CARGAR UN PRODUCTO NUEVO                 */}
+          {/*                       BOTON PARA CARGAR UN PRODUCTO                        */}
           {/* -------------------------------------------------------------------------- */}
           <Link to="/admin/products/new" className="dashboard-action dashboard-action-main">
             <span className="dashboard-action-icon" aria-hidden="true"><FaPlus /></span>
@@ -41,7 +41,7 @@ export const DashboardFullUI = ({ onLogout }) => {
           </Link>
 
           {/* -------------------------------------------------------------------------- */}
-          {/*                     ACCION SECUNDARIA: VER LAS COMPRAS                     */}
+          {/*                         BOTON PARA VER LAS ORDENES                         */}
           {/* -------------------------------------------------------------------------- */}
           <Link to="/admin/orders" className="dashboard-action">
             <span className="dashboard-action-icon" aria-hidden="true"><FaClipboardList /></span>

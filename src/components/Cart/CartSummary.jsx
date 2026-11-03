@@ -1,5 +1,5 @@
 /* -------------------------------------------------------------------------- */
-/*       EN ESTE COMPONENTE MUESTRO EL TOTAL Y DEJO CONFIRMAR LA COMPRA       */
+/*                         TOTAL Y BOTON PARA COMPRAR                         */
 /* -------------------------------------------------------------------------- */
 
 import { useCart } from "../../context/CartContext";
@@ -9,14 +9,14 @@ export const CartSummary = () => {
   const { getCartTotal, checkout, checkoutLoading, checkoutError } = useCart();
 
   /* -------------------------------------------------------------------------- */
-  /*       FORMATEO EL TOTAL PARA MOSTRARLO EN PESOS Y CON DOS DECIMALES        */
+  /*                           PASO EL TOTAL A PESOS                            */
   /* -------------------------------------------------------------------------- */
   const total = getCartTotal();
   const totalFormateado = formatPrice(total);
 
   return (
     /* -------------------------------------------------------------------------- */
-    /*            MUESTRO EL TOTAL Y EL BOTÓN PARA TERMINAR LA COMPRA             */
+    /*                    MUESTRO EL TOTAL Y EL BOTON COMPRAR                     */
     /* -------------------------------------------------------------------------- */
     <div className="cart-actions">
       <p>TOTAL A PAGAR: {totalFormateado}</p>

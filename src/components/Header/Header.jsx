@@ -1,5 +1,5 @@
 /* -------------------------------------------------------------------------- */
-/*       MUESTRO EL LOGO Y EL MENÚ EN LA CABECERA DE TODAS LAS PÁGINAS        */
+/*                         LOGO Y MENU ARRIBA DE TODO                         */
 /* -------------------------------------------------------------------------- */
 
 import { Nav } from "../Nav/Nav";
@@ -11,14 +11,14 @@ export const Header = () => {
   return (
     <header>
       {/* -------------------------------------------------------------------------- */}
-      {/*                 AL HACER CLIC EN EL LOGO VUELVO AL INICIO                  */}
+      {/*                          EL LOGO LLEVA AL INICIO                           */}
       {/* -------------------------------------------------------------------------- */}
       <Link to={"/"}>
         <img src={logo} alt="iCarry" />
       </Link>
 
       {/* -------------------------------------------------------------------------- */}
-      {/*                ACÁ ESTÁN LOS ENLACES PRINCIPALES DEL SITIO                 */}
+      {/*                               MENU PRINCIPAL                               */}
       {/* -------------------------------------------------------------------------- */}
       <Nav />
     </header>

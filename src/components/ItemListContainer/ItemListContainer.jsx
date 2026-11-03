@@ -1,5 +1,5 @@
 /* -------------------------------------------------------------------------- */
-/* CARGO EL CATÁLOGO Y, SI HAY UNA CATEGORÍA EN LA URL, FILTRO LOS PRODUCTOS  */
+/*                 CARGO LOS PRODUCTOS Y FILTRO POR CATEGORIA                 */
 /* -------------------------------------------------------------------------- */
 
 import { useEffect, useState } from "react";
@@ -10,7 +10,7 @@ import { getByCategory } from "../../services/productsService";
 import "./ItemListContainer.css";
 
 /* -------------------------------------------------------------------------- */
-/*          ACÁ GUARDO EL TÍTULO Y LA DESCRIPCIÓN DE CADA CATEGORÍA           */
+/*                      TITULO Y TEXTO DE CADA CATEGORIA                      */
 /* -------------------------------------------------------------------------- */
 const categoryInfo = {
   "items-del-juego": {
@@ -27,7 +27,7 @@ const categoryInfo = {
 
 export const ItemListContainer = () => {
   /* -------------------------------------------------------------------------- */
-  /*   LEO LA CATEGORÍA DE LA URL Y GUARDO LOS PRODUCTOS, EL ERROR Y LA CARGA   */
+  /*                       CATEGORIA DE LA URL Y ESTADOS                        */
   /* -------------------------------------------------------------------------- */
   const { category } = useParams();
   const [products, setProducts] = useState([]);
@@ -36,8 +36,7 @@ export const ItemListContainer = () => {
   const [prevCategory, setPrevCategory] = useState(category);
 
   /* -------------------------------------------------------------------------- */
-  /*          SI CAMBIA LA CATEGORÍA, REINICIO LOS ESTADOS DE CARGA Y           */
-  /*              ERROR (DURANTE EL RENDER, COMO RECOMIENDA REACT)              */
+  /*                  SI CAMBIA LA CATEGORIA REINICIO LA CARGA                  */
   /* -------------------------------------------------------------------------- */
   if (category !== prevCategory) {
     setPrevCategory(category);
@@ -46,7 +45,7 @@ export const ItemListContainer = () => {
   }
 
   /* -------------------------------------------------------------------------- */
-  /*      CONSULTO LOS PRODUCTOS Y FILTRO POR CATEGORÍA CUANDO CORRESPONDE      */
+  /*                      CARGO LOS PRODUCTOS DE FIREBASE                       */
   /* -------------------------------------------------------------------------- */
   useEffect(() => {
     getByCategory(category)
@@ -60,13 +59,13 @@ export const ItemListContainer = () => {
   return (
     <section className="seccion-productos">
       {/* -------------------------------------------------------------------------- */}
-      {/*             CAMBIO EL TITULO DE LA PESTAÑA SEGUN LA CATEGORIA              */}
+      {/*                    TITULO DE LA PESTANA SEGUN CATEGORIA                    */}
       {/* -------------------------------------------------------------------------- */}
       <Helmet>
         <title>{currentCategory ? `${currentCategory.title} | iCarry` : "iCarry — Tienda Dota 2"}</title>
       </Helmet>
       {/* -------------------------------------------------------------------------- */}
-      {/*         ESTA PRESENTACIÓN APARECE SOLAMENTE EN LA PÁGINA DE INICIO         */}
+      {/*                        BIENVENIDA SOLO EN EL INICIO                        */}
       {/* -------------------------------------------------------------------------- */}
       {!category && (
         <>
@@ -95,7 +94,7 @@ export const ItemListContainer = () => {
       )}
 
       {/* -------------------------------------------------------------------------- */}
-      {/*          SI ELEGÍ UNA CATEGORÍA, MUESTRO SU TÍTULO Y DESCRIPCIÓN           */}
+      {/*                   TITULO Y TEXTO DE LA CATEGORIA ELEGIDA                   */}
       {/* -------------------------------------------------------------------------- */}
       {currentCategory && (
         <div className="introduccion-tienda">
@@ -107,7 +106,7 @@ export const ItemListContainer = () => {
       )}
 
       {/* -------------------------------------------------------------------------- */}
-      {/*       PARA UNA CATEGORÍA SIN DESCRIPCIÓN, MUESTRO EL NOMBRE RECIBIDO       */}
+      {/*                    CATEGORIA SIN TEXTO: SOLO EL NOMBRE                     */}
       {/* -------------------------------------------------------------------------- */}
       {category && !currentCategory && (
         <div className="encabezado-productos">
@@ -117,8 +116,7 @@ export const ItemListContainer = () => {
         </div>
       )}
       {/* -------------------------------------------------------------------------- */}
-      {/*              MIENTRAS CARGA O SI OCURRE UN ERROR, MUESTRO UN               */}
-      {/*                      MENSAJE EN LUGAR DE LAS TARJETAS                      */}
+      {/*                         SPINNER, ERROR O LA LISTA                          */}
       {/* -------------------------------------------------------------------------- */}
       {loading ? (
         <div className="spinner-border" role="status">

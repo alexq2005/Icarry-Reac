@@ -6,7 +6,7 @@ import "../../Dashboard/Dashboard.css";
 
 export const ProductAdminListUI = ({ products, loading, error, onDelete }) => {
   /* -------------------------------------------------------------------------- */
-  /*           SI ESTOY FUERA DEL PANEL, MUESTRO EL BOTON PARA VOLVER           */
+  /*                  FUERA DEL PANEL MUESTRO EL BOTON VOLVER                   */
   /* -------------------------------------------------------------------------- */
   const { pathname } = useLocation();
   const outsidePanel = pathname === "/admin/products";

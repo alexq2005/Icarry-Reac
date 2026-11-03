@@ -5,23 +5,16 @@ import { toast } from "react-toastify";
 import { createOrder } from "../services/productsService";
 
 /* -------------------------------------------------------------------------- */
-/*                              CREAMOS CONTEXTO                              */
-/* -------------------------------------------------------------------------- */
-/* -------------------------------------------------------------------------- */
-/*              CREO ESTE CONTEXTO PARA COMPARTIR LOS DATOS DEL               */
-/*                       CARRITO CON OTROS COMPONENTES                        */
+/*                            CONTEXTO DEL CARRITO                            */
 /* -------------------------------------------------------------------------- */
 const CartContext = createContext(null);
 
 /* -------------------------------------------------------------------------- */
-/*                                CUSTOM HOOK                                 */
-/* -------------------------------------------------------------------------- */
-/* -------------------------------------------------------------------------- */
-/*     USO ESTE HOOK PARA ACCEDER AL CARRITO DESDE LOS DEMÁS COMPONENTES      */
+/*                         HOOK PARA USAR EL CARRITO                          */
 /* -------------------------------------------------------------------------- */
 export const useCart = () => {
   /* -------------------------------------------------------------------------- */
-  /*    ACÁ OBTENGO EL CARRITO Y LAS FUNCIONES QUE COMPARTO CON EL CONTEXTO     */
+  /*                        TOMO EL CONTEXTO DEL CARRITO                        */
   /* -------------------------------------------------------------------------- */
   const context = useContext(CartContext);
 
@@ -32,25 +25,22 @@ export const useCart = () => {
 };
 
 /* -------------------------------------------------------------------------- */
-/*                                 PROVEEDOR                                  */
-/* -------------------------------------------------------------------------- */
-/* -------------------------------------------------------------------------- */
-/*      ACÁ GUARDO LOS PRODUCTOS Y LAS FUNCIONES PARA MANEJAR EL CARRITO      */
+/*                            PROVIDER DEL CARRITO                            */
 /* -------------------------------------------------------------------------- */
 export const CartProvider = ({ children }) => {
   /* -------------------------------------------------------------------------- */
-  /*        DESPUÉS DE CONFIRMAR LA COMPRA, VUELVO A LA PÁGINA PRINCIPAL        */
+  /*                  PARA VOLVER AL INICIO DESPUES DE COMPRAR                  */
   /* -------------------------------------------------------------------------- */
   const navigate = useNavigate();
   /* -------------------------------------------------------------------------- */
-  /*             GUARDO ACÁ LOS PRODUCTOS QUE SE AGREGAN AL CARRITO             */
+  /*                  PRODUCTOS DEL CARRITO Y ESTADO DE COMPRA                  */
   /* -------------------------------------------------------------------------- */
   const [cart, setCart] = useState([]);
   const [checkoutLoading, setCheckoutLoading] = useState(false);
   const [checkoutError, setCheckoutError] = useState("");
 
   /* -------------------------------------------------------------------------- */
-  /*          REVISO SI EL PRODUCTO YA ESTÁ AGREGADO PARA NO REPETIRLO          */
+  /*                      ME FIJO SI YA ESTA EN EL CARRITO                      */
   /* -------------------------------------------------------------------------- */
   const isInCart = (item) => {
     const inCart = cart.some((element) => element.id === item.id);
@@ -58,7 +48,7 @@ export const CartProvider = ({ children }) => {
   };
 
   /* -------------------------------------------------------------------------- */
-  /*            AGREGO EL PRODUCTO SI TODAVÍA NO ESTÁ EN EL CARRITO             */
+  /*                         AGREGO SI TODAVIA NO ESTA                          */
   /* -------------------------------------------------------------------------- */
   const addItem = (item) => {
     if (isInCart(item)) {
@@ -74,7 +64,7 @@ export const CartProvider = ({ children }) => {
   };
 
   /* -------------------------------------------------------------------------- */
-  /*            BUSCO POR ID Y SACO DEL CARRITO EL PRODUCTO INDICADO            */
+  /*                          SACO EL PRODUCTO POR ID                           */
   /* -------------------------------------------------------------------------- */
   const removeItem = (id) => {
     const updatedCart = cart.filter((element) => element.id !== id);
@@ -83,19 +73,19 @@ export const CartProvider = ({ children }) => {
   };
 
   /* -------------------------------------------------------------------------- */
-  /*                           DEJO EL CARRITO VACÍO                            */
+  /*                              VACIO EL CARRITO                              */
   /* -------------------------------------------------------------------------- */
   const clearCart = () => {
     setCart([]);
   };
   /* -------------------------------------------------------------------------- */
-  /*                DEVUELVO CUÁNTOS PRODUCTOS HAY EN EL CARRITO                */
+  /*                           CUANTOS PRODUCTOS HAY                            */
   /* -------------------------------------------------------------------------- */
   const getTotalItems = () => {
     return cart.length;
   };
   /* -------------------------------------------------------------------------- */
-  /*     SUMO LOS PRECIOS EN CENTAVOS PARA EVITAR ERRORES CON LOS DECIMALES     */
+  /*                 SUMO EN CENTAVOS PARA NO PERDER DECIMALES                  */
   /* -------------------------------------------------------------------------- */
   const getCartTotal = () => {
     const totalInCents = cart.reduce(
@@ -105,7 +95,7 @@ export const CartProvider = ({ children }) => {
     return totalInCents / 100;
   };
   /* -------------------------------------------------------------------------- */
-  /*        MUESTRO LA CONFIRMACIÓN, VACÍO EL CARRITO Y VUELVO AL INICIO        */
+  /*                   CONFIRMO LA COMPRA Y VACIO EL CARRITO                    */
   /* -------------------------------------------------------------------------- */
   const checkout = async () => {
     if (cart.length === 0 || checkoutLoading) {
@@ -132,7 +122,7 @@ export const CartProvider = ({ children }) => {
   };
 
   /* -------------------------------------------------------------------------- */
-  /*              JUNTO LOS DATOS Y FUNCIONES QUE QUIERO COMPARTIR              */
+  /*                      LO QUE COMPARTO CON EL CONTEXTO                       */
   /* -------------------------------------------------------------------------- */
   const values = {
     cart,
@@ -146,8 +136,7 @@ export const CartProvider = ({ children }) => {
     checkoutError,
   };
   /* -------------------------------------------------------------------------- */
-  /*               COMPARTO ESTA INFORMACIÓN CON LOS COMPONENTES                */
-  /*                       QUE ESTÁN DENTRO DEL PROVEEDOR                       */
+  /*                       LE PASO TODO A LOS COMPONENTES                       */
   /* -------------------------------------------------------------------------- */
   return <CartContext.Provider value={values}>{children}</CartContext.Provider>;
 };

@@ -8,12 +8,12 @@ import { createContext, useContext, useEffect, useState } from "react";
 import { auth } from "../firebase/config";
 
 /* -------------------------------------------------------------------------- */
-/*                            CREAMOS EL CONTEXTO                             */
+/*                             CONTEXTO DEL LOGIN                             */
 /* -------------------------------------------------------------------------- */
 const AuthContext = createContext();
 
 /* -------------------------------------------------------------------------- */
-/*                                CUSTOM HOOK                                 */
+/*                          HOOK PARA USAR EL LOGIN                           */
 /* -------------------------------------------------------------------------- */
 export const useAuth = () => {
   const context = useContext(AuthContext);

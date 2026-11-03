@@ -5,7 +5,7 @@ export const NotFound = () => {
   return (
     <section id="center">
       {/* -------------------------------------------------------------------------- */}
-      {/*                MUESTRO EL LOGO CENTRADO ARRIBA DEL MENSAJE                 */}
+      {/*                          LOGO ARRIBA DEL MENSAJE                           */}
       {/* -------------------------------------------------------------------------- */}
       <div className="hero">
         <img className="base" src={logo} alt="iCarry" />
@@ -15,7 +15,7 @@ export const NotFound = () => {
       <p>La página que buscás no existe.</p>
 
       {/* -------------------------------------------------------------------------- */}
-      {/*               USO LA REGLA .COUNTER PARA EL BOTÓN DE VOLVER                */}
+      {/*                        BOTON PARA VOLVER AL INICIO                         */}
       {/* -------------------------------------------------------------------------- */}
       <Link className="counter" to="/">
         Volver al inicio

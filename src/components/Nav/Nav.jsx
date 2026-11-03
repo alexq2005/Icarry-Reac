@@ -1,5 +1,5 @@
 /* -------------------------------------------------------------------------- */
-/*       EN ESTE MENÚ PUEDO IR AL INICIO, A LAS CATEGORÍAS O AL CARRITO       */
+/*                   MENU CON INICIO, CATEGORIAS Y CARRITO                    */
 /* -------------------------------------------------------------------------- */
 
 import { NavLink } from "react-router-dom";
@@ -18,7 +18,7 @@ export const Nav = () => {
     <nav>
       <ul className="nav-list">
         {/* -------------------------------------------------------------------------- */}
-        {/*        ESTOS ENLACES SIRVEN PARA RECORRER LAS PÁGINAS DE PRODUCTOS         */}
+        {/*                            LINKS A LAS PAGINAS                             */}
         {/* -------------------------------------------------------------------------- */}
         <li>
           <NavLink to="/" end className={linkClass}>
@@ -36,7 +36,7 @@ export const Nav = () => {
           </NavLink>
         </li>
         {/* -------------------------------------------------------------------------- */}
-        {/*                 DESDE ACÁ TAMBIÉN PUEDO REVISAR EL CARRITO                 */}
+        {/*                              LINK AL CARRITO                               */}
         {/* -------------------------------------------------------------------------- */}
         <li>
           <NavLink to="/cart" className={linkClass} aria-label="Ir al carrito">
@@ -44,7 +44,7 @@ export const Nav = () => {
               <TiShoppingCart className="cart-icon" />
               Carrito
               {/* -------------------------------------------------------------------------- */}
-              {/*         LA CANTIDAD SOLO APARECE CUANDO EL CARRITO TIENE PRODUCTOS         */}
+              {/*                       CANTIDAD SOLO SI HAY PRODUCTOS                       */}
               {/* -------------------------------------------------------------------------- */}
               {totalItems > 0 && <span className="incart">{totalItems}</span>}
             </span>
