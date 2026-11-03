@@ -19,7 +19,7 @@ export const Item = ({
       {/* Muestro la categoría si el producto tiene una. */}
       {categoryLabel && <span className="category-chip">{categoryLabel}</span>}
       {/* Acá muestro la imagen, el nombre, la descripción y el precio. */}
-      <img src={image} alt={name} />
+      <img src={image} alt={name} loading="lazy" />
       <h3>{name}</h3>
       <p>{description}</p>
       <p className="card-precio">{formatPrice(price)}</p>
