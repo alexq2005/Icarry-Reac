@@ -2,6 +2,9 @@ import { Link } from "react-router-dom";
 import "./Dashboard.css";
 import { useAuth } from "../../../context/AuthContext";
 
+/* -------------------------------------------------------------------------- */
+/*                              PANEL DEL ADMIN                               */
+/* -------------------------------------------------------------------------- */
 export const Dashboard = () => {
   const { logout } = useAuth();
 
@@ -20,6 +23,9 @@ export const Dashboard = () => {
         </div>
       </header>
 
+      {/* -------------------------------------------------------------------------- */}
+      {/*                              ACCESOS RAPIDOS                               */}
+      {/* -------------------------------------------------------------------------- */}
       <section className="dashboard-actions">
         <h3>Acciones rápidas</h3>
 

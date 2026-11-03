@@ -1,5 +1,5 @@
 /* -------------------------------------------------------------------------- */
-/*                            CABECERA FIJA ARRIBA                            */
+/*                           CABECERA FIJA EN COMPU                           */
 /* -------------------------------------------------------------------------- */
 header {
   position: sticky;
@@ -42,7 +42,7 @@ header img:hover {
     flex-direction: column;
     gap: 0.6rem;
     /* -------------------------------------------------------------------------- */
-    /*                   EN CELULAR NO QUEDA FIJO PARA NO TAPAR                   */
+    /*                         SIN FIJAR PARA QUE NO TAPE                         */
     /* -------------------------------------------------------------------------- */
     position: static;
   }

@@ -4,7 +4,7 @@ import { Header } from "../components/Header/Header";
 
 export const PublicLayout = () => {
   /* -------------------------------------------------------------------------- */
-  /*              OUTLET MUESTRA CADA PAGINA ENTRE HEADER Y FOOTER              */
+  /*                    CADA PAGINA VA ENTRE HEADER Y FOOTER                    */
   /* -------------------------------------------------------------------------- */
   return (
     <>

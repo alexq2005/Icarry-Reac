@@ -4,6 +4,9 @@ import { useAuth } from "../../context/AuthContext";
 import "./Login.css";
 import { useState } from "react";
 
+/* -------------------------------------------------------------------------- */
+/*                       FORMULARIO DE LOGIN DEL ADMIN                        */
+/* -------------------------------------------------------------------------- */
 export const Login = () => {
   const { login } = useAuth();
   const navigate = useNavigate();
@@ -14,11 +17,17 @@ export const Login = () => {
   });
   const [loginError, setLoginError] = useState("");
 
+  /* -------------------------------------------------------------------------- */
+  /*                           GUARDO LO QUE ESCRIBE                            */
+  /* -------------------------------------------------------------------------- */
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
 
+  /* -------------------------------------------------------------------------- */
+  /*                         SI ENTRA LO MANDO AL ADMIN                         */
+  /* -------------------------------------------------------------------------- */
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -37,6 +46,9 @@ export const Login = () => {
     <form onSubmit={handleSubmit} className="login-form">
       <h2>Iniciar sesión</h2>
 
+      {/* -------------------------------------------------------------------------- */}
+      {/*                        CUENTA SIN PERMISO DE ADMIN                         */}
+      {/* -------------------------------------------------------------------------- */}
       {location.state?.unauthorized && (
         <p className="login-error" role="alert">
           La cuenta inició sesión, pero no tiene acceso al administrador. UID

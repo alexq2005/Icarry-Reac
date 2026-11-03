@@ -25,10 +25,16 @@ export const useAuth = () => {
   return context;
 };
 
+/* -------------------------------------------------------------------------- */
+/*                             PROVIDER DEL LOGIN                             */
+/* -------------------------------------------------------------------------- */
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
+  /* -------------------------------------------------------------------------- */
+  /*                          ESCUCHO SI ENTRA O SALE                           */
+  /* -------------------------------------------------------------------------- */
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (firebaseUser) => {
       setUser(firebaseUser);
@@ -38,10 +44,16 @@ export const AuthProvider = ({ children }) => {
     return unsubscribe;
   }, []);
 
+  /* -------------------------------------------------------------------------- */
+  /*                           ENTRO CON MAIL Y CLAVE                           */
+  /* -------------------------------------------------------------------------- */
   const login = (email, password) => {
     return signInWithEmailAndPassword(auth, email, password);
   };
 
+  /* -------------------------------------------------------------------------- */
+  /*                               CIERRO SESION                                */
+  /* -------------------------------------------------------------------------- */
   const logout = async () => {
     try {
       await signOut(auth);

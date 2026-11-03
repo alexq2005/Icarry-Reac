@@ -29,11 +29,11 @@ export const useCart = () => {
 /* -------------------------------------------------------------------------- */
 export const CartProvider = ({ children }) => {
   /* -------------------------------------------------------------------------- */
-  /*                  PARA VOLVER AL INICIO DESPUES DE COMPRAR                  */
+  /*                        PARA IR AL INICIO AL COMPRAR                        */
   /* -------------------------------------------------------------------------- */
   const navigate = useNavigate();
   /* -------------------------------------------------------------------------- */
-  /*                  PRODUCTOS DEL CARRITO Y ESTADO DE COMPRA                  */
+  /*                       CARRITO Y ESTADO DE LA COMPRA                        */
   /* -------------------------------------------------------------------------- */
   const [cart, setCart] = useState([]);
   const [checkoutLoading, setCheckoutLoading] = useState(false);
@@ -56,7 +56,7 @@ export const CartProvider = ({ children }) => {
       return;
     }
     /* -------------------------------------------------------------------------- */
-    /*                          FORMA FUNCIONAL DE "PREV                          */
+    /*                           OTRA FORMA USANDO PREV                           */
     /* -------------------------------------------------------------------------- */
     //setCart(prevCart => [...prev, item]);
     setCart([...cart, item]);
@@ -95,7 +95,7 @@ export const CartProvider = ({ children }) => {
     return totalInCents / 100;
   };
   /* -------------------------------------------------------------------------- */
-  /*                   CONFIRMO LA COMPRA Y VACIO EL CARRITO                    */
+  /*                     GUARDO LA ORDEN Y VACIO EL CARRITO                     */
   /* -------------------------------------------------------------------------- */
   const checkout = async () => {
     if (cart.length === 0 || checkoutLoading) {
@@ -122,7 +122,7 @@ export const CartProvider = ({ children }) => {
   };
 
   /* -------------------------------------------------------------------------- */
-  /*                      LO QUE COMPARTO CON EL CONTEXTO                       */
+  /*                              LO QUE COMPARTO                               */
   /* -------------------------------------------------------------------------- */
   const values = {
     cart,

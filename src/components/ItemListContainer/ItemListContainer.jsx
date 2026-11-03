@@ -106,7 +106,7 @@ export const ItemListContainer = () => {
       )}
 
       {/* -------------------------------------------------------------------------- */}
-      {/*                    CATEGORIA SIN TEXTO: SOLO EL NOMBRE                     */}
+      {/*                      SIN TEXTO MUESTRO SOLO EL NOMBRE                      */}
       {/* -------------------------------------------------------------------------- */}
       {category && !currentCategory && (
         <div className="encabezado-productos">

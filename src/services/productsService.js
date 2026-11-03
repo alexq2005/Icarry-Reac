@@ -32,9 +32,6 @@ const formatProducts = (snapshot) => {
 /* -------------------------------------------------------------------------- */
 export const getProducts = async () => {
   try {
-    /* -------------------------------------------------------------------------- */
-    /*                          LEO TODOS LOS DOCUMENTOS                          */
-    /* -------------------------------------------------------------------------- */
     const snapshot = await getDocs(productsRef);
     return formatProducts(snapshot);
   } catch (error) {
@@ -48,9 +45,6 @@ export const getProducts = async () => {
 /* -------------------------------------------------------------------------- */
 export const getProductById = async (id) => {
   try {
-    /* -------------------------------------------------------------------------- */
-    /*                             LO BUSCO POR SU ID                             */
-    /* -------------------------------------------------------------------------- */
     const productSnapshot = await getDoc(doc(productsRef, id));
 
     /* -------------------------------------------------------------------------- */

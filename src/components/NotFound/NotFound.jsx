@@ -1,6 +1,9 @@
 import { Link } from "react-router-dom";
 import logo from "../../assets/logo.svg";
 
+/* -------------------------------------------------------------------------- */
+/*                                 PAGINA 404                                 */
+/* -------------------------------------------------------------------------- */
 export const NotFound = () => {
   return (
     <section id="center">

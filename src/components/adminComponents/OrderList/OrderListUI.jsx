@@ -15,6 +15,9 @@ const formatDate = (createdAt) => {
   }).format(createdAt.toDate());
 };
 
+/* -------------------------------------------------------------------------- */
+/*                              LISTA DE ORDENES                              */
+/* -------------------------------------------------------------------------- */
 export const OrderListUI = ({ orders, loading, error, onCancel }) => {
   return (
     <section className="admin-orders">

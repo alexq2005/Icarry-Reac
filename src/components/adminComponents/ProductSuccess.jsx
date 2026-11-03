@@ -1,6 +1,9 @@
 import { Link, useParams } from "react-router-dom";
 import "./ProductSuccess.css";
 
+/* -------------------------------------------------------------------------- */
+/*                         AVISO DE PRODUCTO CARGADO                          */
+/* -------------------------------------------------------------------------- */
 export const ProductSuccess = () => {
   const { id } = useParams();
 

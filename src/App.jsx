@@ -1,5 +1,5 @@
 /* -------------------------------------------------------------------------- */
-/*                      ACA ARMO LAS RUTAS DE LA TIENDA                       */
+/*                             RUTAS DE LA TIENDA                             */
 /* -------------------------------------------------------------------------- */
 
 import { Navigate, Route, Routes } from "react-router-dom";
