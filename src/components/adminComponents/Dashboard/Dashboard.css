@@ -465,3 +465,9 @@
 .dashboard-products {
   background: transparent;
 }
+
+/* en la pagina sola acerco los botones a cada producto */
+.dashboard-products-solo .dashboard-products-header,
+.dashboard-products-solo .dashboard-list {
+  max-width: 70rem;
+}

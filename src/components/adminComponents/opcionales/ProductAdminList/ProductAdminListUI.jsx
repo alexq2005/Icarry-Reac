@@ -10,7 +10,7 @@ export const ProductAdminListUI = ({ products, loading, error, onDelete }) => {
   const outsidePanel = pathname === "/admin/products";
 
   return (
-    <section className="dashboard-products">
+    <section className={outsidePanel ? "dashboard-products dashboard-products-solo" : "dashboard-products"}>
       {outsidePanel && (
         <>
           <Helmet>
