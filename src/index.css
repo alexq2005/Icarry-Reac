@@ -240,8 +240,20 @@ h2 {
 .text-dark {
   color: #120e16;
 }
-.text-secondary {
+.text-secondary,
+.titulo-dorado {
   color: var(--color-dorado);
+}
+
+/* el texto seleccionado y los controles tambien van en dorado */
+::selection {
+  background: var(--color-dorado);
+  color: #120e16;
+}
+
+:root {
+  accent-color: var(--color-dorado);
+  caret-color: var(--color-dorado);
 }
 
 /* -------------------------------------------------------------------------- */
@@ -330,5 +342,27 @@ h2 {
 @keyframes girar {
   to {
     transform: rotate(360deg);
+  }
+}
+
+/* si la persona pidio menos movimiento, dejo el fondo quieto y saco los saltitos */
+@media (prefers-reduced-motion: reduce) {
+  .fondo-animado span {
+    animation: none;
+  }
+
+  .fondo-animado span:nth-child(1) {
+    opacity: 1;
+  }
+
+  .card,
+  .card:hover,
+  .btn,
+  .bg-primary:hover,
+  .bg-success:hover,
+  .bg-delete:hover,
+  header img:hover,
+  .products-container > a:hover .card {
+    transform: none;
   }
 }

@@ -38,6 +38,7 @@
 
 .introduccion-tienda .titulo-home {
   margin-bottom: 0;
+  color: var(--color-dorado);
   font-size: clamp(3rem, 6vw, 5.4rem);
   line-height: 1.05;
 }

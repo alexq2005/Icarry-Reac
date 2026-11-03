@@ -57,7 +57,7 @@ export const ItemListContainer = () => {
         <>
           <div className="introduccion-tienda">
             <span className="etiqueta-seccion">Mercado de coleccionistas</span>
-            <h1 className="titulo-home text-secondary">
+            <h1 className="titulo-home">
               Bienvenidos a la tienda
             </h1>
             <p className="parrafo parrafo-lead">
@@ -82,7 +82,7 @@ export const ItemListContainer = () => {
       {/* Si elegí una categoría, muestro su título y descripción. */}
       {currentCategory && (
         <div className="introduccion-tienda">
-          <h1 className="titulo-home text-secondary">
+          <h1 className="titulo-home">
             {currentCategory.title}
           </h1>
           <p className="parrafo">{currentCategory.description}</p>

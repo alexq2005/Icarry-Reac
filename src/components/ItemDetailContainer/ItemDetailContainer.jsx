@@ -62,7 +62,7 @@ export const ItemDetailContainer = () => {
       <Helmet>
         <title>{`${itemDetail.name} | iCarry`}</title>
       </Helmet>
-      <h1 className="text-secondary">Detalles del producto</h1>
+      <h1 className="titulo-dorado">Detalles del producto</h1>
       <ItemDetail item={itemDetail} />
     </section>
   );
