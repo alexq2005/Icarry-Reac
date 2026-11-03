@@ -36,9 +36,15 @@ header img:hover {
 /*                         DISEÑO RESPONSIVE                                  */
 /* -------------------------------------------------------------------------- */
 @media (max-width: 720px) {
+  /* en celular pongo el logo arriba y el menu entero abajo */
   header {
     padding: 1rem var(--space-sm, 1.5rem);
-    flex-wrap: wrap;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+
+  header nav {
+    width: 100%;
   }
 
   header img {
