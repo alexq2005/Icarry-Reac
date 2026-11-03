@@ -1,5 +1,5 @@
 /* -------------------------------------------------------------------------- */
-/*         FORMATEO LOS PRECIOS EN PESOS ARGENTINOS CON DOS DECIMALES         */
+/*              FORMATEO LOS PRECIOS EN PESOS CON DOS DECIMALES               */
 /* -------------------------------------------------------------------------- */
 export const formatPrice = (value) => {
   return new Intl.NumberFormat("es-AR", {
