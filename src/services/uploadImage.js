@@ -29,7 +29,7 @@ export const uploadImage = async (file) => {
     const data = await response.json();
 
     /* -------------------------------------------------------------------------- */
-    /*                            SI FALLA TIRO ERROR                             */
+    /*                            SI FALLA TIRA ERROR                             */
     /* -------------------------------------------------------------------------- */
     if (!data.success) {
       throw new Error("Error al subir la imagen");
