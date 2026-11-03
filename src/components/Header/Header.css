@@ -41,6 +41,8 @@ header img:hover {
     padding: 1rem var(--space-sm, 1.5rem);
     flex-direction: column;
     gap: 0.6rem;
+    /* en celular el header no queda fijo para que no tape el contenido */
+    position: static;
   }
 
   header nav {
