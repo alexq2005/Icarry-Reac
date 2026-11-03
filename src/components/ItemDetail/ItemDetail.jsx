@@ -1,5 +1,7 @@
 /* En esta parte muestro los datos del producto y el botón para agregarlo al carrito. */
 
+import { useNavigate } from "react-router-dom";
+import { FaArrowLeft } from "react-icons/fa";
 import { useCart } from "../../context/CartContext";
 import "./ItemDetail.css";
 import { CATEGORY_LABELS } from "../../utils/categoryLabels";
@@ -7,6 +9,7 @@ import { formatPrice } from "../../utils/formatPrice";
 
 export const ItemDetail = ({ item }) => {
   const { addItem } = useCart();
+  const navigate = useNavigate();
   const categoryLabel = item.category
     ? CATEGORY_LABELS[item.category] || item.category
     : null;
@@ -41,6 +44,11 @@ export const ItemDetail = ({ item }) => {
 
         {/* Muestro la descripción completa del producto. */}
         <p className="detail-description">{item.description}</p>
+
+        {/* vuelve a la pagina anterior */}
+        <button className="btn btn-secondary" onClick={() => navigate(-1)}>
+          <FaArrowLeft /> Volver
+        </button>
       </div>
     </article>
   );

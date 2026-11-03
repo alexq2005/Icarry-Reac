@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { FaArrowLeft } from "react-icons/fa";
 import { formatPrice } from "../../../utils/formatPrice";
 
 //formatear fecha de la orden
@@ -23,7 +24,7 @@ export const OrderListUI = ({ orders, loading, error, onCancel }) => {
         </div>
         <div className="admin-page-actions">
           <Link className="btn btn-admin-secondary" to="/admin/dashboard">
-            Panel
+            <FaArrowLeft /> Panel
           </Link>
           <Link className="btn btn-admin-secondary" to="/admin/products">
             Productos

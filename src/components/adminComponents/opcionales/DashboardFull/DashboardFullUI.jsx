@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { ProductAdminListContainer } from "../ProductAdminList/ProductAdminListContainer";
 import "../../Dashboard/Dashboard.css";
+import { FaPlus, FaClipboardList, FaArrowLeft } from "react-icons/fa";
 
 export const DashboardFullUI = ({ onLogout }) => {
   return (
@@ -10,7 +11,7 @@ export const DashboardFullUI = ({ onLogout }) => {
 
         <div className="header-actions">
           <Link className="btn btn-secondary" to="/">
-            Volver a la tienda
+            <FaArrowLeft /> Volver a la tienda
           </Link>
           <button className="btn dashboard-btn-logout" onClick={onLogout}>
             Cerrar sesión
@@ -32,14 +33,14 @@ export const DashboardFullUI = ({ onLogout }) => {
         <div className="dashboard-actions">
           {/* Accion principal: cargar un producto nuevo */}
           <Link to="/admin/products/new" className="dashboard-action dashboard-action-main">
-            <span className="dashboard-action-icon" aria-hidden="true">➕</span>
+            <span className="dashboard-action-icon" aria-hidden="true"><FaPlus /></span>
             <span className="dashboard-action-title">Cargar producto</span>
             <span className="dashboard-action-text">Sumá un producto nuevo a la tienda.</span>
           </Link>
 
           {/* Accion secundaria: ver las compras */}
           <Link to="/admin/orders" className="dashboard-action">
-            <span className="dashboard-action-icon" aria-hidden="true">🧾</span>
+            <span className="dashboard-action-icon" aria-hidden="true"><FaClipboardList /></span>
             <span className="dashboard-action-title">Órdenes de compra</span>
             <span className="dashboard-action-text">Revisá las compras de tus clientes.</span>
           </Link>
