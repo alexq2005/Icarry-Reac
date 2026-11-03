@@ -9,6 +9,8 @@ import {
   updateProduct,
 } from "../../../../services/productsService";
 import "../../ProductForm/ProductFormContainer.css";
+//Import para Toastify
+import { toast } from "react-toastify";
 
 export const ProductFormContainerDual = () => {
   const navigate = useNavigate();
@@ -81,7 +83,8 @@ export const ProductFormContainerDual = () => {
       if (id) {
         //modificacion
         await updateProduct(id, productData);
-        navigate("/admin/products", { replace: true });
+        toast.success("Producto actualizado");
+        navigate("/admin/dashboard", { replace: true });
       } else {
         //alta
         const newId = await createProduct(productData);

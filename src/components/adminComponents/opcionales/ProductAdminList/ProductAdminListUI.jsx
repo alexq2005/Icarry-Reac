@@ -1,10 +1,27 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
+import { FaArrowLeft } from "react-icons/fa";
 import { formatPrice } from "../../../../utils/formatPrice";
 import "../../Dashboard/Dashboard.css";
 
 export const ProductAdminListUI = ({ products, loading, error, onDelete }) => {
+  //si estoy fuera del panel, muestro el boton para volver
+  const { pathname } = useLocation();
+  const outsidePanel = pathname === "/admin/products";
+
   return (
     <section className="dashboard-products">
+      {outsidePanel && (
+        <>
+          <Helmet>
+            <title>Productos | iCarry</title>
+          </Helmet>
+          <Link className="btn btn-secondary" to={"/admin/dashboard"}>
+            <FaArrowLeft /> Volver al panel
+          </Link>
+        </>
+      )}
+
       <div className="dashboard-products-header">
         <h3>Productos cargados</h3>
         <span className="dashboard-badge">{products.length} productos</span>
