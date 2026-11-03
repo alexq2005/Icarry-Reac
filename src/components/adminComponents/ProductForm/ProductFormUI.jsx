@@ -22,9 +22,10 @@ export const ProductFormUI = ({
       <form className="product-form" onSubmit={onSubmit}>
         <h2>{editMode ? "Editar producto" : "Agregar nuevo producto"}</h2>
 
-        <div>
-          <label htmlFor="product-name">Nombre:</label>
+        <div className="mb-3">
+          <label className="form-label" htmlFor="product-name">Nombre:</label>
           <input
+            className="form-control"
             id="product-name"
             type="text"
             name="name"
@@ -34,9 +35,10 @@ export const ProductFormUI = ({
           {errors.name && <p className="error">{errors.name}</p>}
         </div>
 
-        <div>
-          <label htmlFor="product-price">Precio:</label>
+        <div className="mb-3">
+          <label className="form-label" htmlFor="product-price">Precio:</label>
           <input
+            className="form-control"
             id="product-price"
             type="number"
             name="price"
@@ -48,8 +50,8 @@ export const ProductFormUI = ({
           {errors.price && <p className="error">{errors.price}</p>}
         </div>
 
-        <div>
-          <label htmlFor="product-category">Categoría:</label>
+        <div className="mb-3">
+          <label className="form-label" htmlFor="product-category">Categoría:</label>
           <select
             id="product-category"
             name="category"
@@ -66,9 +68,10 @@ export const ProductFormUI = ({
           {errors.category && <p className="error">{errors.category}</p>}
         </div>
 
-        <div>
-          <label htmlFor="product-description">Descripción:</label>
+        <div className="mb-3">
+          <label className="form-label" htmlFor="product-description">Descripción:</label>
           <textarea
+            className="form-control"
             id="product-description"
             name="description"
             value={product.description}
@@ -77,8 +80,8 @@ export const ProductFormUI = ({
           {errors.description && <p className="error">{errors.description}</p>}
         </div>
 
-        <div>
-          <label htmlFor="product-image">Imagen:</label>
+        <div className="mb-3">
+          <label className="form-label" htmlFor="product-image">Imagen:</label>
           {image && (
             <img className="product-form-image" src={image} alt={product.name} />
           )}

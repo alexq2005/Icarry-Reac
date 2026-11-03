@@ -2,6 +2,8 @@
 
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
+//bootstrap primero, asi mis estilos quedan por encima
+import "bootstrap/dist/css/bootstrap.min.css";
 import "./index.css";
 import App from "./App.jsx";
 import { BrowserRouter } from "react-router-dom";

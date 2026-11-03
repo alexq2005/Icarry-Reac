@@ -3,6 +3,10 @@
 /*                         VARIABLES Y COLORES GLOBALES                       */
 /* -------------------------------------------------------------------------- */
 :root {
+  /* colores de bootstrap adaptados a mi diseño */
+  --bs-body-bg: transparent;
+  --bs-body-color: #fff7fb;
+  --bs-primary-rgb: 242, 198, 109;
   --color-fondo: #1a1522;
   --color-dorado: #f2c66d;
   --color-texto: #fff7fb;
