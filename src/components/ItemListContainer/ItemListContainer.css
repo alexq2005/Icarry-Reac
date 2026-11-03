@@ -22,8 +22,6 @@
     --glass-bg,
     linear-gradient(145deg, rgba(34, 28, 46, 0.16), rgba(30, 24, 40, 0.07))
   );
-  backdrop-filter: blur(var(--glass-blur, 1.6rem));
-  -webkit-backdrop-filter: blur(var(--glass-blur, 1.6rem));
   box-shadow: var(--glass-shadow, 0 1.4rem 3.6rem rgba(0, 0, 0, 0.14));
 }
 

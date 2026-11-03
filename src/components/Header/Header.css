@@ -7,8 +7,6 @@ header {
   top: 0;
   z-index: 100;
   background: rgba(30, 24, 40, 0.3);
-  backdrop-filter: blur(var(--glass-blur));
-  -webkit-backdrop-filter: blur(var(--glass-blur));
   border-bottom: 1px solid var(--glass-border);
   padding: 1rem 3rem;
   display: flex;

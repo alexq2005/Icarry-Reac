@@ -6,7 +6,6 @@
   border-radius: var(--glass-radius);
   background: var(--glass-bg);
   box-shadow: var(--glass-shadow);
-  backdrop-filter: blur(var(--glass-blur));
 }
 
 .admin-page-header {
